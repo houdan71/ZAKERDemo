@@ -17,30 +17,30 @@
     <FrameLayout
         android:id="@+id/frame_replace"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/zero"
         android:layout_weight="1">
     </FrameLayout>
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/fifty_fivedp"
         android:orientation="horizontal">
 
 
         <RadioButton
             android:id="@+id/radioBtn_subscription"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
             android:drawableTop="@drawable/rb_subscription_select"
             android:gravity="center"
-            android:text="订阅"/>
+            android:text="@string/subscriptiop"/>
 
         <RadioButton
             android:id="@+id/radioBtn_hotspot"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
@@ -50,7 +50,7 @@
 
         <RadioButton
             android:id="@+id/radioBtn_playFun"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
@@ -60,7 +60,7 @@
 
         <RadioButton
             android:id="@+id/radioBtn_community"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"

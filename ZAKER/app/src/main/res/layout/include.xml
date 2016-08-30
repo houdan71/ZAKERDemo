@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#f53235"
+                android:background="@color/ColorTitle"
                 android:orientation="vertical">
 
     <TextView
@@ -10,10 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:text="订阅"
+        android:layout_marginLeft="@dimen/tendp"
+        android:text="@string/subscriptiop"
         android:textColor="@android:color/white"
-        android:textSize="20sp"/>
+        android:textSize="@dimen/twentydp"/>
 
     <ImageView
         android:id="@+id/include_img_personal"
@@ -56,7 +56,7 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/include_frameLayout"
         android:textColor="@android:color/white"
-        android:textSize="17sp"/>
+        android:textSize="@dimen/seventeensp"/>
 
 
 </RelativeLayout>

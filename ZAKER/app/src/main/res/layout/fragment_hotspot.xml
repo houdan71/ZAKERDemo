@@ -7,11 +7,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-<<<<<<< HEAD
-        android:text="@string/hotspot"
-        android:textSize="50dp"/>
-=======
+
         android:text="热点"
         android:textSize="50sp"/>
->>>>>>> 5cea494e7334092da47df226dd7ffe8e83cf3738
+
 </LinearLayout>

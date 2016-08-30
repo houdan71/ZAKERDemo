@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/include_textView_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:text="订阅"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"/>
+
+    <ImageView
+        android:id="@+id/include_img_personal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/personal_select"/>
+
+    <FrameLayout
+        android:id="@+id/include_frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/include_img_personal"
+        >
+
+        <ImageView
+            android:id="@+id/include_img_tag_subscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/include_tag_subscription_select"/>
+
+        <ImageView
+            android:id="@+id/include_img_tag_hotspot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/include_tag_hotspot_select"/>
+
+        <ImageView
+            android:id="@+id/include_img_tag_playFun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/include_tag_playfun_select"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/include_textView_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/include_frameLayout"
+        android:layout_centerVertical="true"
+        android:textSize="17sp"
+        android:textColor="@android:color/white"/>
+
+
+</RelativeLayout>

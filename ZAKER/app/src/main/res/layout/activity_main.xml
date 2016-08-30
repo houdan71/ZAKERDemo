@@ -46,7 +46,7 @@
             android:button="@null"
             android:drawableTop="@drawable/rb_hotspot_select"
             android:gravity="center"
-            android:text="热点"/>
+            android:text="@string/hotspot"/>
 
         <RadioButton
             android:id="@+id/radioBtn_playFun"
@@ -56,7 +56,7 @@
             android:button="@null"
             android:drawableTop="@drawable/rb_playfun_select"
             android:gravity="center"
-            android:text="玩乐"/>
+            android:text="@string/playFun"/>
 
         <RadioButton
             android:id="@+id/radioBtn_community"
@@ -66,7 +66,7 @@
             android:button="@null"
             android:drawableTop="@drawable/rb_community_select"
             android:gravity="center"
-            android:text="社区"/>
+            android:text="@string/community"/>
     </RadioGroup>
 
 </LinearLayout>

@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">ZAKER</string>
+    <string name="playFun">玩乐</string>
+
+    <string name="community">社区</string>
+    <string name="hotspot">热点</string>
+
     <string name="subscriptiop">订阅</string>
 
     

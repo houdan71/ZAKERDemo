@@ -23,49 +23,50 @@
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:orientation="horizontal">
 
 
         <RadioButton
             android:id="@+id/radioBtn_subscription"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@mipmap/ic_launcher"
             android:button="@null"
             android:checked="true"
-            android:gravity="center"/>
+            android:drawableTop="@drawable/rb_subscription_select"
+            android:gravity="center"
+            android:text="订阅"/>
 
         <RadioButton
             android:id="@+id/radioBtn_hotspot"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@mipmap/ic_launcher"
             android:button="@null"
-            android:checked="true"
-            android:gravity="center"/>
+            android:drawableTop="@drawable/rb_hotspot_select"
+            android:gravity="center"
+            android:text="热点"/>
 
         <RadioButton
             android:id="@+id/radioBtn_playFun"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@mipmap/ic_launcher"
             android:button="@null"
-            android:checked="true"
-            android:gravity="center"/>
+            android:drawableTop="@drawable/rb_playfun_select"
+            android:gravity="center"
+            android:text="玩乐"/>
 
         <RadioButton
             android:id="@+id/radioBtn_community"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@mipmap/ic_launcher"
             android:button="@null"
-            android:checked="true"
-            android:gravity="center"/>
+            android:drawableTop="@drawable/rb_community_select"
+            android:gravity="center"
+            android:text="社区"/>
     </RadioGroup>
 
 </LinearLayout>

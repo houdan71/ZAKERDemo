@@ -53,6 +53,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         tagSubscriptionIV.setVisibility(View.VISIBLE);
         tagPlayFunIV.setVisibility(View.GONE);
         tagHotspotIV.setVisibility(View.GONE);
+
+        subscriptionRB.setTextColor(0xfff53235);
+        hotspotRB.setTextColor(0xff6d6d6d);
+        playFunRB.setTextColor(0xff6d6d6d);
+        communityRB.setTextColor(0xff6d6d6d);
     }
 
     public void replaceFragment(int id, Fragment fragment) {
@@ -73,6 +78,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 tagHotspotIV.setVisibility(View.GONE);
                 titleTV.setText("订阅");
                 tagTV.setText("");
+
+                subscriptionRB.setTextColor(0xfff53235);
+                hotspotRB.setTextColor(0xff6d6d6d);
+                playFunRB.setTextColor(0xff6d6d6d);
+                communityRB.setTextColor(0xff6d6d6d);
                 break;
             case R.id.radioBtn_hotspot:
                 replaceFragment(R.id.frame_replace,new HotspotFragment());
@@ -81,6 +91,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 tagHotspotIV.setVisibility(View.GONE);
                 titleTV.setText("热点");
                 tagTV.setText("");
+
+                hotspotRB.setTextColor(0xfff53235);
+                subscriptionRB.setTextColor(0xff6d6d6d);
+                playFunRB.setTextColor(0xff6d6d6d);
+                communityRB.setTextColor(0xff6d6d6d);
                 break;
             case R.id.radioBtn_playFun:
                 replaceFragment(R.id.frame_replace,new PlayFunFragment());
@@ -89,6 +104,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 tagHotspotIV.setVisibility(View.VISIBLE);
                 titleTV.setText("玩乐");
                 tagTV.setText("大连");
+
+                playFunRB.setTextColor(0xfff53235);
+                subscriptionRB.setTextColor(0xff6d6d6d);
+                hotspotRB.setTextColor(0xff6d6d6d);
+                communityRB.setTextColor(0xff6d6d6d);
                 break;
             case R.id.radioBtn_community:
                 replaceFragment(R.id.frame_replace,new CommunityFragment());
@@ -97,6 +117,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 tagHotspotIV.setVisibility(View.GONE);
                 titleTV.setText("社区");
                 tagTV.setText("");
+
+                communityRB.setTextColor(0xfff53235);
+                subscriptionRB.setTextColor(0xff6d6d6d);
+                playFunRB.setTextColor(0xff6d6d6d);
+                hotspotRB.setTextColor(0xff6d6d6d);
                 break;
         }
     }

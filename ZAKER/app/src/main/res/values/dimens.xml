@@ -7,4 +7,6 @@
     <dimen name="tendp">10dp</dimen>
     <dimen name="twentydp">20sp</dimen>
     <dimen name="seventeensp">17sp</dimen>
+    <dimen name="twelve_sp">12sp</dimen>
+    <dimen name="five_dp">5dp</dimen>
 </resources>

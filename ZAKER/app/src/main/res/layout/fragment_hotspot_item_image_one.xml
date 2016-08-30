@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/tendp"
+        android:layout_marginTop="@dimen/tendp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_hotspot_item_image_one_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/seventeensp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_hotspot_item_image_one_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="author"
+                android:textSize="@dimen/twelve_sp"/>
+
+            <TextView
+                android:id="@+id/tv_hotspot_item_image_one_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/tendp"
+                android:text="time"
+                android:textSize="@dimen/twelve_sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_hotspot_item_image_one_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/tendp"
+        android:layout_marginLeft="@dimen/tendp"
+        android:layout_marginTop="@dimen/tendp"
+        android:src="@mipmap/ic_launcher"/>
+</RelativeLayout>

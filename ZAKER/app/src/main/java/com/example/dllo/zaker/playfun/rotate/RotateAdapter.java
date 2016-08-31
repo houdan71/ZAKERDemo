@@ -1,0 +1,58 @@
+package com.example.dllo.zaker.playfun.rotate;
+
+import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.example.dllo.zaker.R;
+import com.example.dllo.zaker.playfun.PlayFunBean;
+import com.squareup.picasso.Picasso;
+
+/**
+ * Created by dllo on 16/8/30.
+ * 玩乐页轮播图的适配器
+ */
+public class RotateAdapter extends PagerAdapter {
+    private Context mContext;
+    private PlayFunBean mPlayFunBean;
+
+    public RotateAdapter(Context context) {
+        mContext = context;
+    }
+
+    public void setPlayFunBean(PlayFunBean playFunBean) {
+        mPlayFunBean = playFunBean;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public int getCount() {
+        return mPlayFunBean.getData().getPromote().size() == 0 ? 0 : Integer.MAX_VALUE;
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return view == object;
+    }
+
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_fragment_playfun_listview_rotate_item,container,false);
+        ImageView imageView = (ImageView) view.findViewById(R.id.playFun_img_rotate);
+
+        Picasso.with(mContext).load(mPlayFunBean.getData().getPromote().get(position % mPlayFunBean.getData().getPromote().size()).getPromotion_img())
+                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
+                .into(imageView);
+        container.addView(view);
+        return view;
+    }
+
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+
+    }
+}

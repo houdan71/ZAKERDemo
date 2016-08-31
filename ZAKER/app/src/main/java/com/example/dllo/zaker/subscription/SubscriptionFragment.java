@@ -1,10 +1,9 @@
 package com.example.dllo.zaker.subscription;
 
-import android.os.Handler;
 
+import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
-
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,12 +11,9 @@ import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
-
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
-
-
 import android.view.View;
-
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -26,11 +22,11 @@ import com.example.dllo.zaker.base.BaseFragment;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 
-import java.util.ArrayList;
-
 /**
  * Created by dllo on 16/8/29.
  */
+
+
 public class SubscriptionFragment extends BaseFragment  {
     private ViewPager view_pager;
     private LinearLayout linearLayout;
@@ -48,6 +44,7 @@ public class SubscriptionFragment extends BaseFragment  {
     private Bean_subscription bean_subscription;
 
 
+
     @Override
     protected int initLayout() {
 
@@ -58,14 +55,10 @@ public class SubscriptionFragment extends BaseFragment  {
     protected void initView(View view) {
 
 
+
         view_pager = (ViewPager) view.findViewById(R.id.view_pager);
         linearLayout = (LinearLayout) view.findViewById(R.id.linear_lb);
         recyclerView = (ScrollViewAndRecyclerView) view.findViewById(R.id.recycle_view);
-
-
-
-
-
     }
 
     @Override

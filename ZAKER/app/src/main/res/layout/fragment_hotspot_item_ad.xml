@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -11,7 +10,8 @@
         android:layout_marginTop="@dimen/tendp"
         android:text="title"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/seventeensp"/>
+        android:textSize="@dimen/seventeensp"
+        android:layout_marginRight="@dimen/twentydp"/>
 
     <ImageView
         android:id="@+id/iv_hotspot_item_ad_tag"
@@ -19,7 +19,8 @@
         android:layout_height="@dimen/tendp"
         android:layout_below="@id/tv_hotspot_item_ad_title"
         android:layout_marginTop="@dimen/five_dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginBottom="@dimen/tendp"/>
 
     <ImageView
         android:id="@+id/iv_hotspot_item_ad_img"

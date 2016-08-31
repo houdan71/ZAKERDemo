@@ -6,7 +6,7 @@ import android.content.Context;
 /**
  * Created by dllo on 16/8/30.
  */
-public class MyApp extends Application{
+public class MyApp extends Application {
     private static Context sContext;
 
     @Override
@@ -15,7 +15,8 @@ public class MyApp extends Application{
         sContext = this;
     }
 
-    public static Context getContext(){
+    public static Context getContext() {
         return sContext;
     }
+
 }

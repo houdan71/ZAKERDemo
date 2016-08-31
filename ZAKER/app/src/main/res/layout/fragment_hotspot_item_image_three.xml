@@ -8,21 +8,21 @@
         android:id="@+id/tv_hotspot_item_image_three_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tendp"
         android:text="title"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/seventeensp"
-        android:layout_marginTop="@dimen/tendp"/>
+        android:textSize="@dimen/seventeensp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/five_dp"
+        android:layout_marginTop="@dimen/tendp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/iv_hotspot_item_image_three_img_one"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/eighty_dp"
             android:layout_marginRight="@dimen/five_dp"
             android:layout_weight="1"
             android:scaleType="fitXY"
@@ -31,7 +31,7 @@
         <ImageView
             android:id="@+id/iv_hotspot_item_image_three_img_two"
             android:layout_width="@dimen/zero"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/eighty_dp"
             android:layout_marginRight="@dimen/five_dp"
             android:layout_weight="1"
             android:scaleType="fitXY"
@@ -40,7 +40,7 @@
         <ImageView
             android:id="@+id/iv_hotspot_item_image_three_img_three"
             android:layout_width="@dimen/zero"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/eighty_dp"
             android:layout_marginRight="@dimen/five_dp"
             android:layout_weight="1"
             android:scaleType="fitXY"
@@ -58,15 +58,21 @@
             android:id="@+id/tv_hotspot_item_image_three_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/tendp"
+            android:layout_marginTop="@dimen/five_dp"
             android:text="author"
+            android:textColor="@android:color/darker_gray"
             android:textSize="@dimen/twelve_sp"/>
 
         <TextView
             android:id="@+id/tv_hotspot_item_image_three_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/tendp"
             android:layout_marginLeft="@dimen/tendp"
+            android:layout_marginTop="@dimen/five_dp"
             android:text="time"
+            android:textColor="@android:color/darker_gray"
             android:textSize="@dimen/twelve_sp"/>
 
     </LinearLayout>

@@ -9,7 +9,14 @@
         android:id="@+id/playFun_listView_listView_img"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:background="#77000000" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -23,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Google用6个字母"
+            android:textSize="15sp"
             android:textColor="@android:color/white"/>
 
         <TextView
@@ -32,6 +40,7 @@
             android:layout_below="@id/playFun_listView_listView_textView_title"
             android:layout_gravity="center"
             android:text="做一本互动的百科全书"
+            android:textSize="10sp"
             android:textColor="@android:color/white"/>
     </LinearLayout>
 

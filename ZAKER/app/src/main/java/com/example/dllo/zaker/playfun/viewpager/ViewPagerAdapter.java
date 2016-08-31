@@ -66,7 +66,7 @@ public class ViewPagerAdapter extends Adapter<ViewPagerAdapter.ViewHolder> {
             DisplayMetrics dm=new DisplayMetrics();
             manager.getDefaultDisplay().getMetrics(dm);
             int width=dm.widthPixels;
-            mImageView.getLayoutParams().width = width / 2;
+            mImageView.getLayoutParams().width = (width-60) / 2;
 
         }
     }

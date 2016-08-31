@@ -24,7 +24,7 @@ public class PlayFunFragmentAdapter extends BaseAdapter {
 
     public PlayFunFragmentAdapter(Context context) {
         mContext = context;
-        mListViewAdapter = new ListViewAdapter(mContext);
+
 
     }
 
@@ -61,7 +61,7 @@ public class PlayFunFragmentAdapter extends BaseAdapter {
         }
 
         playFunViewHolder.dateListView.setText(mPlayFunBean.getData().getColumns().get(position).getTitle());
-
+        mListViewAdapter = new ListViewAdapter(mContext);
         mListViewAdapter.setPosition(position);
         mListViewAdapter.setPlayFunBean(mPlayFunBean);
         playFunViewHolder.showListView.setAdapter(mListViewAdapter);

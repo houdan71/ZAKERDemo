@@ -4,6 +4,7 @@ import android.os.Handler;
 
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
 
 import android.view.MotionEvent;
+
+
 import android.view.View;
 
 import android.widget.ImageView;
@@ -54,9 +57,13 @@ public class SubscriptionFragment extends BaseFragment  {
     @Override
     protected void initView(View view) {
 
+
         view_pager = (ViewPager) view.findViewById(R.id.view_pager);
         linearLayout = (LinearLayout) view.findViewById(R.id.linear_lb);
         recyclerView = (ScrollViewAndRecyclerView) view.findViewById(R.id.recycle_view);
+
+
+
 
 
     }

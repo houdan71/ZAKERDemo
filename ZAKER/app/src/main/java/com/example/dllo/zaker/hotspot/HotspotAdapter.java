@@ -12,34 +12,30 @@ import com.bumptech.glide.Glide;
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.app.MyApp;
 
-import java.util.ArrayList;
-
 /**
  * Created by dllo on 16/8/30.
  */
 public class HotspotAdapter extends BaseAdapter {
     private HotspotBean mBean;
 
-    private ArrayList<HotspotBean> mBeanArrayList;
-
     public void setBean(HotspotBean bean) {
         mBean = bean;
-        Log.d("HotspotAdapter", "bean.getData().getArticles().size():" + bean.getData().getArticles().size());
+        notifyDataSetChanged();
     }
 
-    public void setBeanArrayList(ArrayList<HotspotBean> beanArrayList) {
-        mBeanArrayList = beanArrayList;
+    public void addData(HotspotBean hotspotBean) {
+        mBean.getData().getArticles().addAll(hotspotBean.getData().getArticles());
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return mBeanArrayList.size();
+        return mBean == null ? 0 : mBean.getData().getArticles().size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mBeanArrayList.get(position);
+        return null;
     }
 
     @Override
@@ -49,12 +45,14 @@ public class HotspotAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
         ViewHolderImgNo holderImgNo = null;
         ViewHolderImgOne holderImgOne = null;
         ViewHolderImgThree holderImgThree = null;
         ViewHolderImgAd holderImgAd = null;
         int type = getItemViewType(position);
+
+        HotspotBean.DataBean.ArticlesBean articlesBean = mBean.getData().getArticles().get(position);
+
         if (convertView == null) {
             switch (type) {
                 case 0:
@@ -92,56 +90,52 @@ public class HotspotAdapter extends BaseAdapter {
                 case 3:
                     holderImgAd = (ViewHolderImgAd) convertView.getTag();
                     break;
-
             }
         }
 
         switch (type) {
             case 0:
-                holderImgNo.titleNo.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getTitle());
-                holderImgNo.authorNo.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getAuther_name());
-//                String time  = System.currentTimeMillis() - mBean.getData().getArticles().get(position).getDate()
-                holderImgNo.timeNo.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getDate());
+                holderImgNo.titleNo.setText(articlesBean.getTitle());
+                holderImgNo.authorNo.setText(articlesBean.getAuther_name());
+                holderImgNo.timeNo.setText(articlesBean.getDate());
                 break;
             case 1:
-                holderImgOne.timeOne.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getDate());
-                holderImgOne.titleOne.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getTitle());
-                holderImgOne.authorOne.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getAuther_name());
+                holderImgOne.timeOne.setText(articlesBean.getDate());
+                holderImgOne.titleOne.setText(articlesBean.getTitle());
+                holderImgOne.authorOne.setText(articlesBean.getAuther_name());
 
-                Glide.with(MyApp.getContext()).load(mBeanArrayList.get(position).getData().getArticles().get(position).getThumbnail_medias().get(0).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).
-                        into(holderImgOne.imgOne);
+                Glide.with(MyApp.getContext()).load(articlesBean.getThumbnail_medias().get(0).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgOne.imgOne);
+
                 break;
             case 2:
-                holderImgThree.titleThree.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getTitle());
-                holderImgThree.authorThree.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getAuther_name());
-                holderImgThree.timeThree.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getDate());
+                holderImgThree.titleThree.setText(articlesBean.getTitle());
+                holderImgThree.authorThree.setText(articlesBean.getAuther_name());
+                holderImgThree.timeThree.setText(articlesBean.getDate());
 
-                Glide.with(MyApp.getContext()).load(mBeanArrayList.get(position).getData().getArticles().get(position).getThumbnail_medias().get(0).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgThree.imgFitst);
-                Glide.with(MyApp.getContext()).load(mBeanArrayList.get(position).getData().getArticles().get(position).getThumbnail_medias().get(1).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgThree.imgSec);
-                Glide.with(MyApp.getContext()).load(mBeanArrayList.get(position).getData().getArticles().get(position).getThumbnail_medias().get(2).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgThree.imgThird);
+                Glide.with(MyApp.getContext()).load(articlesBean.getThumbnail_medias().get(0).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgThree.imgFitst);
+                Glide.with(MyApp.getContext()).load(articlesBean.getThumbnail_medias().get(1).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgThree.imgSec);
+                Glide.with(MyApp.getContext()).load(articlesBean.getThumbnail_medias().get(2).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgThree.imgThird);
                 break;
             case 3:
-                holderImgAd.titleAd.setText(mBeanArrayList.get(position).getData().getArticles().get(position).getTitle());
+                holderImgAd.titleAd.setText(articlesBean.getTitle());
 
-                Glide.with(MyApp.getContext()).load(mBeanArrayList.get(position).getData().getArticles().get(position).getThumbnail_medias().get(0).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgAd.imgId);
-                Glide.with(MyApp.getContext()).load(mBeanArrayList.get(position).getData().getArticles().get(position).getSpecial_info().getIcon_url()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgAd.tagAd);
+                Glide.with(MyApp.getContext()).load(articlesBean.getThumbnail_medias().get(0).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgAd.imgId);
+                Glide.with(MyApp.getContext()).load(articlesBean.getSpecial_info().getIcon_url()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(holderImgAd.tagAd);
                 break;
-
         }
-
         return convertView;
     }
 
     @Override
     public int getItemViewType(int position) {
+        HotspotBean.DataBean.ArticlesBean articlesBean = mBean.getData().getArticles().get(position);
 
-        if (mBeanArrayList.get(position).getData().getArticles().get(position).getThumbnail_medias() != null) {
-
-            int p = mBeanArrayList.get(position).getData().getArticles().get(position).getThumbnail_medias().size();
-            Log.d("HotspotAdapter", "mBean.getData().getArticles().get(position).getThumbnail_medias().size():" + mBeanArrayList.get(position).getData().getArticles().get(position).getThumbnail_medias().size());
+        if (articlesBean.getThumbnail_medias() != null) {
+            int p = articlesBean.getThumbnail_medias().size();
+            Log.d("HotspotAdapter", "mBean.getData().getArticles().get(position).getThumbnail_medias().size():" + articlesBean.getThumbnail_medias().size());
             if (p == 3) {
                 return 2;
-            } else if (mBeanArrayList.get(position).getData().getArticles().get(position).getIs_ad() != null) {
+            } else if (articlesBean.getIs_ad() != null) {
                 return 3;
             } else {
                 return 1;
@@ -163,7 +157,6 @@ public class HotspotAdapter extends BaseAdapter {
             titleNo = (TextView) itemView.findViewById(R.id.tv_hotspot_item_image_no_title);
             authorNo = (TextView) itemView.findViewById(R.id.tv_hotspot_item_image_no_author);
             timeNo = (TextView) itemView.findViewById(R.id.tv_hotspot_item_image_no_time);
-
         }
     }
 
@@ -176,7 +169,6 @@ public class HotspotAdapter extends BaseAdapter {
             authorOne = (TextView) itemView.findViewById(R.id.tv_hotspot_item_image_one_author);
             timeOne = (TextView) itemView.findViewById(R.id.tv_hotspot_item_image_one_time);
             imgOne = (ImageView) itemView.findViewById(R.id.iv_hotspot_item_image_one_img);
-
         }
     }
 
@@ -185,7 +177,6 @@ public class HotspotAdapter extends BaseAdapter {
         private ImageView imgFitst, imgSec, imgThird;
 
         public ViewHolderImgThree(View itemView) {
-
             titleThree = (TextView) itemView.findViewById(R.id.tv_hotspot_item_image_three_title);
             authorThree = (TextView) itemView.findViewById(R.id.tv_hotspot_item_image_three_author);
             timeThree = (TextView) itemView.findViewById(R.id.tv_hotspot_item_image_three_time);
@@ -200,7 +191,6 @@ public class HotspotAdapter extends BaseAdapter {
         private ImageView tagAd, imgId;
 
         public ViewHolderImgAd(View itemView) {
-
             titleAd = (TextView) itemView.findViewById(R.id.tv_hotspot_item_ad_title);
             tagAd = (ImageView) itemView.findViewById(R.id.iv_hotspot_item_ad_tag);
             imgId = (ImageView) itemView.findViewById(R.id.iv_hotspot_item_ad_img);

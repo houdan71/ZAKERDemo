@@ -4,10 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
-<<<<<<< HEAD
 
-=======
->>>>>>> 5882529a4f47d3cde6ceca000e8e9d766ee72a61
     <application
         android:name=".app.MyApp"
         android:allowBackup="true"

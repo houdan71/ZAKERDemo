@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/tendp"
-        android:layout_marginTop="@dimen/tendp"
+        android:layout_marginTop="@dimen/twentydp"
+        android:layout_weight="2"
         android:orientation="vertical">
 
         <TextView
+
             android:id="@+id/tv_hotspot_item_image_one_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/twentydp"
             android:text="title"
             android:textColor="@android:color/black"
             android:textSize="@dimen/seventeensp"/>
@@ -28,27 +31,35 @@
                 android:id="@+id/tv_hotspot_item_image_one_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/tendp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:text="author"
+                android:textColor="@android:color/darker_gray"
                 android:textSize="@dimen/twelve_sp"/>
 
             <TextView
                 android:id="@+id/tv_hotspot_item_image_one_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/tendp"
                 android:layout_marginLeft="@dimen/tendp"
+                android:layout_marginTop="@dimen/five_dp"
                 android:text="time"
+                android:textColor="@android:color/darker_gray"
                 android:textSize="@dimen/twelve_sp"/>
 
         </LinearLayout>
     </LinearLayout>
 
     <ImageView
+
         android:id="@+id/iv_hotspot_item_image_one_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_width="@dimen/zero"
+        android:layout_height="@dimen/eighty_dp"
         android:layout_marginBottom="@dimen/tendp"
         android:layout_marginLeft="@dimen/tendp"
         android:layout_marginTop="@dimen/tendp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher"/>
-</RelativeLayout>
+</LinearLayout>

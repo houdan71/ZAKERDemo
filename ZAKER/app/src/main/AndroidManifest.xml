@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.dllo.zaker">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name=".app.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,8 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".playfun.SecondLevelWebViewActivity"/>
         <activity android:name=".playfun.SecondLevelViewPagerActivity"/>
+=======
+        <activity android:name=".hotspot.sec.HotspotSecActivity"/>
+>>>>>>> 01a8f8d0052fc129fb6c93930e04b01200b04f34
     </application>
 
 </manifest>

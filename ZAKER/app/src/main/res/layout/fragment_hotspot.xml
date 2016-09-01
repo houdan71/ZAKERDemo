@@ -5,10 +5,17 @@
               android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <ListView
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        android:id="@+id/ultra_ptr_hotspot"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/tendp"
-        android:layout_marginRight="@dimen/tendp"
-        android:id="@+id/lv_hotspot"/>
+        android:layout_height="match_parent">
+
+        <com.example.dllo.zaker.hotspot.ListViewRefresh.UltraRefreshListView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/tendp"
+            android:layout_marginRight="@dimen/tendp"
+            android:id="@+id/ultra_hotspot"
+            android:layout_height="match_parent"/>
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
 </LinearLayout>

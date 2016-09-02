@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/ll"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/light_bg"
+              android:orientation="vertical"
+              app:nightBackground="@color/night_bg"
+              tools:context=".playfun.SecondLevelWebViewActivity"
+              tools:ignore="MissingPrefix">
+
+    <include
+        android:id="@+id/include_secondLevel"
+        layout="@layout/include_secondlevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_bg"
+        android:text="切换夜间"
+        app:nightBackground="@color/night_bg"/>
+
+    <WebView
+        android:id="@+id/secondLevel_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

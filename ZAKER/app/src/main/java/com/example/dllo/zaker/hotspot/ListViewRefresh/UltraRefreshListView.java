@@ -36,13 +36,12 @@ public class UltraRefreshListView extends ListView implements PtrHandler, AbsLis
     private boolean isRefresh = false;
 
     public UltraRefreshListView(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public UltraRefreshListView(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
-
 
 
     public UltraRefreshListView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -58,14 +57,13 @@ public class UltraRefreshListView extends ListView implements PtrHandler, AbsLis
     }
 
 
-
     @Override
     public void onRefreshBegin(PtrFrameLayout frame) {
 
-        isLoadData  =true;
-        isRefresh =true;
+        isLoadData = true;
+        isRefresh = true;
         //下拉刷新的回调
-        if(mUltraRefreshListener!=null){
+        if (mUltraRefreshListener != null) {
 
             mUltraRefreshListener.onRefresh();
         }
@@ -75,7 +73,7 @@ public class UltraRefreshListView extends ListView implements PtrHandler, AbsLis
     @Override
     public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
         //  PtrHandler 的接口回调，是否能够加载数据的判断
-        return !isLoadData&&checkContentCanBePulledDown(frame, content, header);
+        return !isLoadData && checkContentCanBePulledDown(frame, content, header);
     }
 
     // 从PtrHandler的默认实现类 PtrDefaultHandler中找到的，用以判断是否可以下拉刷新
@@ -119,8 +117,8 @@ public class UltraRefreshListView extends ListView implements PtrHandler, AbsLis
                 firstVisibleItem+" visibleItemCount "+ visibleItemCount);
 */
         //加载更多的判断
-        if(totalItemCount>1&&!isLoadData&&totalItemCount==firstVisibleItem+visibleItemCount){
-            isRefresh =false;
+        if (totalItemCount > 1 && !isLoadData && totalItemCount == firstVisibleItem + visibleItemCount) {
+            isRefresh = false;
             isLoadData = true;
             addFooterView(footView);
             mUltraRefreshListener.addMore();
@@ -128,17 +126,16 @@ public class UltraRefreshListView extends ListView implements PtrHandler, AbsLis
     }
 
 
-
     //刷新完成的后调用此方法还原布局
-    public void refreshComplete(){
+    public void refreshComplete() {
         isLoadData = false;
-        if(isRefresh){
+        if (isRefresh) {
             //获取其父控件，刷新
             ViewParent parent = getParent();
-            if(parent instanceof PtrClassicFrameLayout){
+            if (parent instanceof PtrClassicFrameLayout) {
                 ((PtrClassicFrameLayout) parent).refreshComplete();
             }
-        }else{
+        } else {
             removeFooterView(footView);
         }
     }

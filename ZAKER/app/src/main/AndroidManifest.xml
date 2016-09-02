@@ -12,14 +12,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".main.MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".playfun.SecondLevelWebViewActivity"/>
+        <activity android:name=".playfun.SecondLevelViewPagerActivity"/>
+
         <activity android:name=".hotspot.sec.HotspotSecActivity"/>
+
         <activity android:name=".subscription.activity.TodayActivity"/>
         <activity android:name=".subscription.activity.NewsActivity"/>
         <activity android:name=".subscription.activity.CarActivity"/>

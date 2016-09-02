@@ -9,33 +9,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:orientation="vertical">
-      <android.support.v4.view.ViewPager
-          android:id="@+id/view_pager"
-          android:layout_width="match_parent"
-          android:layout_height="160dp"/>
-      <LinearLayout
-          android:id="@+id/linear_lb"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center"
-          android:orientation="horizontal"
-          android:layout_marginTop="-30dp"/>
 
-  </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-   <com.example.dllo.zaker.subscription.ScrollViewAndRecyclerView
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"/>
 
+            <LinearLayout
+                android:id="@+id/linear_lb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-30dp"
+                android:gravity="center"
+                android:orientation="horizontal"/>
+
+        </LinearLayout>
+
+        <com.example.dllo.zaker.subscription.ScrollViewAndRecyclerView
             android:id="@+id/recycle_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-
-            />
+            android:layout_height="wrap_content"/>
     </LinearLayout>
-
-
 </ScrollView>

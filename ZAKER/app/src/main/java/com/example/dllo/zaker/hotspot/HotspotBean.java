@@ -55,7 +55,15 @@ public class HotspotBean {
         private String refresh_interval;
 
         private List<ShareBean> share;
+        private String tip_msg;
 
+        public String getTip_msg() {
+            return tip_msg;
+        }
+
+        public void setTip_msg(String tip_msg) {
+            this.tip_msg = tip_msg;
+        }
 
         private List<ArticlesBean> articles;
 

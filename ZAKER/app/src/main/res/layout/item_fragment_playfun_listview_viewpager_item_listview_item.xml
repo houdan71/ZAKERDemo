@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/playFun_listView_viewPager_item_listView_item_textView_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="实例讲解:"/>
+
+    <ImageView
+        android:id="@+id/playFun_listView_viewPager_item_listView_item_img_pic"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="2dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/playFun_listView_viewPager_item_listView_item_textView_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="蜂鸟网"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/playFun_listView_viewPager_item_listView_item_textView_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="1天前"
+            android:textSize="10sp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

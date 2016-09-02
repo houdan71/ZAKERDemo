@@ -959,8 +959,18 @@ public class PlayFunBean {
              * type :
              * need_user_info : Y
              */
+            private block_infoBean  block_info;
+
 
             private WebBean web;
+
+            public block_infoBean getBlock_info() {
+                return block_info;
+            }
+
+            public void setBlock_info(block_infoBean block_info) {
+                this.block_info = block_info;
+            }
 
             public String getPk() {
                 return pk;
@@ -1046,6 +1056,81 @@ public class PlayFunBean {
 
                 public void setM_url(String m_url) {
                     this.m_url = m_url;
+                }
+            }
+
+            public static class block_infoBean{
+                private String pk;
+                private String title;
+                private String stitle;
+                private String block_title;
+                private String api_url;
+                private String data_type;
+                private String pic;
+                private String large_pic;
+
+                public String getPk() {
+                    return pk;
+                }
+
+                public void setPk(String pk) {
+                    this.pk = pk;
+                }
+
+                public String getTitle() {
+                    return title;
+                }
+
+                public void setTitle(String title) {
+                    this.title = title;
+                }
+
+                public String getBlock_title() {
+                    return block_title;
+                }
+
+                public void setBlock_title(String block_title) {
+                    this.block_title = block_title;
+                }
+
+                public String getStitle() {
+                    return stitle;
+                }
+
+                public void setStitle(String stitle) {
+                    this.stitle = stitle;
+                }
+
+                public String getData_type() {
+                    return data_type;
+                }
+
+                public void setData_type(String data_type) {
+                    this.data_type = data_type;
+                }
+
+                public String getApi_url() {
+                    return api_url;
+                }
+
+                public void setApi_url(String api_url) {
+                    this.api_url = api_url;
+                }
+
+                public String getPic() {
+                    return pic;
+                }
+
+                public void setPic(String pic) {
+                    this.pic = pic;
+                }
+
+                public String getLarge_pic() {
+                    return large_pic;
+                }
+
+                public void setLarge_pic(String large_pic) {
+                    this.large_pic = large_pic;
                 }
             }
 

@@ -8,8 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.LayoutManager;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
 import android.view.MotionEvent;
@@ -44,10 +42,10 @@ import com.example.dllo.zaker.subscription.activity.TripActivity;
  */
 
 
-public class SubscriptionFragment extends BaseFragment  {
+public class SubscriptionFragment extends BaseFragment {
     private ViewPager view_pager;
     private LinearLayout linearLayout;
-      private ScrollViewAndRecyclerView recyclerView;
+    private ScrollViewAndRecyclerView recyclerView;
     private SubAdapter subAdapter;
     private GridAdapter gridAdapter;
     private ItemTouchHelper mHelper;
@@ -61,7 +59,6 @@ public class SubscriptionFragment extends BaseFragment  {
     private Bean_subscription bean_subscription;
 
 
-
     @Override
     protected int initLayout() {
 
@@ -70,8 +67,6 @@ public class SubscriptionFragment extends BaseFragment  {
 
     @Override
     protected void initView(View view) {
-
-
 
         view_pager = (ViewPager) view.findViewById(R.id.view_pager);
         linearLayout = (LinearLayout) view.findViewById(R.id.linear_lb);
@@ -90,7 +85,7 @@ public class SubscriptionFragment extends BaseFragment  {
                 subAdapter = new SubAdapter(mContext);
                 subAdapter.setBean_subscription(bean_subscription);
                 view_pager.setAdapter(subAdapter);
-                LayoutManager lm =new GridLayoutManager(mContext,3);
+                RecyclerView.LayoutManager lm = new GridLayoutManager(mContext, 3);
                 recyclerView.setLayoutManager(lm);
                 recyclerView.addItemDecoration(new MyItemDecoration());
 
@@ -168,8 +163,8 @@ public class SubscriptionFragment extends BaseFragment  {
                     }
                 });
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
-                Callback callback =createCallback();
-                mHelper =new ItemTouchHelper(callback);
+                Callback callback = createCallback();
+                mHelper = new ItemTouchHelper(callback);
                 mHelper.attachToRecyclerView(recyclerView);
                 wheelFun(response);
 
@@ -183,41 +178,42 @@ public class SubscriptionFragment extends BaseFragment  {
 
 
     }
+
     private Callback createCallback() {
         return new Callback() {
             @Override
-            public int getMovementFlags(RecyclerView recyclerView, ViewHolder viewHolder) {
+            public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
                 //两个参数
                 //参数1:决定行布局支持哪种拖拉的手势
                 //参数2:决定行布局支持哪种滑动的手势
-                return Callback.makeMovementFlags(ItemTouchHelper.UP|ItemTouchHelper.DOWN|
-                                ItemTouchHelper.START|ItemTouchHelper.END
-                        ,ItemTouchHelper.START|ItemTouchHelper.END);
+                return Callback.makeMovementFlags(ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.START | ItemTouchHelper.END, ItemTouchHelper.START | ItemTouchHelper.END);
             }
 
-        //方法的作用:移动了行布局之后会回调该该方法
+            //方法的作用:移动了行布局之后会回调该该方法
             //参数1:
             //参数2:移动的行布局对应的ViewHolder
             //参数3:移动到的位置所对应的ViewHolder
-
             @Override
-            public boolean onMove(RecyclerView recyclerView, ViewHolder viewHolder, ViewHolder target) {
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
 
                 return false;
             }
+
             //滑动行布局时回调的方法
             //参数1:滑动的行布局所对应的VIewHolder
             //参数2:滑动的方向
             @Override
-            public void onSwiped(ViewHolder viewHolder, int direction) {
-                int position =viewHolder.getAdapterPosition();
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
                 //gridAdapter.delect(position);
             }
+
             //选择性覆写,返回决定是否用长按拖动功能
             @Override
             public boolean isLongPressDragEnabled() {
                 return super.isLongPressDragEnabled();
             }
+
             //选择性覆写,返回值决定是否启用滑动功能
             @Override
             public boolean isItemViewSwipeEnabled() {
@@ -227,78 +223,72 @@ public class SubscriptionFragment extends BaseFragment  {
 
         };
     }
-            private void wheelFun(final Bean_subscription bean_subscription) {
 
-                handler = new Handler(new Handler.Callback() {
-                    @Override
-                    public boolean handleMessage(Message msg) {
-                        view_pager.setCurrentItem(view_pager.getCurrentItem() + 1);
-                        return false;
-                    }
-                });
-                if (mm) {
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            while (flag) {
+    private void wheelFun(final Bean_subscription bean_subscription) {
 
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                                if (!userTouch) {
-                                    handler.sendEmptyMessage(0);
-                                }
-
-                            }
-                        }
-                    }).start();
-                    mm = false;
-                    //当用户点击的时候就不会再触发发轮播图了
-                    //轮播图就会暂停轮播
-                    view_pager.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            switch (event.getAction()) {
-                                case MotionEvent.ACTION_DOWN:
-                                    //当用户触摸了轮播图的时候
-                                    userTouch = true;
-                                    break;
-                                case MotionEvent.ACTION_UP:
-                                    //当用户手指离开轮播图的时候
-                                    userTouch = false;
-
-                                    break;
-                            }
-                            return false;
-                        }
-                    });
-                }
-                tips = new ImageView[bean_subscription.getData().getList().size()];
-                for (int i = 0; i < bean_subscription.getData().getList().size(); i++) {
-
-                    ImageView imageView = new ImageView(mContext);
-                    imageView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
-                    tips[i] = imageView;
-                    if (i == 0) {
-                        imageView.setImageResource(R.mipmap.umeng_socialize_switchbutton_btn_pressed);
-                    } else {
-                        imageView.setImageResource(R.mipmap.umeng_socialize_switchbutton_btn_unpressed);
-                    }
-                    LinearLayout.LayoutParams layoutParams =
-                            new LinearLayout.LayoutParams(
-                                    40, 40);
-
-                    layoutParams.leftMargin = 5;
-                    layoutParams.rightMargin = 5;
-
-                    linearLayout.addView(imageView, layoutParams);
-                }
-                subAdapter.setTips(tips);
-
+        handler = new Handler(new Handler.Callback() {
+            @Override
+            public boolean handleMessage(Message msg) {
+                view_pager.setCurrentItem(view_pager.getCurrentItem() + 1);
+                return false;
             }
+        });
+        if (mm) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (flag) {
 
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        if (!userTouch) {
+                            handler.sendEmptyMessage(0);
+                        }
+
+                    }
+                }
+            }).start();
+            mm = false;
+            //当用户点击的时候就不会再触发发轮播图了
+            //轮播图就会暂停轮播
+            view_pager.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    switch (event.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            //当用户触摸了轮播图的时候
+                            userTouch = true;
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            //当用户手指离开轮播图的时候
+                            userTouch = false;
+                            break;
+                    }
+                    return false;
+                }
+            });
         }
+        tips = new ImageView[bean_subscription.getData().getList().size()];
+        for (int i = 0; i < bean_subscription.getData().getList().size(); i++) {
+            ImageView imageView = new ImageView(mContext);
+            imageView.setLayoutParams(new LinearLayout.LayoutParams(50, 50));
+            tips[i] = imageView;
+            if (i == 0) {
+                imageView.setImageResource(R.mipmap.umeng_socialize_switchbutton_btn_pressed);
+            } else {
+                imageView.setImageResource(R.mipmap.umeng_socialize_switchbutton_btn_unpressed);
+            }
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(40, 40);
+            layoutParams.leftMargin = 5;
+            layoutParams.rightMargin = 5;
+
+            linearLayout.addView(imageView, layoutParams);
+        }
+        subAdapter.setTips(tips);
+    }
+}
 
 

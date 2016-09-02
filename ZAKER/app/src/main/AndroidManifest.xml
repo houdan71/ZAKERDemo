@@ -20,12 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
         <activity android:name=".playfun.SecondLevelWebViewActivity"/>
         <activity android:name=".playfun.SecondLevelViewPagerActivity"/>
-=======
+
         <activity android:name=".hotspot.sec.HotspotSecActivity"/>
->>>>>>> 01a8f8d0052fc129fb6c93930e04b01200b04f34
+
     </application>
 
 </manifest>

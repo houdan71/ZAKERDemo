@@ -50,11 +50,6 @@ public class SubscriptionFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 152fc9a028d07d9498f0bdc30ae2f89976b10c18
         view_pager = (ViewPager) view.findViewById(R.id.view_pager);
         linearLayout = (LinearLayout) view.findViewById(R.id.linear_lb);
         recyclerView = (ScrollViewAndRecyclerView) view.findViewById(R.id.recycle_view);

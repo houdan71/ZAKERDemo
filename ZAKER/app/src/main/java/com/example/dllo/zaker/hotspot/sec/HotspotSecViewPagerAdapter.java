@@ -26,7 +26,7 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter {
     private int positionItem;
 
 
-    public void setArrayList(ArrayList<HotspotSecBean> arrayList,int positionItem) {
+    public void setArrayList(ArrayList<HotspotSecBean> arrayList, int positionItem) {
         mArrayList = arrayList;
         this.positionItem = positionItem;
         notifyDataSetChanged();
@@ -47,7 +47,7 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View view = LayoutInflater.from(MyApp.getContext()).inflate(R.layout.fragment_hotspot_sec_web_content,null);
+        View view = LayoutInflater.from(MyApp.getContext()).inflate(R.layout.fragment_hotspot_sec_web_content, null);
         mWebView = (WebView) view.findViewById(R.id.web_view_hotspot_sec_web);
 
         WebSettings settings = mWebView.getSettings();
@@ -58,8 +58,8 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter {
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
 
         //当点击链接时,希望覆盖而不是打开新窗口
-        mWebView.setWebViewClient(new WebViewClient(){
-            public boolean shouldOverrideUrlLoading(WebView view,String url){
+        mWebView.setWebViewClient(new WebViewClient() {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
             }
@@ -69,8 +69,8 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter {
         mWebView.setOnKeyListener(new OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN){
-                    if (keyCode == KeyEvent.KEYCODE_BACK && mWebView.canGoBack()){
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK && mWebView.canGoBack()) {
                         mWebView.goBack();
                         return true;
                     }
@@ -84,11 +84,11 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter {
         }
 
         //添加加载的webUrl
-        if (positionItem == position){
         mWebView.loadUrl(mArrayList.get(positionItem).getWebUrl());
+        Log.d("HotspotSecViewPagerAdap", "positionItem:" + positionItem);
 
-        }
         mWebView.loadUrl(mArrayList.get(position).getWebUrl());
+
         container.addView(view);
         return view;
     }

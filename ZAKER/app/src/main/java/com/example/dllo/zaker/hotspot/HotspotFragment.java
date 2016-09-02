@@ -130,32 +130,32 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
 
     @Override
     public void addMore() {
-//        NetTool.getInstance().startRequest(NValues.URL_HOTSPOT, HotspotBean.class, new onHttpCallBack<HotspotBean>() {
-//            @Override
-//            public void onSuccess(final HotspotBean response) {
-//                if (response.getData().getArticles().size() == 0) {
-//                    Toast.makeText(mContext, response.getData().getTip_msg(), Toast.LENGTH_SHORT).show();
-//                    return;
-//                } else {
-////                    mBeanArrayList.add(response);
-//                    mHotspotAdapter.addData(response);
-//                    //设置数据刷新回调接口
-//                    mLv.setUltraRefreshListener(HotspotFragment.this);
-//                     //刷新完成
-//                    mLv.refreshComplete();
-//                    mHotspotAdapter.notifyDataSetChanged();
-//                }
-//
-//                //向webView页面传递数据
-//                postToWebView(response);
-//
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//
-//            }
-//        });
+        NetTool.getInstance().startRequest(NValues.URL_HOTSPOT, HotspotBean.class, new onHttpCallBack<HotspotBean>() {
+            @Override
+            public void onSuccess(final HotspotBean response) {
+                if (response.getData().getArticles().size() == 0) {
+                    Toast.makeText(mContext, response.getData().getTip_msg(), Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+//                    mBeanArrayList.add(response);
+                    mHotspotAdapter.addData(response);
+                    //设置数据刷新回调接口
+                    mLv.setUltraRefreshListener(HotspotFragment.this);
+                     //刷新完成
+                    mLv.refreshComplete();
+                    mHotspotAdapter.notifyDataSetChanged();
+                }
+
+                //向webView页面传递数据
+                postToWebView(response);
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
     }
 
     @Override
@@ -164,6 +164,7 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
         Intent intent = new Intent(MyApp.getContext(), HotspotSecActivity.class);
         intent.putParcelableArrayListExtra(KEY_webUrl, mHotspotSecBeanArrayList);
         intent.putExtra(KEY_postionItem, position);
+        Log.d("HotspotFragment", "position:" + position);
         for (int i = 0; i < mHotspotSecBeanArrayList.size(); i++) {
             Log.d("HotspotFragment", mHotspotSecBeanArrayList.get(i).getWebUrl());
         }

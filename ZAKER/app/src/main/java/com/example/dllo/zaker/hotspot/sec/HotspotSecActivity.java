@@ -45,7 +45,8 @@ public class HotspotSecActivity extends BaseActivity{
         HotspotSecWebFragment webFragment = new HotspotSecWebFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(KEY_webUrll, bean);
-        bundle.putInt(KEY_postionItemm,0);
+        bundle.putInt(KEY_postionItemm,positionItem);
+
         Log.d("AllFragment", String.valueOf(bean));
         webFragment.setArguments(bundle);
         FragmentTransaction transaction = manager.beginTransaction();

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+              android:layout_width="match_parent"
+              android:padding="3dp"
+              android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:text="啦啦"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_below="@+id/text_title"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="啦啦"
+        android:textSize="15sp"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/text_time"
+        android:layout_toRightOf="@+id/text_name"
+        android:layout_below="@+id/text_title"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="啦啦"
+        android:textSize="15sp"
+        android:gravity="center"
+        />
+
+</RelativeLayout>

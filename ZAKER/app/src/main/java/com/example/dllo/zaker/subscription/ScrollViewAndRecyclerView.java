@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 
 /**
  * Created by dllo on 16/8/31.
+ * 自定义RecyclerView
  */
 public class ScrollViewAndRecyclerView extends RecyclerView {
     public ScrollViewAndRecyclerView(Context context) {

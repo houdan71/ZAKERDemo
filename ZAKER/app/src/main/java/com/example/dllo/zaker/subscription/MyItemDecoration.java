@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView.State;
 
 /**
  * Created by dllo on 16/8/31.
+ * 分割线
  */
 public class MyItemDecoration  extends ItemDecoration{
     @Override

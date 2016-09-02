@@ -1,9 +1,12 @@
 package com.example.dllo.zaker.playfun;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
@@ -16,16 +19,15 @@ import com.example.dllo.zaker.playfun.listview.MyListView;
  * Created by dllo on 16/8/30.
  * 玩乐页 对应的适配器
  */
-public class PlayFunFragmentAdapter extends BaseAdapter {
+public class PlayFunFragmentAdapter extends BaseAdapter implements OnItemClickListener {
     private Context mContext;
     private PlayFunBean mPlayFunBean;
 
     private ListViewAdapter mListViewAdapter;
+    private int nextPosition;
 
     public PlayFunFragmentAdapter(Context context) {
         mContext = context;
-
-
     }
 
 
@@ -61,11 +63,25 @@ public class PlayFunFragmentAdapter extends BaseAdapter {
         }
 
         playFunViewHolder.dateListView.setText(mPlayFunBean.getData().getColumns().get(position).getTitle());
+       //初始化Adapter要放在这,每次都new个新的,不能放在开始初始化的时候
         mListViewAdapter = new ListViewAdapter(mContext);
         mListViewAdapter.setPosition(position);
         mListViewAdapter.setPlayFunBean(mPlayFunBean);
         playFunViewHolder.showListView.setAdapter(mListViewAdapter);
+
+        nextPosition = position;
+        playFunViewHolder.showListView.setOnItemClickListener(this);
+
         return convertView;
+    }
+
+
+    //设置玩乐页内层listView的监听
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(mContext,SecondLevelWebViewActivity.class);
+        intent.putExtra("WebUrl",mPlayFunBean.getData().getColumns().get(nextPosition).getItems().get(position).getArticle().getWeburl());
+        mContext.startActivity(intent);
     }
 
 

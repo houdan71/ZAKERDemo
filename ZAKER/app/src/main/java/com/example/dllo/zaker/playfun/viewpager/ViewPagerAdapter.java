@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView.Adapter;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -23,6 +24,11 @@ public class ViewPagerAdapter extends Adapter<ViewPagerAdapter.ViewHolder> {
 
     private Context mContext;
     private PlayFunBean mPlayFunBean;
+    private OnRecyclerItemClickListener mListener;
+
+    public void setOnRecyclerItemClickListener(OnRecyclerItemClickListener listener) {
+        mListener = listener;
+    }
 
     public ViewPagerAdapter(Context context) {
         mContext = context;
@@ -35,17 +41,28 @@ public class ViewPagerAdapter extends Adapter<ViewPagerAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_fragment_playfun_listview_viewpager_item,parent,false));
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_fragment_playfun_listview_viewpager_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
 
         Picasso.with(mContext).load(mPlayFunBean.getData().getDisplay().get(position).getPic().getUrl())
                 .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                 .into(holder.mImageView);
 
+        //设置RecyclerView的item监听
+        if (mListener != null){
+            holder.mImageView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int clickPosition = holder.getAdapterPosition();
+                    mListener.onItemClick(v,holder,clickPosition);
+                }
+            });
+        }
     }
+
 
     @Override
     public int getItemCount() {
@@ -53,21 +70,28 @@ public class ViewPagerAdapter extends Adapter<ViewPagerAdapter.ViewHolder> {
     }
 
 
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         private ImageView mImageView;
+
         public ViewHolder(View itemView) {
             super(itemView);
             mImageView = (ImageView) itemView.findViewById(R.id.playFun_img_viewPager);
 
             //设置屏幕宽一半
             WindowManager manager = (WindowManager) mContext.getSystemService(mContext.WINDOW_SERVICE);
-            DisplayMetrics dm=new DisplayMetrics();
+            DisplayMetrics dm = new DisplayMetrics();
             manager.getDefaultDisplay().getMetrics(dm);
-            int width=dm.widthPixels;
-            mImageView.getLayoutParams().width = (width-60) / 2;
+            int width = dm.widthPixels;
+            mImageView.getLayoutParams().width = (width - 60) / 2;
 
         }
     }
+
+
+    public interface OnRecyclerItemClickListener{
+        void onItemClick(View view,ViewHolder holder,int position);
+    }
+
+
 }

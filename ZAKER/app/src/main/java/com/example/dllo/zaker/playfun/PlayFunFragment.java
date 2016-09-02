@@ -1,5 +1,6 @@
 package com.example.dllo.zaker.playfun;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
@@ -13,6 +14,8 @@ import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
 import com.example.dllo.zaker.playfun.rotate.RotateAdapter;
 import com.example.dllo.zaker.playfun.viewpager.ViewPagerAdapter;
+import com.example.dllo.zaker.playfun.viewpager.ViewPagerAdapter.OnRecyclerItemClickListener;
+import com.example.dllo.zaker.playfun.viewpager.ViewPagerAdapter.ViewHolder;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 
@@ -28,6 +31,9 @@ public class PlayFunFragment extends BaseFragment {
     private RotateAdapter mRotateAdapter;
     private ViewPagerAdapter mViewPagerAdapter;
 
+    /**
+     * 轮播图的实现
+     */
     private Handler mHandler;
     private boolean isFlag = true;
     private boolean flag = true;
@@ -61,22 +67,35 @@ public class PlayFunFragment extends BaseFragment {
 
         NetTool.getInstance().startRequest(playUrl, PlayFunBean.class, new onHttpCallBack<PlayFunBean>() {
             @Override
-            public void onSuccess(PlayFunBean response) {
+            public void onSuccess(final PlayFunBean response) {
                 mPlayFunFragmentAdapter.setPlayFunBean(response);
                 mListView.setAdapter(mPlayFunFragmentAdapter);
 
                 mRotateAdapter.setPlayFunBean(response);
                 playFunVP.setAdapter(mRotateAdapter);
 
-                LinearLayoutManager manager = new LinearLayoutManager(mContext);
+                final LinearLayoutManager manager = new LinearLayoutManager(mContext);
                 manager.setOrientation(LinearLayoutManager.HORIZONTAL);
                 playFunRV.setLayoutManager(manager);
                 mViewPagerAdapter.setPlayFunBean(response);
                 playFunRV.setAdapter(mViewPagerAdapter);
 
-
+                //给ViewPager设置监听事件 跳转到不同的界面
+                mViewPagerAdapter.setOnRecyclerItemClickListener(new OnRecyclerItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, ViewHolder holder, int position) {
+                        if (response.getData().getDisplay().get(position).getType().equals("web") ){
+                            Intent intent = new Intent(mContext, SecondLevelWebViewActivity.class);
+                            intent.putExtra("WebUrl",response.getData().getDisplay().get(position).getWeb().getUrl());
+                            startActivity(intent);
+                        }else if (response.getData().getDisplay().get(position).getType().equals("block")){
+                            Intent intent  = new Intent(mContext,SecondLevelViewPagerActivity.class);
+                            intent.putExtra("listUrl",response.getData().getDisplay().get(position).getBlock_info().getApi_url());
+                            startActivity(intent);
+                        }
+                    }
+                });
             }
-
             @Override
             public void onError(Throwable e) {
 

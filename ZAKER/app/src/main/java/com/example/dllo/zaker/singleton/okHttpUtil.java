@@ -31,6 +31,8 @@ public class okHttpUtil implements NetInterface{
                 .cache(new Cache(path,10 * 1024 * 1024))
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .build();
+
+
         mGson = new Gson();
     }
 

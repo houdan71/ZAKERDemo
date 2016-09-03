@@ -22,8 +22,8 @@
         <activity android:name=".playfun.SecondLevelWebViewActivity"/>
         <activity android:name=".playfun.SecondLevelViewPagerActivity"/>
 
-        <activity android:name=".hotspot.sec.HotspotSecActivity"/>
-
+        <activity android:name=".hotspot.sec.HotspotSecActivity"
+                  android:hardwareAccelerated="false"/>
 
         <activity android:name=".subscription.activity.TodayActivity"/>
         <activity android:name=".subscription.activity.NewsActivity"/>
@@ -43,5 +43,4 @@
        <activity android:name=".subscription.activity.AddActivity"/>
 
     </application>
-
 </manifest>

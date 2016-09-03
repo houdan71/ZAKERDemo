@@ -10,28 +10,25 @@ import android.content.SharedPreferences;
 public class SkinConfig {
 
 
+    public static SkinStyle getSkinStyle(Context context) {
 
 
-    public  static  SkinStyle getSkinStyle(Context context){
-
-
-        SharedPreferences sharedPreferences= context.getSharedPreferences("SkinStyle",
+        SharedPreferences sharedPreferences = context.getSharedPreferences("SkinStyle",
                 Activity.MODE_PRIVATE);
-         boolean nightMode=sharedPreferences.getBoolean("nightMode",false);
+        boolean nightMode = sharedPreferences.getBoolean("nightMode", false);
 
 
-        return nightMode?SkinStyle.Dark:SkinStyle.Light;
+        return nightMode ? SkinStyle.Dark : SkinStyle.Light;
     }
 
 
-    public  static  void setSkinStyle(Context context,SkinStyle skinStyle){
+    public static void setSkinStyle(Context context, SkinStyle skinStyle) {
 
 
-
-        SharedPreferences.Editor editor= context.getSharedPreferences("SkinStyle",
+        SharedPreferences.Editor editor = context.getSharedPreferences("SkinStyle",
                 Activity.MODE_PRIVATE).edit();
 
-                editor.putBoolean("nightMode",skinStyle== SkinStyle.Dark).apply();
+        editor.putBoolean("nightMode", skinStyle == SkinStyle.Dark).apply();
 
 
     }

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 /**
  * Created by dllo on 16/8/31.
  */
-public class HotspotSecViewPagerAdapter extends PagerAdapter {
+public class HotspotSecViewPagerAdapter extends PagerAdapter{
 
     private ArrayList<HotspotSecBean> mArrayList;
     private WebView mWebView;
@@ -95,11 +95,12 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter {
         });
 
         //添加加载的webUrl
-        Log.d("HotspotSecViewPagerAdap", "positionItem:" + positionItem);
         mWebView.loadUrl(mArrayList.get(position).getWebUrl());
 //        settings.setTextSize(WebSettings.TextSize.LARGEST);
-        Log.d("HotspotSecViewPagerAdap", "pro:" + pro);
+        mWebView.getSettings().setJavaScriptEnabled(true); //支持JS
 
+        Log.d("HotspotSecViewPagerAdap", "又走了一遍");
+        //判断是否有设置的状态
         SharedPreferences getSp = MyApp.getContext().getSharedPreferences(SP_TEXTSIZE, Context.MODE_PRIVATE);
         if (getSp.getBoolean(SP_KEY_TEXTSIZE_flag, false)) {
             int size = getSp.getInt(SP_KEY_TEXTSIZE_CURRENT, 0);
@@ -172,6 +173,7 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter {
                 break;
         }
 
+        //保存设置状态
         SharedPreferences sp = MyApp.getContext().getSharedPreferences(SP_TEXTSIZE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(SP_KEY_TEXTSIZE_CURRENT, progress);

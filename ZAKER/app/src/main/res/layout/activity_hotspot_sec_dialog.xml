@@ -14,8 +14,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/twentydp"
             android:text="夜间模式"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/twelve_sp"/>
+            android:textColor="@android:color/black"/>
 
         <Switch
             android:id="@+id/switch_night_module"
@@ -47,8 +46,7 @@
                 android:layout_marginLeft="@dimen/twentydp"
                 android:layout_marginTop="@dimen/twentydp"
                 android:text="字体大小"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/twelve_sp"/>
+                android:textColor="@android:color/black"/>
 
             <TextView
                 android:id="@+id/tv_text_size_num"
@@ -67,8 +65,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:padding="@dimen/twentydp"
-            android:progressDrawable="@android:color/holo_green_dark"
-            android:indeterminateDrawable="@android:color/holo_blue_dark"
+            android:indeterminateDrawable="@color/ColorTitle"
+            android:thumb="@drawable/seekbar_anim_snail"
             ></SeekBar>
 
     </LinearLayout>

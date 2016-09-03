@@ -36,17 +36,18 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
 
     private Intent mIntentBrocastPro;
     public static final String ACTION_PRO = "com.example.dllo.zaker.hotspot.sec.ACTION_PRO";
-
-    private HotspotSecViewPagerAdapter mViewPagerAdapter;
+    private ImageView mImageViewBack;
 
     @Override
     protected int getLayout() {
+        overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_out_anim);
         return R.layout.activity_hotspot_sec_main;
     }
 
     @Override
     protected void initView() {
         more = (ImageView) findViewById(R.id.second_include_img_set);
+        mImageViewBack = (ImageView) findViewById(R.id.second_include_img_back);
 
     }
 
@@ -76,6 +77,8 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
         more.setOnClickListener(this);
         mDialog = createDialog();
 
+        mImageViewBack.setOnClickListener(this);
+
     }
 
 
@@ -87,8 +90,11 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
 
                 WindowManager.LayoutParams params = mDialog.getWindow().getAttributes();
                 params.height = 900;
-                params.height = 600;
+                params.height = 450;
                 mDialog.getWindow().setAttributes(params);
+                break;
+            case R.id.second_include_img_back:
+                finish();
                 break;
         }
     }
@@ -133,4 +139,9 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
         return dialog;
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_out_anim);
+    }
 }

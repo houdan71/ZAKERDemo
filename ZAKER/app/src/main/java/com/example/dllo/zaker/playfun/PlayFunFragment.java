@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
+import com.example.dllo.zaker.main.MetaballView;
 import com.example.dllo.zaker.playfun.rotate.RotateAdapter;
 import com.example.dllo.zaker.playfun.viewpager.ViewPagerAdapter;
 import com.example.dllo.zaker.playfun.viewpager.ViewPagerAdapter.OnRecyclerItemClickListener;
@@ -31,12 +32,15 @@ public class PlayFunFragment extends BaseFragment {
     private RotateAdapter mRotateAdapter;
     private ViewPagerAdapter mViewPagerAdapter;
 
+    private MetaballView metaballView;
+
     /**
      * 轮播图的实现
      */
     private Handler mHandler;
     private boolean isFlag = true;
     private boolean flag = true;
+    private boolean isFirst = true;
 
     @Override
     protected int initLayout() {
@@ -46,12 +50,11 @@ public class PlayFunFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         mListView = (ListView) view.findViewById(R.id.fragment_playFun_listView);
-
+        metaballView = (MetaballView) view.findViewById(R.id.metaballView);
     }
 
     @Override
     protected void initData() {
-
         View rotateHead = getActivity().getLayoutInflater().inflate(R.layout.item_fragment_playfun_listview_rotate,null);
         View viewPagerHead = getActivity().getLayoutInflater().inflate(R.layout.item_fragment_playfun_listview_viewpager,null);
         playFunRV = (RecyclerView) viewPagerHead.findViewById(R.id.playFun_recyclerView_viewPager);
@@ -68,6 +71,9 @@ public class PlayFunFragment extends BaseFragment {
         NetTool.getInstance().startRequest(playUrl, PlayFunBean.class, new onHttpCallBack<PlayFunBean>() {
             @Override
             public void onSuccess(final PlayFunBean response) {
+                metaballView.setPaintMode(1);
+                metaballView.setVisibility(View.GONE);
+
                 mPlayFunFragmentAdapter.setPlayFunBean(response);
                 mListView.setAdapter(mPlayFunFragmentAdapter);
 
@@ -95,16 +101,25 @@ public class PlayFunFragment extends BaseFragment {
                         }
                     }
                 });
+
             }
             @Override
             public void onError(Throwable e) {
-
             }
         });
-
         shuffling();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isFirst) {
+            isFirst = false;
+            return;
+        }else {
+            metaballView.setVisibility(View.GONE);
+        }
+    }
 
 
     //实现轮播效果
@@ -137,6 +152,7 @@ public class PlayFunFragment extends BaseFragment {
             isFlag = false;
         }
     }
+
 
 
 

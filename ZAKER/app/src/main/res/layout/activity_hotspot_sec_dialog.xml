@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/twentydp"
+            android:text="夜间模式"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/twelve_sp"/>
+
+        <Switch
+            android:id="@+id/switch_night_module"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/twentydp"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e1e1e1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/tv_text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/twentydp"
+                android:layout_marginTop="@dimen/twentydp"
+                android:text="字体大小"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/twelve_sp"/>
+
+            <TextView
+                android:id="@+id/tv_text_size_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_text_size"
+                android:layout_marginLeft="@dimen/forty_dp"
+                android:text="32"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+
+        <SeekBar
+            android:id="@+id/seekbar_text_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:padding="@dimen/twentydp"
+            android:progressDrawable="@android:color/holo_green_dark"
+            android:indeterminateDrawable="@android:color/holo_blue_dark"
+            ></SeekBar>
+
+    </LinearLayout>
+</LinearLayout>

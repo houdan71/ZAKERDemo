@@ -1,11 +1,16 @@
 package com.example.dllo.zaker.hotspot.sec;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 
 import com.example.dllo.zaker.R;
+import com.example.dllo.zaker.app.MyApp;
 import com.example.dllo.zaker.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -31,19 +36,24 @@ public class HotspotSecWebFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
+        register();
         mAdapter = new HotspotSecViewPagerAdapter();
 
         Bundle bundle = getArguments();
-        ArrayList<HotspotSecBean> beanArrayList = bundle.getParcelableArrayList(HotspotSecActivity.KEY_webUrll);
-        int positionItem = bundle.getInt(HotspotSecActivity.KEY_postionItemm);
+        final ArrayList<HotspotSecBean> beanArrayList = bundle.getParcelableArrayList(HotspotSecActivity.KEY_webUrll);
+        final int positionItem = bundle.getInt(HotspotSecActivity.KEY_postionItemm);
         Log.d("HotspotSecWebFragment", "positionItem:" + positionItem);
         for (int i = 0; i < beanArrayList.size(); i++) {
             Log.d("HotspotSecWebFragment", beanArrayList.get(i).getWebUrl());
         }
 
+//        int progress= bundle.getInt(HotspotSecActivity.KEY_seekPro);
+//
+//        mAdapter.setPro(progress);
         mAdapter.setArrayList(beanArrayList, positionItem);
         mViewPager.setAdapter(mAdapter);
+
+        mViewPager.setCurrentItem(positionItem);
 
 
         //加载底部评论
@@ -61,5 +71,34 @@ public class HotspotSecWebFragment extends BaseFragment {
 //            }
 //        });
 
+
+
+    }
+
+    private BroadcastReceiver proReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            switch (action){
+                case HotspotSecActivity.ACTION_PRO:
+                    int pro = intent.getIntExtra(HotspotSecActivity.KEY_seekPro,0);
+                    Log.d("HotspotSecWebFragment", "pro:" + pro);
+                    mAdapter.setPro(pro);
+                    mAdapter.notifyDataSetChanged();
+                    break;
+            }
+        }
+    };
+
+    private void register(){
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(HotspotSecActivity.ACTION_PRO);
+        MyApp.getContext().registerReceiver(proReceiver,intentFilter);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        MyApp.getContext().unregisterReceiver(proReceiver);
     }
 }

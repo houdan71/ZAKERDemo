@@ -1,0 +1,26 @@
+package com.example.dllo.zaker.subscription.fragment;
+
+import android.view.View;
+
+import com.example.dllo.zaker.R;
+import com.example.dllo.zaker.base.BaseFragment;
+
+/**
+ * Created by dllo on 16/9/1.
+ */
+public class FilmNewsFragment extends BaseFragment {
+    @Override
+    protected int initLayout() {
+        return R.layout.frag_filmnews;
+    }
+
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+}

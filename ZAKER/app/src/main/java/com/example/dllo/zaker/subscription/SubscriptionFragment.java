@@ -1,12 +1,14 @@
 package com.example.dllo.zaker.subscription;
 
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
 import android.view.MotionEvent;
@@ -18,6 +20,23 @@ import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
+import com.example.dllo.zaker.subscription.GridAdapter.OnRecyclerItemClickListener;
+import com.example.dllo.zaker.subscription.activity.AddActivity;
+import com.example.dllo.zaker.subscription.activity.BeautifulActivity;
+import com.example.dllo.zaker.subscription.activity.CarActivity;
+import com.example.dllo.zaker.subscription.activity.FashionActivity;
+import com.example.dllo.zaker.subscription.activity.FoodActivity;
+import com.example.dllo.zaker.subscription.activity.InvestActivity;
+import com.example.dllo.zaker.subscription.activity.LuxutyActivity;
+import com.example.dllo.zaker.subscription.activity.MoneyActivity;
+import com.example.dllo.zaker.subscription.activity.MovieActivity;
+import com.example.dllo.zaker.subscription.activity.NewsActivity;
+import com.example.dllo.zaker.subscription.activity.OlympicActivity;
+import com.example.dllo.zaker.subscription.activity.RelaxActivity;
+import com.example.dllo.zaker.subscription.activity.SportsActivity;
+import com.example.dllo.zaker.subscription.activity.TechnologyActivity;
+import com.example.dllo.zaker.subscription.activity.TodayActivity;
+import com.example.dllo.zaker.subscription.activity.TripActivity;
 
 /**
  * Created by dllo on 16/8/29.
@@ -72,6 +91,78 @@ public class SubscriptionFragment extends BaseFragment {
                 recyclerView.addItemDecoration(new MyItemDecoration());
 
                 recyclerView.setAdapter(gridAdapter);
+                gridAdapter.setOnRecyclerItemClickListener(new OnRecyclerItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, ViewHolder holder, int position) {
+                        switch (position){
+                            case 0:
+                                Intent intent1 =new Intent(mContext,TodayActivity.class);
+                                startActivity(intent1);
+                                break;
+                            case 1:
+                                Intent intent2 =new Intent(mContext,NewsActivity.class);
+                                startActivity(intent2);
+                                break;
+                            case 2:
+                                Intent intent3 =new Intent(mContext,CarActivity.class);
+                                startActivity(intent3);
+                                break;
+                            case 3:
+                                Intent intent4 =new Intent(mContext,TechnologyActivity.class);
+                                startActivity(intent4);
+                                break;
+                            case 4:
+                                Intent intent5 =new Intent(mContext,LuxutyActivity.class);
+                                startActivity(intent5);
+                                break;
+                            case 5:
+                                Intent intent6 =new Intent(mContext,TripActivity.class);
+                                startActivity(intent6);
+                                break;
+                            case 6:
+                                Intent intent7 =new Intent(mContext,MoneyActivity.class);
+                                startActivity(intent7);
+                                break;
+                            case 7:
+                                Intent intent8 =new Intent(mContext,SportsActivity.class);
+                                startActivity(intent8);
+                                break;
+                            case 8:
+                                Intent intent9 =new Intent(mContext,RelaxActivity.class);
+                                startActivity(intent9);
+                                break;
+                            case 9:
+                                Intent intent10 =new Intent(mContext,FashionActivity.class);
+                                startActivity(intent10);
+                                break;
+                            case 10:
+                                Intent intent11 =new Intent(mContext,InvestActivity.class);
+                                startActivity(intent11);
+                                break;
+                            case 11:
+                                Intent intent12 =new Intent(mContext,MovieActivity.class);
+                                startActivity(intent12);
+                                break;
+                            case 12:
+                                Intent intent13 =new Intent(mContext,FoodActivity.class);
+                                startActivity(intent13);
+                                break;
+                            case 13:
+                                Intent intent14 =new Intent(mContext,BeautifulActivity.class);
+                                startActivity(intent14);
+                                break;
+                            case 14:
+                                Intent intent15 =new Intent(mContext,OlympicActivity.class);
+                                startActivity(intent15);
+                                break;
+                            case 15:
+                                Intent intent16 =new Intent(mContext,AddActivity.class);
+                                startActivity(intent16);
+                                break;
+                        }
+
+                    }
+                });
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 Callback callback = createCallback();
                 mHelper = new ItemTouchHelper(callback);

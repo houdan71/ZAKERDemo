@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.dllo.zaker">
+
     <uses-permission android:name="android.permission.INTERNET"/>
-
-
 
     <application
         android:name=".app.MyApp"
@@ -27,6 +26,22 @@
         <activity android:name=".hotspot.sec.HotspotSecActivity"
                   android:hardwareAccelerated="false"/>
 
-    </application>
+        <activity android:name=".subscription.activity.TodayActivity"/>
+        <activity android:name=".subscription.activity.NewsActivity"/>
+        <activity android:name=".subscription.activity.CarActivity"/>
+        <activity android:name=".subscription.activity.TechnologyActivity"/>
+        <activity android:name=".subscription.activity.LuxutyActivity"/>
+        <activity android:name=".subscription.activity.TripActivity"/>
+        <activity android:name=".subscription.activity.MoneyActivity"/>
+        <activity android:name=".subscription.activity.SportsActivity"/>
+        <activity android:name=".subscription.activity.RelaxActivity"/>
+        <activity android:name=".subscription.activity.FashionActivity"/>
+        <activity android:name=".subscription.activity.InvestActivity"/>
+        <activity android:name=".subscription.activity.MovieActivity"/>
+        <activity android:name=".subscription.activity.FoodActivity"/>
+        <activity android:name=".subscription.activity.BeautifulActivity"/>
+        <activity android:name=".subscription.activity.OlympicActivity"/>
+       <activity android:name=".subscription.activity.AddActivity"/>
 
+    </application>
 </manifest>

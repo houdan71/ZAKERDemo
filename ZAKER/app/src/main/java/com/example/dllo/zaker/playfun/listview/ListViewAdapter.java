@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.playfun.PlayFunBean;
-import com.squareup.picasso.Picasso;
 
 /**
  * Created by dllo on 16/8/30.
@@ -62,8 +62,8 @@ public class ListViewAdapter extends BaseAdapter {
         }
         listViewHolder.titleTV.setText(mPlayFunBean.getData().getColumns().get(prePosition).getItems().get(position).getTitle());
         listViewHolder.contentTV.setText(mPlayFunBean.getData().getColumns().get(prePosition).getItems().get(position).getContent());
-        Picasso.with(mContext).load(mPlayFunBean.getData().getColumns().get(prePosition).getItems().get(position).getPic().getUrl())
-                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
+        Glide.with(mContext).load(mPlayFunBean.getData().getColumns().get(prePosition).getItems().get(position).getPic().getUrl())
+                .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).thumbnail(0.5f)
                 .into(listViewHolder.backgroundIV);
         return convertView;
     }

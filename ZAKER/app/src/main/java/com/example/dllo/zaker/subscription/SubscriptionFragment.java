@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
+import com.example.dllo.zaker.main.MetaballView;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.GridAdapter.OnRecyclerItemClickListener;
@@ -56,6 +57,7 @@ public class SubscriptionFragment extends BaseFragment {
     private boolean flag = true;
     private boolean userTouch = false;
 
+    private MetaballView mMetaballView;
 
     private Bean_subscription bean_subscription;
 
@@ -72,6 +74,9 @@ public class SubscriptionFragment extends BaseFragment {
         view_pager = (ViewPager) view.findViewById(R.id.view_pager);
         linearLayout = (LinearLayout) view.findViewById(R.id.linear_lb);
         recyclerView = (ScrollViewAndRecyclerView) view.findViewById(R.id.recycle_view);
+        mMetaballView = (MetaballView) view.findViewById(R.id.fragment_subscription_metaballView);
+        mMetaballView.setPaintMode(1);
+
     }
 
     @Override
@@ -82,6 +87,7 @@ public class SubscriptionFragment extends BaseFragment {
         NetTool.getInstance().startRequest(url, Bean_subscription.class, new onHttpCallBack<Bean_subscription>() {
             @Override
             public void onSuccess(Bean_subscription response) {
+                mMetaballView.setVisibility(View.GONE);
                 bean_subscription = response;
                 subAdapter = new SubAdapter(mContext);
                 subAdapter.setBean_subscription(bean_subscription);

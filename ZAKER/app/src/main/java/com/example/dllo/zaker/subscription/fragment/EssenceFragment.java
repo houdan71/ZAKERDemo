@@ -1,6 +1,5 @@
 package com.example.dllo.zaker.subscription.fragment;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -9,9 +8,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
+import com.example.dllo.zaker.main.MetaballView;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
-import com.example.dllo.zaker.subscription.adapter.AddAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_essence;
 import com.example.dllo.zaker.subscription.fragment_adapter.EssenceAdapter;
 
@@ -23,6 +22,8 @@ public class EssenceFragment extends BaseFragment {
     private TextView text_add;
     private ListView list_add;
     private EssenceAdapter essenceAdapter;
+    private MetaballView mMetaballView;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_essence;
@@ -35,6 +36,9 @@ public class EssenceFragment extends BaseFragment {
         image_right= (ImageView) view.findViewById(R.id.image_right);
         text_add = (TextView) view.findViewById(R.id.text_add);
         list_add= (ListView) view.findViewById(R.id.list_add);
+        mMetaballView = (MetaballView) view.findViewById(R.id.fragment_essence_metaballView);
+        mMetaballView.setPaintMode(1);
+
     }
 
     @Override
@@ -44,6 +48,7 @@ public class EssenceFragment extends BaseFragment {
         NetTool.getInstance().startRequest(url, Bean_essence.class, new onHttpCallBack<Bean_essence>() {
             @Override
             public void onSuccess(Bean_essence response) {
+                mMetaballView.setVisibility(View.GONE);
                 essenceAdapter =new EssenceAdapter(getContext());
                 Glide.with(getActivity()).load(response.getData().getHead().getImg()).into(image_add);
 

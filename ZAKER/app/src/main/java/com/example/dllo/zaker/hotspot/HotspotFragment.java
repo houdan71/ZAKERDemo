@@ -16,6 +16,7 @@ import com.example.dllo.zaker.hotspot.ListViewRefresh.UltraRefreshListView;
 import com.example.dllo.zaker.hotspot.ListViewRefresh.UltraRefreshListener;
 import com.example.dllo.zaker.hotspot.sec.HotspotSecActivity;
 import com.example.dllo.zaker.hotspot.sec.HotspotSecBean;
+import com.example.dllo.zaker.main.MetaballView;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.tools.NValues;
@@ -37,6 +38,7 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
     //    private ArrayList<HotspotBean> mBeanArrayList;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<HotspotSecBean> mHotspotSecBeanArrayList;
+    private MetaballView mMetaballView;
 
     public static final String KEY_webUrl = "webUrl";
     public static final String KEY_postionItem = "postionItem";
@@ -50,10 +52,14 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
     protected void initView(View view) {
         mPtrFrame = (PtrClassicFrameLayout) getView().findViewById(R.id.ultra_ptr_hotspot);
         mLv = (UltraRefreshListView) getView().findViewById(R.id.ultra_hotspot);
+        mMetaballView = (MetaballView) view.findViewById(R.id.fragment_hotspot_metaballView);
+        mMetaballView.setPaintMode(1);
+
     }
 
     @Override
     protected void initData() {
+
         mHotspotAdapter = new HotspotAdapter();
 //        mBeanArrayList = new ArrayList<>();
         mHotspotSecBeanArrayList = new ArrayList<>();
@@ -69,6 +75,7 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
         NetTool.getInstance().startRequest(NValues.URL_HOTSPOT, HotspotBean.class, new onHttpCallBack<HotspotBean>() {
             @Override
             public void onSuccess(final HotspotBean response) {
+                mMetaballView.setVisibility(View.GONE);
                 if (response.getData().getArticles().size() == 0) {
                     Toast.makeText(mContext, response.getData().getTip_msg(), Toast.LENGTH_SHORT).show();
                     return;

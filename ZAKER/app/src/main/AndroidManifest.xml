@@ -24,6 +24,7 @@
 
         <activity android:name=".hotspot.sec.HotspotSecActivity"
                   android:hardwareAccelerated="false"/>
+        <activity android:name=".login.LoginActivity"/>
 
         <activity android:name=".subscription.activity.TodayActivity"/>
         <activity android:name=".subscription.activity.NewsActivity"/>

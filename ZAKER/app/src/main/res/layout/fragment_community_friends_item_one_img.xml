@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/iv_community_friends_item_one_img_head"
+        android:layout_width="@dimen/forty_dp"
+        android:layout_height="@dimen/forty_dp"
+        android:layout_marginLeft="@dimen/tendp"
+        android:layout_marginTop="@dimen/tendp"
+        android:src="@mipmap/defaule"/>
+
+    <TextView
+        android:id="@+id/tv_community_friends_item_one_img_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tendp"
+        android:layout_marginTop="@dimen/tendp"
+        android:layout_toRightOf="@id/iv_community_friends_item_one_img_head"
+        android:text="name"
+        android:textColor="@android:color/holo_blue_light"
+
+        />
+
+    <ImageView
+        android:id="@+id/iv_community_friends_item_one_img_tag"
+        android:layout_width="@dimen/fifteen_five_dp"
+        android:layout_height="@dimen/fifteen_five_dp"
+        android:layout_alignTop="@id/tv_community_friends_item_one_img_name"
+        android:layout_marginLeft="@dimen/five_dp"
+        android:layout_toRightOf="@id/tv_community_friends_item_one_img_name"
+        />
+
+    <TextView
+        android:id="@+id/tv_community_friends_item_one_img_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_community_friends_item_one_img_name"
+        android:layout_below="@id/tv_community_friends_item_one_img_name"
+        android:text="time"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/tv_community_friends_item_one_img_declare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_community_friends_item_one_img_time"
+        android:layout_marginLeft="@dimen/tendp"
+        android:layout_toRightOf="@id/tv_community_friends_item_one_img_time"
+        android:text="declare"
+        android:textSize="10sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_community_friends_item_one_img_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/iv_community_friends_item_one_img_head"
+        android:layout_below="@id/iv_community_friends_item_one_img_head"
+        android:layout_marginRight="@dimen/tendp"
+        android:layout_marginTop="@dimen/fifteen_five_dp"
+        android:text="content"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/thirdteen_sp"/>
+
+    <ImageView
+        android:id="@+id/iv_community_friends_item_one_img_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_community_friends_item_one_img_content"
+        android:layout_marginLeft="@dimen/tendp"
+        android:layout_marginRight="@dimen/tendp"
+        android:layout_marginTop="@dimen/fifteen_five_dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/defaule"
+        />
+
+    <TextView
+        android:id="@+id/tv_community_friends_item_one_img_zan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_community_friends_item_one_img_content"
+        android:layout_marginLeft="@dimen/tendp"
+        android:layout_marginTop="@dimen/tendp"
+        android:text="zan"
+        android:textSize="@dimen/twelve_sp"/>
+
+    <FrameLayout
+        android:id="@+id/frame_community_friends_item_one_img_focus"
+        android:layout_width="@dimen/fifty_dp"
+        android:layout_height="@dimen/forty_dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/tv_community_friends_item_one_img_name"
+        android:layout_marginRight="@dimen/tendp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/comment_like_bg_night"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/fifteen_five_dp"
+                android:layout_height="@dimen/fifteen_five_dp"
+                android:layout_marginLeft="@dimen/five_dp"
+                android:src="@mipmap/ic_box_subscribed_night"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/five_dp"
+                android:text="@string/fouse"
+                android:textSize="@dimen/twelve_sp"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_community_friends_item_one_img_good"
+        android:layout_width="@dimen/thirty_dp"
+        android:layout_height="@dimen/thirty_dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/iv_community_friends_item_one_img_content"
+        android:layout_marginRight="@dimen/twentydp"
+        android:layout_marginTop="@dimen/five_dp"
+        android:src="@drawable/community_item_good_select"/>
+
+    <ImageView
+        android:id="@+id/iv_community_friends_item_one_img_msg"
+        android:layout_width="@dimen/thirty_dp"
+        android:layout_height="@dimen/thirty_dp"
+        android:layout_below="@id/iv_community_friends_item_one_img_content"
+        android:layout_marginRight="@dimen/twentydp"
+        android:layout_marginTop="@dimen/five_dp"
+        android:layout_toLeftOf="@id/iv_community_friends_item_one_img_good"
+        android:src="@drawable/community_item_msg_select"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/five_dp"
+        android:layout_below="@id/iv_community_friends_item_one_img_msg"
+        android:layout_marginTop="@dimen/fifteen_five_dp"
+        android:background="@color/gray_background"></LinearLayout>
+
+</RelativeLayout>

@@ -11,7 +11,6 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_out_anim);
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
         initView();
@@ -25,9 +24,5 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     protected abstract void initData();
 
-    @Override
-    public void finish() {
-        super.finish();
-//        overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_out_anim);
-    }
+
 }

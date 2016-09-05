@@ -28,11 +28,11 @@ public class CustomUltraRefreshHeader extends RelativeLayout implements PtrUIHan
     private ObjectAnimator anim;
 
     public CustomUltraRefreshHeader(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public CustomUltraRefreshHeader(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public CustomUltraRefreshHeader(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -44,7 +44,7 @@ public class CustomUltraRefreshHeader extends RelativeLayout implements PtrUIHan
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(widthMeasureSpec,100);
+        setMeasuredDimension(widthMeasureSpec, 100);
     }
 
     /**
@@ -56,16 +56,16 @@ public class CustomUltraRefreshHeader extends RelativeLayout implements PtrUIHan
 
         mCircleView = new CircleView(getContext());
 
-        LinearLayout.LayoutParams circleParams = new LinearLayout.LayoutParams(circlewidth,circlewidth);
+        LinearLayout.LayoutParams circleParams = new LinearLayout.LayoutParams(circlewidth, circlewidth);
 
         mCircleView.setLayoutParams(circleParams);
 
         mDescText = new TextView(getContext());
 
-        LinearLayout.LayoutParams descParams = new LinearLayout.LayoutParams(circlewidth*3, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams descParams = new LinearLayout.LayoutParams(circlewidth * 3, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         descParams.gravity = Gravity.CENTER;
-        descParams.setMargins(circlewidth/2,0,0,0);
+        descParams.setMargins(circlewidth / 2, 0, 0, 0);
         mDescText.setLayoutParams(descParams);
         mDescText.setTextSize(12);
         mDescText.setTextColor(Color.GRAY);
@@ -76,7 +76,7 @@ public class CustomUltraRefreshHeader extends RelativeLayout implements PtrUIHan
         LayoutParams llParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         llParams.addRule(CENTER_IN_PARENT);
         ll.setLayoutParams(llParams);
-        ll.setPadding(10,10,10,10);
+        ll.setPadding(10, 10, 10, 10);
 
         ll.addView(mCircleView);
         ll.addView(mDescText);
@@ -88,34 +88,34 @@ public class CustomUltraRefreshHeader extends RelativeLayout implements PtrUIHan
     public void onUIReset(PtrFrameLayout frame) {
         //重置时，将动画置为初始状态
         mCircleView.setRotation(0f);
-        Log.i("info","onUIReset");
+        Log.i("info", "onUIReset");
     }
 
     @Override
     public void onUIRefreshPrepare(PtrFrameLayout frame) {
         mDescText.setText("下拉加载数据");
-        Log.i("info","onUIRefreshPrepare");
+        Log.i("info", "onUIRefreshPrepare");
     }
 
     @Override
     public void onUIRefreshBegin(PtrFrameLayout frame) {
 
         //开始刷新，启动动画
-        anim = ObjectAnimator.ofFloat(mCircleView, "rotation", mCircleView.getRotation(), mCircleView.getRotation()+360f)
+        anim = ObjectAnimator.ofFloat(mCircleView, "rotation", mCircleView.getRotation(), mCircleView.getRotation() + 360f)
                 .setDuration(500);
         anim.setRepeatCount(ValueAnimator.INFINITE);
         anim.setRepeatMode(ValueAnimator.RESTART);
         anim.start();
 
         mDescText.setText("正在加载数据");
-        Log.i("info","onUIRefreshBegin");
+        Log.i("info", "onUIRefreshBegin");
     }
 
     @Override
     public void onUIRefreshComplete(PtrFrameLayout frame) {
         anim.cancel();
         mDescText.setText("加载完成");
-        Log.i("info","onUIRefreshComplete");
+        Log.i("info", "onUIRefreshComplete");
     }
 
     @Override
@@ -126,13 +126,13 @@ public class CustomUltraRefreshHeader extends RelativeLayout implements PtrUIHan
         float offsetY = ptrIndicator.getOffsetY();//当前与上一次滑动处理的偏移值
         int currentPosY = ptrIndicator.getCurrentPosY();//当前系统偏移值
 
-        if (isUnderTouch&&status== PtrFrameLayout.PTR_STATUS_PREPARE) {
+        if (isUnderTouch && status == PtrFrameLayout.PTR_STATUS_PREPARE) {
 
             mCircleView.setRotation(currentPosY);
-            if(currentPosY<offsetToRefresh&&lastPosY >= offsetToRefresh){
+            if (currentPosY < offsetToRefresh && lastPosY >= offsetToRefresh) {
                 //表示不刷新了
                 mDescText.setText("下拉加载数据");
-            }else if(currentPosY>offsetToRefresh&&lastPosY<=offsetToRefresh){
+            } else if (currentPosY > offsetToRefresh && lastPosY <= offsetToRefresh) {
                 mDescText.setText("松开加载更多");
             }
         }

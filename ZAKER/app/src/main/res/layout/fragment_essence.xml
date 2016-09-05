@@ -4,6 +4,11 @@
                 android:layout_width="match_parent"
                 android:padding="@dimen/five_dp"
                 android:layout_height="match_parent">
+    <com.example.dllo.zaker.main.MetaballView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_essence_metaballView"
+        android:layout_centerInParent="true"/>
     <ImageView
         android:id="@+id/image_add"
         android:layout_width="match_parent"
@@ -42,5 +47,7 @@
         android:layout_below="@id/text_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+
 
 </RelativeLayout>

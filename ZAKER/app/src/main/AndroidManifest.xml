@@ -3,8 +3,6 @@
           package="com.example.dllo.zaker">
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
     <application
         android:name=".app.MyApp"
         android:allowBackup="true"
@@ -24,7 +22,9 @@
         <activity android:name=".playfun.SecondLevelWebViewActivity"/>
         <activity android:name=".playfun.SecondLevelViewPagerActivity"/>
 
-        <activity android:name=".hotspot.sec.HotspotSecActivity"/>
+        <activity android:name=".hotspot.sec.HotspotSecActivity"
+                  android:hardwareAccelerated="false"/>
+        <activity android:name=".login.LoginActivity"/>
 
         <activity android:name=".subscription.activity.TodayActivity"/>
         <activity android:name=".subscription.activity.NewsActivity"/>
@@ -42,7 +42,10 @@
         <activity android:name=".subscription.activity.BeautifulActivity"/>
         <activity android:name=".subscription.activity.OlympicActivity"/>
        <activity android:name=".subscription.activity.AddActivity"/>
+
         <activity android:name=".welcome.WelcomeActivity"/>
     </application>
+
+
 
 </manifest>

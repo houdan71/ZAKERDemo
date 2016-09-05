@@ -5,9 +5,9 @@ import android.widget.ListView;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
+import com.example.dllo.zaker.main.MetaballView;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
-import com.example.dllo.zaker.subscription.adapter.FoodAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_food;
 import com.example.dllo.zaker.subscription.fragment_adapter.FoodMovieAdapter;
 
@@ -17,6 +17,8 @@ import com.example.dllo.zaker.subscription.fragment_adapter.FoodMovieAdapter;
 public class FoodFragment extends BaseFragment {
     private ListView  listView;
     private FoodMovieAdapter  foodMovieAdapter;
+    private MetaballView mMetaballView;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_choice;
@@ -24,7 +26,14 @@ public class FoodFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
+<<<<<<< HEAD:ZAKER/app/src/main/java/com/example/dllo/zaker/subscription/food_fragment/FoodFragment.java
        listView = (ListView) getView().findViewById(R.id.list_choice);
+=======
+       listView = (ListView) getView().findViewById(R.id.list_food);
+        mMetaballView = (MetaballView) view.findViewById(R.id.fragment_food_metaballView);
+        mMetaballView.setPaintMode(1);
+
+>>>>>>> 56904cd901b952c10a18eef403158cedb102ef01:ZAKER/app/src/main/java/com/example/dllo/zaker/subscription/fragment/FoodFragment.java
     }
 
     @Override
@@ -34,6 +43,7 @@ public class FoodFragment extends BaseFragment {
         NetTool.getInstance().startRequest(url, Bean_food.class, new onHttpCallBack<Bean_food>() {
             @Override
             public void onSuccess(Bean_food response) {
+                mMetaballView.setVisibility(View.GONE);
                 foodMovieAdapter.setBean_food(response);
                 listView.setAdapter(foodMovieAdapter);
 

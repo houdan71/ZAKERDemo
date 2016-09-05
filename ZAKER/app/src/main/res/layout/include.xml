@@ -5,15 +5,20 @@
                 android:background="@color/ColorTitle"
                 android:orientation="vertical">
 
-    <TextView
+    <com.example.dllo.zaker.tools.TitanicTextView
         android:id="@+id/include_textView_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/tendp"
         android:text="@string/subscriptiop"
+<<<<<<< HEAD
         android:textColor="@android:color/white"
         android:textSize="@dimen/twenty_dp"/>
+=======
+        android:textColor="#212121"
+        android:textSize="@dimen/twentydp"/>
+>>>>>>> 56904cd901b952c10a18eef403158cedb102ef01
 
     <ImageView
         android:id="@+id/include_img_personal"

@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD:ZAKER/app/src/main/res/layout/fragment_market.xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <WebView
         android:id="@+id/web_view"
+=======
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical">
+
+    <com.example.dllo.zaker.main.MetaballView
+        android:id="@+id/fragment_food_metaballView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
+
+    <ListView
+        android:id="@+id/list_food"
+>>>>>>> 56904cd901b952c10a18eef403158cedb102ef01:ZAKER/app/src/main/res/layout/fragment_food.xml
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-</LinearLayout>
+
+</FrameLayout>

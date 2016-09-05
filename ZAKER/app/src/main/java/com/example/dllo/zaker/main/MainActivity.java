@@ -16,12 +16,16 @@ import com.example.dllo.zaker.community.CommunityFragment;
 import com.example.dllo.zaker.hotspot.HotspotFragment;
 import com.example.dllo.zaker.playfun.PlayFunFragment;
 import com.example.dllo.zaker.subscription.SubscriptionFragment;
+import com.example.dllo.zaker.tools.Titanic;
+import com.example.dllo.zaker.tools.TitanicTextView;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
 
     private RadioButton subscriptionRB,hotspotRB,playFunRB,communityRB;
     private ImageView tagSubscriptionIV,tagHotspotIV,tagPlayFunIV;
-    private TextView titleTV,tagTV;
+    private TextView tagTV;
+    private TitanicTextView titleTV;
+    private Titanic mTitanic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +43,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         tagSubscriptionIV = (ImageView) findViewById(R.id.include_img_tag_subscription);
         tagHotspotIV = (ImageView) findViewById(R.id.include_img_tag_hotspot);
         tagPlayFunIV = (ImageView) findViewById(R.id.include_img_tag_playFun);
-        titleTV = (TextView) findViewById(R.id.include_textView_title);
+        titleTV = (TitanicTextView) findViewById(R.id.include_textView_title);
         tagTV = (TextView) findViewById(R.id.include_textView_tag);
     }
 
     private void initData() {
+        mTitanic = new Titanic();
+        mTitanic.start(titleTV);
         subscriptionRB.setOnClickListener(this);
         hotspotRB.setOnClickListener(this);
         playFunRB.setOnClickListener(this);

@@ -16,6 +16,7 @@ import com.example.dllo.zaker.hotspot.ListViewRefresh.UltraRefreshListView;
 import com.example.dllo.zaker.hotspot.ListViewRefresh.UltraRefreshListener;
 import com.example.dllo.zaker.hotspot.sec.HotspotSecActivity;
 import com.example.dllo.zaker.hotspot.sec.HotspotSecBean;
+import com.example.dllo.zaker.main.MetaballView;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.tools.NValues;
@@ -34,9 +35,10 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
     private UltraRefreshListView mLv;
     private HotspotAdapter mHotspotAdapter;
     private HotspotBean mHotspotBean;
-//    private ArrayList<HotspotBean> mBeanArrayList;
+    //    private ArrayList<HotspotBean> mBeanArrayList;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<HotspotSecBean> mHotspotSecBeanArrayList;
+    private MetaballView mMetaballView;
 
     public static final String KEY_webUrl = "webUrl";
     public static final String KEY_postionItem = "postionItem";
@@ -50,10 +52,14 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
     protected void initView(View view) {
         mPtrFrame = (PtrClassicFrameLayout) getView().findViewById(R.id.ultra_ptr_hotspot);
         mLv = (UltraRefreshListView) getView().findViewById(R.id.ultra_hotspot);
+        mMetaballView = (MetaballView) view.findViewById(R.id.fragment_hotspot_metaballView);
+        mMetaballView.setPaintMode(1);
+
     }
 
     @Override
     protected void initData() {
+
         mHotspotAdapter = new HotspotAdapter();
 //        mBeanArrayList = new ArrayList<>();
         mHotspotSecBeanArrayList = new ArrayList<>();
@@ -69,6 +75,7 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
         NetTool.getInstance().startRequest(NValues.URL_HOTSPOT, HotspotBean.class, new onHttpCallBack<HotspotBean>() {
             @Override
             public void onSuccess(final HotspotBean response) {
+                mMetaballView.setVisibility(View.GONE);
                 if (response.getData().getArticles().size() == 0) {
                     Toast.makeText(mContext, response.getData().getTip_msg(), Toast.LENGTH_SHORT).show();
                     return;
@@ -93,69 +100,76 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
         });
 
         mLv.setOnItemClickListener(this);
-
     }
 
 
     @Override
     public void onRefresh() {
+        mPtrFrame.postDelayed(new Runnable() {
+            @Override
+            public void run() {
 //                datas.clear();
-        NetTool.getInstance().startRequest(NValues.URL_HOTSPOT, HotspotBean.class, new onHttpCallBack<HotspotBean>() {
-            @Override
-            public void onSuccess(final HotspotBean response) {
-                if (response.getData().getArticles().size() == 0) {
-                    Toast.makeText(mContext, response.getData().getTip_msg(), Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
+                NetTool.getInstance().startRequest(NValues.URL_HOTSPOT, HotspotBean.class, new onHttpCallBack<HotspotBean>() {
+                    @Override
+                    public void onSuccess(final HotspotBean response) {
+                        if (response.getData().getArticles().size() == 0) {
+                            Toast.makeText(mContext, response.getData().getTip_msg(), Toast.LENGTH_SHORT).show();
+                            return;
+                        } else {
 //                    Log.d("HotspotFragment", "mBeanArrayList.size():" + mBeanArrayList.size());
-                    mHotspotAdapter.addData(response);
-                    mLv.setAdapter(mHotspotAdapter);
-                    //设置数据刷新回调接口
-                    mLv.setUltraRefreshListener(HotspotFragment.this);
-                    //刷新完成
-                    mLv.refreshComplete();
-                    mHotspotAdapter.notifyDataSetChanged();
-                }
+                            mHotspotAdapter.addData(response);
+                            mLv.setAdapter(mHotspotAdapter);
+                            //设置数据刷新回调接口
+                            mLv.setUltraRefreshListener(HotspotFragment.this);
+                            //刷新完成
+                            mLv.refreshComplete();
+                            mHotspotAdapter.notifyDataSetChanged();
+                        }
 
-                //向webView页面传递数据
-                postToWebView(response);
+                        //向webView页面传递数据
+                        postToWebView(response);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+                });
             }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-        });
+        }, 1000);
     }
 
     @Override
     public void addMore() {
-        NetTool.getInstance().startRequest(NValues.URL_HOTSPOT, HotspotBean.class, new onHttpCallBack<HotspotBean>() {
+        mPtrFrame.postDelayed(new Runnable() {
             @Override
-            public void onSuccess(final HotspotBean response) {
-                if (response.getData().getArticles().size() == 0) {
-                    Toast.makeText(mContext, response.getData().getTip_msg(), Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
+            public void run() {
+                NetTool.getInstance().startRequest(NValues.URL_HOTSPOT, HotspotBean.class, new onHttpCallBack<HotspotBean>() {
+                    @Override
+                    public void onSuccess(final HotspotBean response) {
+                        if (response.getData().getArticles().size() == 0) {
+                            Toast.makeText(mContext, response.getData().getTip_msg(), Toast.LENGTH_SHORT).show();
+                            return;
+                        } else {
 //                    mBeanArrayList.add(response);
-                    mHotspotAdapter.addData(response);
-                    //设置数据刷新回调接口
-                    mLv.setUltraRefreshListener(HotspotFragment.this);
-                     //刷新完成
-                    mLv.refreshComplete();
-                    mHotspotAdapter.notifyDataSetChanged();
-                }
+                            mHotspotAdapter.addData(response);
+                            //设置数据刷新回调接口
+                            mLv.setUltraRefreshListener(HotspotFragment.this);
+                            //刷新完成
+                            mLv.refreshComplete();
+                            mHotspotAdapter.notifyDataSetChanged();
+                        }
+                        //向webView页面传递数据
+                        postToWebView(response);
+                    }
 
-                //向webView页面传递数据
-                postToWebView(response);
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
 
             }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-        });
+        }, 1000);
     }
 
     @Override
@@ -180,8 +194,6 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
             bean.setPk(response.getData().getArticles().get(i).getPk());
             mHotspotSecBeanArrayList.add(bean);
 
-            Log.d("HotspotFragmentMoreS", mHotspotSecBeanArrayList.get(i).getWebUrl());
-            Log.d("HotspotFragmentMore", response.getData().getArticles().get(i).getWeburl());
         }
     }
 }

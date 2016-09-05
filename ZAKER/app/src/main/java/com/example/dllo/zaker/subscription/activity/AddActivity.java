@@ -8,8 +8,8 @@ import android.support.v4.view.ViewPager;
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseActivity;
 import com.example.dllo.zaker.subscription.adapter.AddAdapter;
-import com.example.dllo.zaker.subscription.fragment.ChannelFragment;
-import com.example.dllo.zaker.subscription.fragment.EssenceFragment;
+import com.example.dllo.zaker.subscription.add_fragment.ChannelFragment;
+import com.example.dllo.zaker.subscription.add_fragment.EssenceFragment;
 
 import java.util.ArrayList;
 import java.util.List;

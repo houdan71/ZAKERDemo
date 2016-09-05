@@ -3,7 +3,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp">
+            android:padding="@dimen/five_dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,299 +12,299 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_news"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:background="@mipmap/guide_loading_tag_45"
                 android:layout_gravity="center"/>
 
             <TextView
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="新闻"
-                android:textSize="18sp"/>
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/news"
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_fun"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_48"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="娱乐"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/fun"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_technology"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_47"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/fourty_dp"
                 android:padding="10dp"
-                android:text="科技"
+                android:text="@string/technology"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_money"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_46"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="财经"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/money"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_dashion"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_61"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="时尚"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/fashion"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_car"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_62"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="汽车"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/car"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_travel"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_67"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="旅游"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/travel"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_life"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_50"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="生活"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/life"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_family"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_149"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="家居"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/family"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_sports"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_49"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="体育"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/sports"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
         </LinearLayout>
 
         <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="@dimen/sixty_dp">
 
         <ImageView
             android:id="@+id/image_channel_art"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/fifty_dp"
+            android:layout_height="@dimen/fifty_dp"
             android:layout_gravity="center"
             android:background="@mipmap/guide_loading_tag_148"
-            android:padding="10dp"/>
+            android:padding="@dimen/tendp"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:padding="10dp"
-            android:text="文艺"
+            android:layout_height="@dimen/fourty_dp"
+            android:padding="@dimen/tendp"
+            android:text="@string/art"
             android:layout_gravity="center"
-            android:textSize="18sp"/>
+            android:textSize="@dimen/eighteen_sp"/>
 
 
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_say"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_138"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="段子"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/say"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
 
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_food"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_102"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="美食"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/goodfood"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
 
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="@dimen/sixty_dp">
 
             <ImageView
                 android:id="@+id/image_channel_acg"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/fifty_dp"
+                android:layout_height="@dimen/fifty_dp"
                 android:layout_gravity="center"
                 android:background="@mipmap/guide_loading_tag_103"
-                android:padding="10dp"/>
+                android:padding="@dimen/tendp"/>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:text="ACG"
+                android:layout_height="@dimen/fourty_dp"
+                android:padding="@dimen/tendp"
+                android:text="@string/acg"
                 android:layout_gravity="center"
-                android:textSize="18sp"/>
+                android:textSize="@dimen/eighteen_sp"/>
 
 
         </LinearLayout>

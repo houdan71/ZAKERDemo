@@ -6,10 +6,10 @@
               android:layout_height="match_parent">
     <ImageView
         android:id="@+id/image_oly"
-        android:layout_width="100dp"
+        android:layout_width="@dimen/onehundred_dp"
         android:src="@mipmap/global_loading_error_offline"
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"
-        android:layout_height="100dp"/>
+        android:layout_marginTop="@dimen/onrhundred_fifty_dp"
+        android:layout_height="@dimen/onehundred_dp"/>
 
 </LinearLayout>

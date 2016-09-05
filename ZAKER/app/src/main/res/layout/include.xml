@@ -13,7 +13,7 @@
         android:layout_marginLeft="@dimen/tendp"
         android:text="@string/subscriptiop"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/twentydp"/>
+        android:textSize="@dimen/twenty_dp"/>
 
     <ImageView
         android:id="@+id/include_img_personal"

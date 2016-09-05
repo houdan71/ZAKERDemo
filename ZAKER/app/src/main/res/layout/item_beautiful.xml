@@ -2,25 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:padding="5dp"
+              android:padding="@dimen/five_dp"
               android:layout_height="match_parent">
     <TextView
         android:id="@+id/text_beautiful_title"
         android:layout_width="match_parent"
-        android:text="啦啦啦"
-        android:textSize="20sp"
-        android:padding="5dp"
-        android:layout_height="40dp"/>
+
+        android:textSize="@dimen/twenty_sp"
+        android:padding="@dimen/five_dp"
+        android:layout_height="@dimen/fourty_dp"/>
     <ImageView
         android:id="@+id/image_beautiful"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="fitXY"/>
+        android:layout_height="@dimen/twohundred_dp"
+        android:scaleType="centerCrop"/>
     <TextView
         android:id="@+id/text_beautiful_name"
         android:layout_width="match_parent"
-        android:text="啦啦"
-        android:textSize="14sp"
-        android:padding="5dp"
-        android:layout_height="40dp"/>
+
+        android:textSize="@dimen/fourteen_sp"
+        android:padding="@dimen/five_dp"
+        android:layout_height="@dimen/fourty_dp"/>
 </LinearLayout>

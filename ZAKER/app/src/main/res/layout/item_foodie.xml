@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fourty_dp"
+        android:padding="@dimen/two_dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/image_foodie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+             />
+        <TextView
+            android:id="@+id/text_foodie_name"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/text_foodie_time"
+            android:layout_marginTop="@dimen/twenty_dp"
+
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/twelve_sp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+
+        android:padding="@dimen/five_dp"
+        android:id="@+id/text_foodie_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/image_foodie_view"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:padding="@dimen/twenty_dp"
+        android:scaleType="fitXY"
+
+        android:layout_height="@dimen/twohundred_dp"/>
+
+</LinearLayout>

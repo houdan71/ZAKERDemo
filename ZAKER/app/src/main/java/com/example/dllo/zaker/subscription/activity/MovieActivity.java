@@ -8,8 +8,8 @@ import android.support.v4.view.ViewPager;
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseActivity;
 import com.example.dllo.zaker.subscription.adapter.MovieAdapter;
-import com.example.dllo.zaker.subscription.fragment.FilmNewsFragment;
-import com.example.dllo.zaker.subscription.fragment.MovieFanFragment;
+import com.example.dllo.zaker.subscription.movie_fragment.FilmNewsFragment;
+import com.example.dllo.zaker.subscription.movie_fragment.MovieFanFragment;
 
 import java.util.ArrayList;
 import java.util.List;

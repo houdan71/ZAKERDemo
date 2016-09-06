@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/iv_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="8"
+        android:background="@mipmap/back">
+
+        <ImageView
+            android:id="@+id/iv_login_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="13dp"
+            android:src="@mipmap/abc_ic_clear_mtrl_alpha"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_marginLeft="@dimen/twenty_dp"
+        android:layout_marginRight="@dimen/twenty_dp"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_login_weixin"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/twenty_dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_weichat"
+            android:button="@null"/>
+
+        <CheckBox
+            android:id="@+id/cb_login_qq"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/twenty_dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_qq"
+            android:button="@null"/>
+
+        <CheckBox
+            android:id="@+id/cb_login_sina"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/twenty_dp"
+            android:layout_marginRight="@dimen/twenty_dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_sina"
+            android:button="@null"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_login_self"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="ZAKER账号登录"/>
+</LinearLayout>

@@ -12,17 +12,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/twentydp"
+            android:padding="@dimen/twenty_dp"
             android:text="夜间模式"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/twelve_sp"/>
+            android:textColor="@android:color/black"/>
 
         <Switch
             android:id="@+id/switch_night_module"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:padding="@dimen/twentydp"/>
+            android:padding="@dimen/twenty_dp"/>
     </RelativeLayout>
 
     <ImageView
@@ -44,11 +43,10 @@
                 android:id="@+id/tv_text_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/twentydp"
-                android:layout_marginTop="@dimen/twentydp"
+                android:layout_marginLeft="@dimen/twenty_dp"
+                android:layout_marginTop="@dimen/twenty_dp"
                 android:text="字体大小"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/twelve_sp"/>
+                android:textColor="@android:color/black"/>
 
             <TextView
                 android:id="@+id/tv_text_size_num"
@@ -66,9 +64,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
-            android:padding="@dimen/twentydp"
-            android:progressDrawable="@android:color/holo_green_dark"
-            android:indeterminateDrawable="@android:color/holo_blue_dark"
+            android:padding="@dimen/twenty_dp"
+            android:indeterminateDrawable="@color/ColorTitle"
+            android:thumb="@drawable/seekbar_anim_snail"
             ></SeekBar>
 
     </LinearLayout>

@@ -84,7 +84,6 @@ public class HotspotSecWebFragment extends BaseFragment {
                     int pro = intent.getIntExtra(HotspotSecActivity.KEY_seekPro,0);
                     Log.d("HotspotSecWebFragment", "pro:" + pro);
                     mAdapter.setPro(pro);
-                    mAdapter.notifyDataSetChanged();
                     break;
             }
         }

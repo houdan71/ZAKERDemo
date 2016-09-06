@@ -1,0 +1,52 @@
+package com.example.dllo.zaker.subscription.sport_fragment;
+
+import android.support.v4.view.ViewPager;
+import android.view.View;
+
+import com.example.dllo.zaker.R;
+import com.example.dllo.zaker.base.BaseFragment;
+import com.example.dllo.zaker.singleton.NetTool;
+import com.example.dllo.zaker.singleton.onHttpCallBack;
+import com.example.dllo.zaker.subscription.adapter.BasketballAdapter;
+import com.example.dllo.zaker.subscription.entity.Bean_basketball;
+
+/**
+ * Created by dllo on 16/9/3.
+ *
+ *
+ *
+ * 体育--篮球
+ */
+public class BasketballFragment extends BaseFragment {
+    private ViewPager view_technolo_pager;
+    private BasketballAdapter basketballAdapter;
+    @Override
+    protected int initLayout() {
+        return R.layout.fragment_technolo;
+    }
+
+    @Override
+    protected void initView(View view) {
+        view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
+
+    }
+
+    @Override
+    protected void initData() {
+        String url ="http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=12084&catalog_appid=8 ";
+        NetTool.getInstance().startRequest(url, Bean_basketball.class, new onHttpCallBack<Bean_basketball>() {
+            @Override
+            public void onSuccess(Bean_basketball response) {
+               basketballAdapter =new BasketballAdapter(getActivity());
+                basketballAdapter.setBean_basketball(response);
+                view_technolo_pager.setAdapter(basketballAdapter);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+        });
+    }
+}

@@ -47,7 +47,6 @@ public class SecondLevelWebViewActivity extends MAppCompatActivity implements On
         settings.setBuiltInZoomControls(true);
         settings.setJavaScriptEnabled(true);
 
-
         //当点击链接时,希望覆盖而不是打开新窗口
         mWebView.setWebViewClient(new WebViewClient(){
             public boolean shouldOverrideUrlLoading(WebView view,String url){
@@ -79,58 +78,6 @@ public class SecondLevelWebViewActivity extends MAppCompatActivity implements On
 
 
     }
-
-//    @Override
-//    protected int getLayout() {
-//        return R.layout.activity_secondlevel;
-//    }
-//
-//    @Override
-//    protected void initView() {
-//
-//        mWebView = (WebView) findViewById(R.id.secondLevel_webView);
-//        setIV = (ImageView) findViewById(R.id.second_include_img_set);
-//        setIV.setOnClickListener(this);
-//    }
-//
-//    @Override
-//    protected void initData() {
-//
-//        WebSettings settings = mWebView.getSettings();
-//        settings.setSupportZoom(true);
-//        settings.setBuiltInZoomControls(true);
-//        settings.setJavaScriptEnabled(true);
-//
-//
-//        //当点击链接时,希望覆盖而不是打开新窗口
-//        mWebView.setWebViewClient(new WebViewClient(){
-//            public boolean shouldOverrideUrlLoading(WebView view,String url){
-//                view.loadUrl(url);
-//                return true;
-//            }
-//        });
-//
-//        //点击后退按钮,让WebView后退一页(也可以覆写Activity的onKeyDown方法)
-//        mWebView.setOnKeyListener(new OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                if (event.getAction() == KeyEvent.ACTION_DOWN){
-//                    if (keyCode == KeyEvent.KEYCODE_BACK && mWebView.canGoBack()){
-//                        mWebView.goBack();
-//                        return true;
-//                    }
-//                }
-//                return false;
-//            }
-//        });
-//
-//
-//        //二级界面的intent
-//        secondIntent = getIntent();
-//        webUrl = secondIntent.getStringExtra("WebUrl");
-//        mWebView.loadUrl(webUrl);
-//
-//    }
 
     @Override
     public void onClick(View v) {

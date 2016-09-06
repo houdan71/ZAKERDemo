@@ -100,74 +100,75 @@ public class SubscriptionFragment extends BaseFragment {
                 gridAdapter.setOnRecyclerItemClickListener(new OnRecyclerItemClickListener() {
                     @Override
                     public void onItemClick(View view, ViewHolder holder, int position) {
-                        switch (position){
+                        switch (position) {
                             case 0:
-                                Intent intent1 =new Intent(mContext,TodayActivity.class);
+                                Intent intent1 = new Intent(mContext, TodayActivity.class);
                                 startActivity(intent1);
                                 break;
                             case 1:
-                                Intent intent2 =new Intent(mContext,NewsActivity.class);
+                                Intent intent2 = new Intent(mContext, NewsActivity.class);
                                 startActivity(intent2);
                                 break;
                             case 2:
-                                Intent intent3 =new Intent(mContext,CarActivity.class);
+                                Intent intent3 = new Intent(mContext, CarActivity.class);
                                 startActivity(intent3);
                                 break;
                             case 3:
-                                Intent intent4 =new Intent(mContext,TechnologyActivity.class);
+                                Intent intent4 = new Intent(mContext, TechnologyActivity.class);
                                 startActivity(intent4);
                                 break;
                             case 4:
-                                Intent intent5 =new Intent(mContext,LuxutyActivity.class);
+                                Intent intent5 = new Intent(mContext, LuxutyActivity.class);
                                 startActivity(intent5);
                                 break;
                             case 5:
-                                Intent intent6 =new Intent(mContext,TripActivity.class);
+                                Intent intent6 = new Intent(mContext, TripActivity.class);
                                 startActivity(intent6);
                                 break;
                             case 6:
-                                Intent intent7 =new Intent(mContext,MoneyActivity.class);
+                                Intent intent7 = new Intent(mContext, MoneyActivity.class);
                                 startActivity(intent7);
                                 break;
                             case 7:
-                                Intent intent8 =new Intent(mContext,SportsActivity.class);
+                                Intent intent8 = new Intent(mContext, SportsActivity.class);
                                 startActivity(intent8);
                                 break;
                             case 8:
-                                Intent intent9 =new Intent(mContext,RelaxActivity.class);
+                                Intent intent9 = new Intent(mContext, RelaxActivity.class);
                                 startActivity(intent9);
                                 break;
                             case 9:
-                                Intent intent10 =new Intent(mContext,FashionActivity.class);
+                                Intent intent10 = new Intent(mContext, FashionActivity.class);
                                 startActivity(intent10);
                                 break;
                             case 10:
-                                Intent intent11 =new Intent(mContext,InvestActivity.class);
+                                Intent intent11 = new Intent(mContext, InvestActivity.class);
                                 startActivity(intent11);
                                 break;
                             case 11:
-                                Intent intent12 =new Intent(mContext,MovieActivity.class);
+                                Intent intent12 = new Intent(mContext, MovieActivity.class);
                                 startActivity(intent12);
                                 break;
                             case 12:
-                                Intent intent13 =new Intent(mContext,FoodActivity.class);
+                                Intent intent13 = new Intent(mContext, FoodActivity.class);
                                 startActivity(intent13);
                                 break;
                             case 13:
-                                Intent intent14 =new Intent(mContext,BeautifulActivity.class);
+                                Intent intent14 = new Intent(mContext, BeautifulActivity.class);
                                 startActivity(intent14);
                                 break;
                             case 14:
-                                Intent intent15 =new Intent(mContext,OlympicActivity.class);
+                                Intent intent15 = new Intent(mContext, OlympicActivity.class);
                                 startActivity(intent15);
                                 break;
                             case 15:
-                                Intent intent16 =new Intent(mContext,AddActivity.class);
+                                Intent intent16 = new Intent(mContext, AddActivity.class);
                                 startActivity(intent16);
                                 break;
                         }
-
                     }
+
+
                 });
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 Callback callback = createCallback();
@@ -197,9 +198,9 @@ public class SubscriptionFragment extends BaseFragment {
             }
 
             //方法的作用:移动了行布局之后会回调该该方法
-            //参数1:
-            //参数2:移动的行布局对应的ViewHolder
-            //参数3:移动到的位置所对应的ViewHolder
+//参数1:
+//参数2:移动的行布局对应的ViewHolder
+//参数3:移动到的位置所对应的ViewHolder
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
 
@@ -207,8 +208,8 @@ public class SubscriptionFragment extends BaseFragment {
             }
 
             //滑动行布局时回调的方法
-            //参数1:滑动的行布局所对应的VIewHolder
-            //参数2:滑动的方向
+//参数1:滑动的行布局所对应的VIewHolder
+//参数2:滑动的方向
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 int position = viewHolder.getAdapterPosition();
@@ -247,7 +248,7 @@ public class SubscriptionFragment extends BaseFragment {
                     while (flag) {
 
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -258,7 +259,7 @@ public class SubscriptionFragment extends BaseFragment {
                     }
                 }
             }).start();
-            mm = false;
+                   mm = false;
             //当用户点击的时候就不会再触发发轮播图了
             //轮播图就会暂停轮播
             view_pager.setOnTouchListener(new View.OnTouchListener() {

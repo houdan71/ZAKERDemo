@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+              android:layout_width="match_parent"
+                android:padding="@dimen/five_dp"
+              android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/text_film_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/thrity_dp"
+        android:gravity="center"
+
+        android:textSize="@dimen/thriteen_sp"/>
+    <TextView
+        android:id="@+id/text_film_name"
+        android:layout_below="@+id/text_film_title"
+
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/twenty_dp"
+        android:gravity="center"
+
+        android:textSize="@dimen/eight_sp"/>
+    <TextView
+        android:id="@+id/text_film_time"
+        android:layout_below="@+id/text_film_title"
+       android:layout_toRightOf="@+id/text_film_name"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/twenty_dp"
+        android:gravity="center"
+
+        android:textSize="@dimen/eight_sp"/>
+    <ImageView
+        android:id="@+id/image_film_view"
+        android:layout_width="@dimen/eighty_dp"
+        android:layout_height="@dimen/sixty_dp"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

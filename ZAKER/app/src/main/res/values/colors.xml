@@ -6,4 +6,5 @@
     <color name="ColorTitle">#f53235</color>
     <color name="night_bg">#3A3743</color>
     <color name="light_bg">#fff0f0f0</color>
+    <color name="gray_background">#ffe1e1e1</color>
 </resources>

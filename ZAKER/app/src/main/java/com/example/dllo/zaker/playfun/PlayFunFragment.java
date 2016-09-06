@@ -8,11 +8,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ListView;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
 import com.example.dllo.zaker.main.MetaballView;
+import com.example.dllo.zaker.playfun.pulldown.JingDongListView;
+import com.example.dllo.zaker.playfun.pulldown.JingDongListView.OnJingDongRefreshListener;
 import com.example.dllo.zaker.playfun.rotate.RotateAdapter;
 import com.example.dllo.zaker.playfun.viewpager.ViewPagerAdapter;
 import com.example.dllo.zaker.playfun.viewpager.ViewPagerAdapter.OnRecyclerItemClickListener;
@@ -23,8 +24,8 @@ import com.example.dllo.zaker.singleton.onHttpCallBack;
 /**
  * Created by dllo on 16/8/29.
  */
-public class PlayFunFragment extends BaseFragment {
-    private ListView mListView;
+public class PlayFunFragment extends BaseFragment implements OnJingDongRefreshListener {
+    private JingDongListView mListView;
     private PlayFunFragmentAdapter mPlayFunFragmentAdapter;
     private String playUrl = "http://wl.myzaker.com/?_appid=AndroidPhone&_v=6.7&_version=6.7&c=columns&city=%E5%A4%A7%E8%BF%9E";
     private ViewPager playFunVP;
@@ -42,6 +43,24 @@ public class PlayFunFragment extends BaseFragment {
     private boolean flag = true;
     private boolean isFirst = true;
 
+    private final static int REFRESH_COMPLETE = 0;
+    private Handler refreshHandler = new Handler(){
+        public void handleMessage(android.os.Message msg) {
+            switch (msg.what) {
+                case REFRESH_COMPLETE:
+                    mListView.setOnRefreshComplete();
+                    mRotateAdapter.notifyDataSetChanged();
+                    mViewPagerAdapter.notifyDataSetChanged();
+                    mPlayFunFragmentAdapter.notifyDataSetChanged();
+                    mListView.setSelection(0);
+                    break;
+
+                default:
+                    break;
+            }
+        };
+    };
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_playfun;
@@ -49,7 +68,7 @@ public class PlayFunFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        mListView = (ListView) view.findViewById(R.id.fragment_playFun_listView);
+        mListView = (JingDongListView) view.findViewById(R.id.fragment_playFun_listView);
         metaballView = (MetaballView) view.findViewById(R.id.metaballView);
     }
 
@@ -108,6 +127,9 @@ public class PlayFunFragment extends BaseFragment {
             }
         });
         shuffling();
+
+        //设置ListView的下拉监听
+        mListView.setOnJingDongRefreshListener(this);
     }
 
     @Override
@@ -154,6 +176,63 @@ public class PlayFunFragment extends BaseFragment {
     }
 
 
+    //ListView的下拉事件
+    @Override
+    public void onRefresh() {
+        new Thread(new Runnable() {
 
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(3000);
+
+                    NetTool.getInstance().startRequest(playUrl, PlayFunBean.class, new onHttpCallBack<PlayFunBean>() {
+                        @Override
+                        public void onSuccess(final PlayFunBean response) {
+                            metaballView.setPaintMode(1);
+                            metaballView.setVisibility(View.GONE);
+
+                            mPlayFunFragmentAdapter.setPlayFunBean(response);
+                            mListView.setAdapter(mPlayFunFragmentAdapter);
+
+                            mRotateAdapter.setPlayFunBean(response);
+                            playFunVP.setAdapter(mRotateAdapter);
+
+                            final LinearLayoutManager manager = new LinearLayoutManager(mContext);
+                            manager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                            playFunRV.setLayoutManager(manager);
+                            mViewPagerAdapter.setPlayFunBean(response);
+                            playFunRV.setAdapter(mViewPagerAdapter);
+
+                            //给ViewPager设置监听事件 跳转到不同的界面
+                            mViewPagerAdapter.setOnRecyclerItemClickListener(new OnRecyclerItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, ViewHolder holder, int position) {
+                                    if (response.getData().getDisplay().get(position).getType().equals("web") ){
+                                        Intent intent = new Intent(mContext, SecondLevelWebViewActivity.class);
+                                        intent.putExtra("WebUrl",response.getData().getDisplay().get(position).getWeb().getUrl());
+                                        startActivity(intent);
+                                    }else if (response.getData().getDisplay().get(position).getType().equals("block")){
+                                        Intent intent  = new Intent(mContext,SecondLevelViewPagerActivity.class);
+                                        intent.putExtra("listUrl",response.getData().getDisplay().get(position).getBlock_info().getApi_url());
+                                        startActivity(intent);
+                                    }
+                                }
+                            });
+
+                        }
+                        @Override
+                        public void onError(Throwable e) {
+                        }
+                    });
+                    refreshHandler.sendEmptyMessage(REFRESH_COMPLETE);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 
 }
+

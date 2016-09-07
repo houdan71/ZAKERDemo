@@ -46,5 +46,9 @@
         <activity android:name=".subscription.activity.OlympicActivity"/>
        <activity android:name=".subscription.activity.AddActivity"/>
 
+        <activity android:name=".welcome.WelcomeActivity"/>
     </application>
+
+
+
 </manifest>

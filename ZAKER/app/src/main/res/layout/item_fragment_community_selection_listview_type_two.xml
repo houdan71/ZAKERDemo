@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+    android:id="@+id/item_fragment_community_selection_listView_type_two_linearLayout"
+              >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tendp">
+
+        <ImageView
+            android:id="@+id/item_fragment_community_selection_listView_type_two_img_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="@dimen/tendp"/>
+
+        <LinearLayout
+            android:id="@+id/item_fragment_community_selection_listView_type_two_linearLayout_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/item_fragment_community_selection_listView_type_two_img_head"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_fragment_community_selection_listView_type_two_textView_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="该看书听摇滚"
+                android:textColor="@android:color/holo_blue_light"/>
+
+            <TextView
+                android:id="@+id/item_fragment_community_selection_listView_type_two_textView_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1小时前"
+                android:textSize="@dimen/ten_sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/item_fragment_community_selection_listView_type_two_img_user_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/item_fragment_community_selection_listView_type_two_linearLayout_name"
+            android:src="@mipmap/weibo_author_verified"/>
+
+        <TextView
+            android:id="@+id/item_fragment_community_selection_listView_textView_type_two_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="电影圈"
+            android:textSize="@dimen/ten_sp"
+            android:layout_marginRight="@dimen/tendp"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/item_fragment_community_selection_listView_textView_type_two_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="看书的电影分享"
+        android:textColor="@android:color/black"
+        android:layout_margin="@dimen/tendp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        >
+
+        <ImageView
+            android:id="@+id/item_fragment_community_selection_listView_type_two_img_big_picture_first"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_weight="1"
+            android:src="@mipmap/defaule"/>
+
+        <ImageView
+            android:id="@+id/item_fragment_community_selection_listView_type_two_img_big_picture_second"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:src="@mipmap/defaule"/>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/tendp"
+        android:layout_marginTop="@dimen/tendp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/item_fragment_community_selection_listView_type_two_img_hot_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/item_fragment_community_selection_listView_type_two_textView_hot_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6400"
+                android:textSize="@dimen/ten_sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/item_fragment_community_selection_listView_type_two_img_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/item_fragment_community_selection_listView_type_two_textView_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="33"
+                android:textSize="@dimen/ten_sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/item_fragment_community_selection_listView_type_two_img_like_num"
+                android:layout_width="@dimen/fifteen_five_dp"
+                android:layout_height="@dimen/fifteen_five_dp"
+                android:background="@mipmap/theme_context_like_unclicked"/>
+
+            <TextView
+                android:id="@+id/item_fragment_community_selection_listView_type_two_textView_like_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="27"
+                android:textSize="@dimen/ten_sp"
+                android:layout_marginLeft="@dimen/five_dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#e9e9e9"/>
+
+
+</LinearLayout>

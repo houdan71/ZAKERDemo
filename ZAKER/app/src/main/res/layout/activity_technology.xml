@@ -1,7 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/fifteen_five_dp"
+    >
+    <FrameLayout
+        android:id="@+id/frame_technolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    </FrameLayout>
+    <RadioGroup
+        android:layout_above="@+id/frame_technolo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty_fivedp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
-</LinearLayout>
+        <RadioButton
+            android:id="@+id/radio_general"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+
+
+            android:text="@string/general"
+            android:textSize="@dimen/twenty_sp"
+
+            />
+
+        <RadioButton
+            android:id="@+id/radio_number"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:text="@string/number"
+            android:textSize="@dimen/twenty_sp"
+            />
+
+        <RadioButton
+            android:id="@+id/radio_intent"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:text="@string/intent"
+            android:textSize="@dimen/twenty_sp"
+            />
+
+        <RadioButton
+            android:id="@+id/radio_technolo"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:text="@string/technolo"
+            android:textSize="@dimen/twenty_sp"
+            />
+
+    </RadioGroup>
+
+</RelativeLayout>

@@ -75,6 +75,8 @@ public class SecondLevelWebViewActivity extends MAppCompatActivity implements On
         webUrl = secondIntent.getStringExtra("WebUrl");
         mWebView.loadUrl(webUrl);
 
+
+
     }
 
     @Override

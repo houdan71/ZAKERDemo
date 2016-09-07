@@ -8,9 +8,9 @@ import android.support.v4.view.ViewPager;
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseActivity;
 import com.example.dllo.zaker.subscription.adapter.FoodAdapter;
-import com.example.dllo.zaker.subscription.fragment.ChoiceFragment;
-import com.example.dllo.zaker.subscription.fragment.FoodFragment;
-import com.example.dllo.zaker.subscription.fragment.FoodieFragment;
+import com.example.dllo.zaker.subscription.food_fragment.ChoiceFragment;
+import com.example.dllo.zaker.subscription.food_fragment.FoodFragment;
+import com.example.dllo.zaker.subscription.food_fragment.FoodieFragment;
 
 import java.util.ArrayList;
 import java.util.List;

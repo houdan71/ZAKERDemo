@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         />
 
-    <ListView
+    <com.example.dllo.zaker.playfun.pulldown.JingDongListView
         android:id="@+id/fragment_playFun_listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

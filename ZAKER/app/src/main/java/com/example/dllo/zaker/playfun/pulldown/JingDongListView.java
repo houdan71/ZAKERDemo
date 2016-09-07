@@ -64,6 +64,7 @@ public class JingDongListView extends ListView implements AbsListView.OnScrollLi
 	public interface OnJingDongRefreshListener{
 		void onRefresh();
 	}
+
 	public void setOnJingDongRefreshListener(OnJingDongRefreshListener onRefreshListener){
 		mOnRefreshListener = onRefreshListener;
 		isRefreable = true;

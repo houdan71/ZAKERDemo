@@ -13,6 +13,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.dllo.zaker.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
@@ -21,10 +24,18 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
 public class CommunitySelectionFragmentAdapter extends Adapter<ViewHolder> {
 
     private Context mContext;
-    private CommunitySelectionBean mBean;
+    private CommunitySelectionBean  mBean;
+    private List<MyDataBean> list;
+    private static final int VIEW_TYPE_0 = 0;
     private static final int VIEW_TYPE_1 = 1;
     private static final int VIEW_TYPE_2 = 2;
     private static final int VIEW_TYPE_3 = 3;
+
+    public void setList(List<MyDataBean> list) {
+        this.list = new ArrayList<>();
+        this.list.addAll(list);
+        notifyDataSetChanged();
+    }
 
     private OnRecyclerItemClickListener mListener;
 
@@ -44,6 +55,8 @@ public class CommunitySelectionFragmentAdapter extends Adapter<ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
+            case VIEW_TYPE_0:
+                return new ZeroPictureViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_fragment_community_selection_listview_type_zero,parent,false));
             case VIEW_TYPE_1:
                 return new OnePictureViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_fragment_community_selection_listview_type_one, parent, false));
             case VIEW_TYPE_2:
@@ -58,25 +71,49 @@ public class CommunitySelectionFragmentAdapter extends Adapter<ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         int viewType = getItemViewType(position);
         switch (viewType) {
+            case VIEW_TYPE_0:
+                final ZeroPictureViewHolder zeroPictureViewHolder = (ZeroPictureViewHolder) holder;
+                zeroPictureViewHolder.nameZeroTV.setText(list.get(position).getName());
+                zeroPictureViewHolder.dateZeroTV.setText(list.get(position).getDate());
+                zeroPictureViewHolder.titleZeroTV.setText(list.get(position).getTitle());
+                zeroPictureViewHolder.hotNumZeroTV.setText(list.get(position).getHotNum());
+                zeroPictureViewHolder.commentCountZeroTV.setText(list.get(position).getCount());
+                zeroPictureViewHolder.likeNumZeroTV.setText(list.get(position).getLikeNum());
+                zeroPictureViewHolder.contentZeroTV.setText(list.get(position).getContent());
+                Glide.with(mContext).load(list.get(position).getIcon())
+                        .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
+                        .bitmapTransform(new CropCircleTransformation(mContext))
+                        .into(zeroPictureViewHolder.headZeroIV);
+                //设置RecyclerView的item监听
+                if (mListener != null) {
+                    zeroPictureViewHolder.itemView.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int clickPosition = zeroPictureViewHolder.getAdapterPosition();
+                            mListener.onItemClick(v, zeroPictureViewHolder, clickPosition);
+                        }
+                    });
+                }
+                break;
             case VIEW_TYPE_1:
                 final OnePictureViewHolder onePictureViewHolder = (OnePictureViewHolder) holder;
-                onePictureViewHolder.nameOneTV.setText(mBean.getData().getPosts().get(position).getAuther().getName());
-                onePictureViewHolder.dateOneTV.setText(mBean.getData().getPosts().get(position).getDate());
-                onePictureViewHolder.titleOneTV.setText(mBean.getData().getPosts().get(position).getSpecial_info().getDiscussion_title());
-                onePictureViewHolder.hotNumOneTV.setText(mBean.getData().getPosts().get(position).getHot_num());
-                onePictureViewHolder.commentCountOneTV.setText(mBean.getData().getPosts().get(position).getComment_count());
-                onePictureViewHolder.likeNumOneTV.setText(mBean.getData().getPosts().get(position).getLike_num());
-                onePictureViewHolder.contentOneTV.setText(mBean.getData().getPosts().get(position).getContent());
-                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getThumbnail_medias().get(0).getUrl())
+                onePictureViewHolder.nameOneTV.setText(list.get(position).getName());
+                onePictureViewHolder.dateOneTV.setText(list.get(position).getDate());
+                onePictureViewHolder.titleOneTV.setText(list.get(position).getTitle());
+                onePictureViewHolder.hotNumOneTV.setText(list.get(position).getHotNum());
+                onePictureViewHolder.commentCountOneTV.setText(list.get(position).getCount());
+                onePictureViewHolder.likeNumOneTV.setText(list.get(position).getLikeNum());
+                onePictureViewHolder.contentOneTV.setText(list.get(position).getContent());
+                Glide.with(mContext).load(list.get(position).getIcon())
                         .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                         .into(onePictureViewHolder.bigPictureOneIV);
-                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getAuther().getIcon())
+                Glide.with(mContext).load(list.get(position).getIcon())
                         .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                         .bitmapTransform(new CropCircleTransformation(mContext))
                         .into(onePictureViewHolder.headOneIV);
 //
-//                if (mBean.getData().getPosts().get(position).getAuther().getUser_flag() == null){
-//                    Glide.with(mContext).load(mBean.getData().getPosts().get(position).getAuther().getUser_flag().get(0).getPic())
+//                if (list.get(position).getAuther().getUser_flag() == null){
+//                    Glide.with(mContext).load(list.get(position).getAuther().getUser_flag().get(0).getPic())
 //                            .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
 //                            .bitmapTransform(new CropCircleTransformation(mContext))
 //                            .into(onePictureViewHolder.userFlagOneIV);
@@ -96,24 +133,24 @@ public class CommunitySelectionFragmentAdapter extends Adapter<ViewHolder> {
                 break;
             case VIEW_TYPE_2:
                 final TwoPictureViewHolder twoPictureViewHolder = (TwoPictureViewHolder) holder;
-                twoPictureViewHolder.nameTwoTV.setText(mBean.getData().getPosts().get(position).getAuther().getName());
-                twoPictureViewHolder.dateTwoTV.setText(mBean.getData().getPosts().get(position).getDate());
-                twoPictureViewHolder.titleTwoTV.setText(mBean.getData().getPosts().get(position).getSpecial_info().getDiscussion_title());
-                twoPictureViewHolder.hotNumTwoTV.setText(mBean.getData().getPosts().get(position).getHot_num());
-                twoPictureViewHolder.commentCountTwoTV.setText(mBean.getData().getPosts().get(position).getComment_count());
-                twoPictureViewHolder.likeNumTwoTV.setText(mBean.getData().getPosts().get(position).getLike_num());
-                twoPictureViewHolder.contentTwoTV.setText(mBean.getData().getPosts().get(position).getContent());
-                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getThumbnail_medias().get(0).getUrl())
+                twoPictureViewHolder.nameTwoTV.setText(list.get(position).getName());
+                twoPictureViewHolder.dateTwoTV.setText(list.get(position).getDate());
+                twoPictureViewHolder.titleTwoTV.setText(list.get(position).getTitle());
+                twoPictureViewHolder.hotNumTwoTV.setText(list.get(position).getHotNum());
+                twoPictureViewHolder.commentCountTwoTV.setText(list.get(position).getCount());
+                twoPictureViewHolder.likeNumTwoTV.setText(list.get(position).getLikeNum());
+                twoPictureViewHolder.contentTwoTV.setText(list.get(position).getContent());
+                Glide.with(mContext).load(list.get(position).getThumbnail_medias().get(0).getUrl())
                         .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                         .into(twoPictureViewHolder.bigPictureTwoFirstIV);
-                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getThumbnail_medias().get(1).getUrl())
+                Glide.with(mContext).load(list.get(position).getThumbnail_medias().get(1).getUrl())
                         .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                         .into(twoPictureViewHolder.bigPictureTwoSecondIV);
-                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getAuther().getIcon())
+                Glide.with(mContext).load(list.get(position).getIcon())
                         .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                         .bitmapTransform(new CropCircleTransformation(mContext))
                         .into(twoPictureViewHolder.headTwoIV);
-//                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getSpecial_info().getDiscussion_title())
+//                Glide.with(mContext).load(list.get(position).getSpecial_info().getDiscussion_title())
 //                        .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
 //                        .bitmapTransform(new CropCircleTransformation(mContext))
 //                        .into(twoPictureViewHolder.userFlagTwoIV);
@@ -131,27 +168,27 @@ public class CommunitySelectionFragmentAdapter extends Adapter<ViewHolder> {
                 break;
             case VIEW_TYPE_3:
                 final ThreePictureViewHolder threePictureViewHolder = (ThreePictureViewHolder) holder;
-                threePictureViewHolder.nameThreeTV.setText(mBean.getData().getPosts().get(position).getAuther().getName());
-                threePictureViewHolder.dateThreeTV.setText(mBean.getData().getPosts().get(position).getDate());
-                threePictureViewHolder.titleThreeTV.setText(mBean.getData().getPosts().get(position).getSpecial_info().getDiscussion_title());
-                threePictureViewHolder.hotNumThreeTV.setText(mBean.getData().getPosts().get(position).getHot_num());
-                threePictureViewHolder.commentCountThreeTV.setText(mBean.getData().getPosts().get(position).getComment_count());
-                threePictureViewHolder.likeNumThreeTV.setText(mBean.getData().getPosts().get(position).getLike_num());
-                threePictureViewHolder.contentThreeTV.setText(mBean.getData().getPosts().get(position).getContent());
-                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getThumbnail_medias().get(0).getUrl())
+                threePictureViewHolder.nameThreeTV.setText(list.get(position).getName());
+                threePictureViewHolder.dateThreeTV.setText(list.get(position).getDate());
+                threePictureViewHolder.titleThreeTV.setText(list.get(position).getTitle());
+                threePictureViewHolder.hotNumThreeTV.setText(list.get(position).getHotNum());
+                threePictureViewHolder.commentCountThreeTV.setText(list.get(position).getCount());
+                threePictureViewHolder.likeNumThreeTV.setText(list.get(position).getLikeNum());
+                threePictureViewHolder.contentThreeTV.setText(list.get(position).getContent());
+                Glide.with(mContext).load(list.get(position).getThumbnail_medias().get(0).getUrl())
                         .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                         .into(threePictureViewHolder.bigPictureThreeFirstIV);
-                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getThumbnail_medias().get(1).getUrl())
+                Glide.with(mContext).load(list.get(position).getThumbnail_medias().get(1).getUrl())
                         .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                         .into(threePictureViewHolder.bigPictureThreeSecondIV);
-                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getThumbnail_medias().get(2).getUrl())
+                Glide.with(mContext).load(list.get(position).getThumbnail_medias().get(2).getUrl())
                         .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                         .into(threePictureViewHolder.bigPictureThreeThirdIV);
-                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getAuther().getIcon())
+                Glide.with(mContext).load(list.get(position).getIcon())
                         .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
                         .bitmapTransform(new CropCircleTransformation(mContext))
                         .into(threePictureViewHolder.headThreeIV);
-//                Glide.with(mContext).load(mBean.getData().getPosts().get(position).getSpecial_info().getDiscussion_title())
+//                Glide.with(mContext).load(list.get(position).getSpecial_info().getDiscussion_title())
 //                        .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher)
 //                        .bitmapTransform(new CropCircleTransformation(mContext))
 //                        .into(threePictureViewHolder.userFlagThreeIV);
@@ -175,19 +212,39 @@ public class CommunitySelectionFragmentAdapter extends Adapter<ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mBean.getData().getPosts().size() > 0 ? mBean.getData().getPosts().size() : 0;
+        return list.size();
     }
 
 
     @Override
     public int getItemViewType(int position) {
-        if (mBean.getData().getPosts().get(position).getThumbnail_medias().size() == 1) {
+        if (list.get(position).getThumbnail_medias().size() == 0){
+            return VIEW_TYPE_0;
+        }else if (list.get(position).getThumbnail_medias().size() == 1) {
             return VIEW_TYPE_1;
-        } else if (mBean.getData().getPosts().get(position).getThumbnail_medias().size() == 2) {
+        } else if (list.get(position).getThumbnail_medias().size() == 2) {
             return VIEW_TYPE_2;
-        } else if (mBean.getData().getPosts().get(position).getThumbnail_medias().size() == 3) {
+        } else if (list.get(position).getThumbnail_medias().size() == 3) {
             return VIEW_TYPE_3;
         } else return VIEW_TYPE_1;
+    }
+
+    public class ZeroPictureViewHolder extends ViewHolder{
+        private ImageView headZeroIV, userFlagZeroIV;
+        private TextView nameZeroTV, dateZeroTV, titleZeroTV, hotNumZeroTV, commentCountZeroTV, likeNumZeroTV, contentZeroTV;
+
+        public ZeroPictureViewHolder(View itemView) {
+            super(itemView);
+            headZeroIV = (ImageView) itemView.findViewById(R.id.item_fragment_community_selection_listView_type_zero_img_head);
+            userFlagZeroIV = (ImageView) itemView.findViewById(R.id.item_fragment_community_selection_listView_type_zero_img_user_flag);
+            nameZeroTV = (TextView) itemView.findViewById(R.id.item_fragment_community_selection_listView_type_zero_textView_name);
+            dateZeroTV = (TextView) itemView.findViewById(R.id.item_fragment_community_selection_listView_type_zero_textView_date);
+            titleZeroTV = (TextView) itemView.findViewById(R.id.item_fragment_community_selection_listView_type_zero_textView_title);
+            hotNumZeroTV = (TextView) itemView.findViewById(R.id.item_fragment_community_selection_listView_type_zero_textView_hot_num);
+            commentCountZeroTV = (TextView) itemView.findViewById(R.id.item_fragment_community_selection_listView_type_zero_textView_comment_count);
+            likeNumZeroTV = (TextView) itemView.findViewById(R.id.item_fragment_community_selection_listView_type_zero_textView_like_num);
+            contentZeroTV = (TextView) itemView.findViewById(R.id.item_fragment_community_selection_listView_type_zero_textView_content);
+        }
     }
 
     public class OnePictureViewHolder extends ViewHolder {

@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
@@ -24,7 +26,7 @@ import com.example.dllo.zaker.singleton.onHttpCallBack;
 /**
  * Created by dllo on 16/8/29.
  */
-public class PlayFunFragment extends BaseFragment implements OnJingDongRefreshListener {
+public class PlayFunFragment extends BaseFragment implements OnJingDongRefreshListener, OnScrollListener {
     private JingDongListView mListView;
     private PlayFunFragmentAdapter mPlayFunFragmentAdapter;
     private String playUrl = "http://wl.myzaker.com/?_appid=AndroidPhone&_v=6.7&_version=6.7&c=columns&city=%E5%A4%A7%E8%BF%9E";
@@ -33,6 +35,9 @@ public class PlayFunFragment extends BaseFragment implements OnJingDongRefreshLi
     private RotateAdapter mRotateAdapter;
     private ViewPagerAdapter mViewPagerAdapter;
 
+    /**
+     * 设置加载的小红球的
+     */
     private MetaballView metaballView;
 
     /**
@@ -130,6 +135,8 @@ public class PlayFunFragment extends BaseFragment implements OnJingDongRefreshLi
 
         //设置ListView的下拉监听
         mListView.setOnJingDongRefreshListener(this);
+        //ListView上拉加载
+        mListView.setOnScrollListener(this);
     }
 
     @Override
@@ -234,5 +241,15 @@ public class PlayFunFragment extends BaseFragment implements OnJingDongRefreshLi
         }).start();
     }
 
+
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+    }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+    }
 }
 

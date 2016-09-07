@@ -3,7 +3,7 @@ package com.example.dllo.zaker.hotspot.sec.comments;
 import java.util.List;
 
 /**
- * Created by dllo on 16/9/1.
+ * Created by yuxiaomin~ on 16/9/1.
  */
 public class HotspotSecCommentBean {
 

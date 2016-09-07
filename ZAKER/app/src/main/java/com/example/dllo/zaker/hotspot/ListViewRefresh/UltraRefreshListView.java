@@ -15,7 +15,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 
 /**
- * Created by dllo on 16/8/31.
+ * Created by yuxiaomin~ on 16/8/31.
  */
 public class UltraRefreshListView extends ListView implements PtrHandler, AbsListView.OnScrollListener {
     private UltraRefreshListener mUltraRefreshListener;

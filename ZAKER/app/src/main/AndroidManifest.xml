@@ -25,6 +25,9 @@
         <activity android:name=".hotspot.sec.HotspotSecActivity"
                   android:hardwareAccelerated="false"/>
         <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".playfun.location.PlayFunLocationTagActivity"/>
+        <activity android:name=".playfun.location.PlayFunLocationChooseActivity"/>
+        <activity android:name=".hotspot.tag.HotspotTagActivity"/>
 
         <activity android:name=".subscription.activity.TodayActivity"/>
         <activity android:name=".subscription.activity.NewsActivity"/>

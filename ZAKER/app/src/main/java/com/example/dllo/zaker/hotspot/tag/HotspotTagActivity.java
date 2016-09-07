@@ -1,15 +1,15 @@
-package com.example.dllo.zaker.hotspot.sec;
+package com.example.dllo.zaker.hotspot.tag;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseActivity;
 
 /**
- * Created by yuxiaomin~ on 16/9/3.
+ * Created by yuxiaomin~ on 16/9/6.
  */
-public class ImgUrlActivity extends BaseActivity {
+public class HotspotTagActivity extends BaseActivity {
     @Override
     protected int getLayout() {
-        return R.layout.activity_hotspot_sec_img_url;
+        return R.layout.activity_hotspot_tag;
     }
 
     @Override

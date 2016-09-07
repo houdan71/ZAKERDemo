@@ -13,7 +13,7 @@ import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.app.MyApp;
 
 /**
- * Created by dllo on 16/8/30.
+ * Created by yuxiaomin~ on 16/8/30.
  */
 public class HotspotAdapter extends BaseAdapter {
     private HotspotBean mBean;

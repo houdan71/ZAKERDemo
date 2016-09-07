@@ -67,6 +67,8 @@ repositories {
 
             compile project(':barlibrary')
 
+            compile 'com.github.promeg:tinypinyin:1.0.0'
+
 
         }
     }

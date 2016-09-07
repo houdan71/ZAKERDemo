@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@mipmap/icon_hotdaily_makeup_btn_pressed" android:state_pressed="true"/>
-    <item android:drawable="@mipmap/icon_hotdaily_makeup_btn_pressed" android:state_selected="true"/>
-    <item android:drawable="@mipmap/icon_hotdaily_makeup_btn"/>
+    <item android:drawable="@mipmap/ic_life_location_pressed" android:state_pressed="true"/>
+    <item android:drawable="@mipmap/ic_life_location_pressed" android:state_selected="true"/>
+    <item android:drawable="@mipmap/ic_life_location_normal"/>
 </selector>

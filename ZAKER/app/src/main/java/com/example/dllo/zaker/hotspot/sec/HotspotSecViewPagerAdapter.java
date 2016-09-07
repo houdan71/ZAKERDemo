@@ -19,7 +19,7 @@ import com.example.dllo.zaker.app.MyApp;
 import java.util.ArrayList;
 
 /**
- * Created by dllo on 16/8/31.
+ * Created by yuxiaomin~ on 16/8/31.
  */
 public class HotspotSecViewPagerAdapter extends PagerAdapter{
 
@@ -28,16 +28,16 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter{
     private int positionItem;
     private WebSettings settings;
     private int fontSize = 1;
-    private int pro;
+
     private static final String SP_TEXTSIZE = "com.example.dllo.zaker.hotspot.sec.SP_TEXTSIZE";
     private static final String SP_KEY_TEXTSIZE_CURRENT = "textSizeCurrent";
     private static final String SP_KEY_TEXTSIZE_flag = "tag";
 
     public void setPro(int pro) {
-        this.pro = pro;
-        notifyDataSetChanged();
+
         Log.d("HotspotSecViewPagerAdap", "pro:" + pro);
         seekTo(pro);
+        notifyDataSetChanged();
     }
 
     public void setArrayList(ArrayList<HotspotSecBean> arrayList, int positionItem) {
@@ -71,6 +71,7 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter{
         settings.setBuiltInZoomControls(true);
         settings.setJavaScriptEnabled(true);
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
+        mWebView.getSettings().setJavaScriptEnabled(true); //支持JS
 
         //当点击链接时,希望覆盖而不是打开新窗口
         mWebView.setWebViewClient(new WebViewClient() {
@@ -97,7 +98,6 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter{
         //添加加载的webUrl
         mWebView.loadUrl(mArrayList.get(position).getWebUrl());
 //        settings.setTextSize(WebSettings.TextSize.LARGEST);
-        mWebView.getSettings().setJavaScriptEnabled(true); //支持JS
 
         Log.d("HotspotSecViewPagerAdap", "又走了一遍");
         //判断是否有设置的状态
@@ -123,9 +123,7 @@ public class HotspotSecViewPagerAdapter extends PagerAdapter{
 
 
     private void seekTo(int progress) {
-
         Log.d("HotspotSecViewPagerAdap", "progress:" + progress);
-
 //        settings.setTextSize(TextSizee.SMALLEST);
 //        pro = progress;
         if (settings.getTextSize() == WebSettings.TextSize.SMALLEST) {

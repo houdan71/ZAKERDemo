@@ -23,4 +23,6 @@
     <dimen name="fifty_dp">50dp</dimen>
     <dimen name="one_handrund_twenty_dp">120dp</dimen>
     <dimen name="one_hundrend_fifty_dp">150dp</dimen>
+    <dimen name="twenty_sp">20sp</dimen>
+    <dimen name="fifteen_sp">15sp</dimen>
 </resources>

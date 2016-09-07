@@ -15,7 +15,7 @@ import com.example.dllo.zaker.app.MyApp;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
- * Created by dllo on 16/9/1.
+ * Created by yuxiaomin~ on 16/9/1.
  */
 public class HotspotSecCommentsHotestAdapter extends BaseAdapter {
     private HotspotSecCommentBean mCommentBean;

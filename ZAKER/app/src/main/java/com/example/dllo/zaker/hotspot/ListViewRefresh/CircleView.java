@@ -10,7 +10,7 @@ import android.util.TypedValue;
 import android.view.View;
 
 /**
- * Created by dllo on 16/8/31.
+ * Created by yuxiaomin~ on 16/8/31.
  */
 public class CircleView extends View {
 

@@ -51,9 +51,7 @@ public class AddActivity extends BaseActivity implements TextWatcher {
     private EditText edit_text;
     //搜索键
     private Button button_btn;
-    private TextView tv_clear;
-    //弹出列表
-    private ListView lvtips;
+
 
 
 
@@ -90,6 +88,7 @@ public class AddActivity extends BaseActivity implements TextWatcher {
         tabLayout.setTabTextColors(Color.BLUE, Color.RED);
         tabLayout.setupWithViewPager(viewPager);
 
+
     }
 
     private void initfragment() {
@@ -106,6 +105,8 @@ public class AddActivity extends BaseActivity implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
+      //  Intent intent =new Intent (AddActivity.this,ClickActivity.class);
+       // startActivity(intent);
 
     }
 

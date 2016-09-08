@@ -30,7 +30,7 @@ public class NewsAdapter extends PagerAdapter implements OnClickListener {
     private Bean_news bean_news;
     private ImageView image_today;
     private TextView text_today, text_today_title, text_today_name, text_today_titlee, text_today_namee,
-            text_view, text_tody_name,text_today_title_bottom,text_today_name_bottom,text_today_titlee_buttom,text_today_namee_buttom;
+            text_view, text_tody_name, text_today_title_bottom, text_today_name_bottom, text_today_titlee_buttom, text_today_namee_buttom;
     private FrameLayout frameLayout;
 
     private LinearLayout linear_top_left, linear_top_right, linear_below_left, linear_below_right, linear_below;
@@ -61,15 +61,15 @@ public class NewsAdapter extends PagerAdapter implements OnClickListener {
         text_today_name = (TextView) view.findViewById(R.id.text_today_name);
         text_today_titlee = (TextView) view.findViewById(R.id.text_today_titlee);
         text_today_namee = (TextView) view.findViewById(R.id.text_today_namee);
-        text_today_title_bottom= (TextView) view.findViewById(R.id.text_today_title_buttom);
-        text_today_name_bottom= (TextView) view.findViewById(R.id.text_today_name_button);
-        text_today_titlee_buttom= (TextView) view.findViewById(R.id.text_today_titlee_buttom);
-        text_today_namee_buttom= (TextView) view.findViewById(R.id.text_today_namee_buttom);
+        text_today_title_bottom = (TextView) view.findViewById(R.id.text_today_title_buttom);
+        text_today_name_bottom = (TextView) view.findViewById(R.id.text_today_name_button);
+        text_today_titlee_buttom = (TextView) view.findViewById(R.id.text_today_titlee_buttom);
+        text_today_namee_buttom = (TextView) view.findViewById(R.id.text_today_namee_buttom);
         text_view = (TextView) view.findViewById(R.id.text_view);
         text_tody_name = (TextView) view.findViewById(R.id.text_tody_name);
 
 
-        for (int i = 0; i <bean_news.getData().getArticles().size(); i++) {
+        for (int i = 0; i < bean_news.getData().getArticles().size(); i++) {
             b = new ArrayList<>();
             HotspotSecBean bean = new HotspotSecBean();
             bean.setWebUrl(bean_news.getData().getArticles().get(i).getWeburl());
@@ -77,7 +77,7 @@ public class NewsAdapter extends PagerAdapter implements OnClickListener {
 
         }
 
-        frameLayout= (FrameLayout) view.findViewById(R.id.frame_layout);
+        frameLayout = (FrameLayout) view.findViewById(R.id.frame_layout);
         linear_top_left = (LinearLayout) view.findViewById(R.id.linear_top_left);
         linear_top_right = (LinearLayout) view.findViewById(R.id.linear_top_right);
         linear_below_left = (LinearLayout) view.findViewById(R.id.linear_below_left);
@@ -91,32 +91,22 @@ public class NewsAdapter extends PagerAdapter implements OnClickListener {
         linear_below.setOnClickListener(this);
 
 
-
-
-
-
-
-
-
-
-
-
         Glide.with(context).load(bean_news.getData().getArticles().get(position).getThumbnail_pic()).into(image_today);
 
         text_today.setText(bean_news.getData().getArticles().get(position).getTitle());
 
-        text_today_title.setText(bean_news .getData().getArticles().get(position+1).getTitle());
-        text_today_name.setText(bean_news.getData().getArticles().get(position+1).getAuther_name());
-        text_today_titlee.setText(bean_news.getData().getArticles().get(position+2).getTitle());
-        text_today_namee.setText(bean_news.getData().getArticles().get(position+2).getAuther_name());
-        text_today_title_bottom.setText(bean_news.getData().getArticles().get(position+3).getTitle());
-        text_today_name_bottom.setText(bean_news.getData().getArticles().get(position+3).getAuther_name());
-        text_today_titlee_buttom.setText(bean_news.getData().getArticles().get(position+4).getTitle());
-        text_today_namee_buttom.setText(bean_news.getData().getArticles().get(position+3).getAuther_name());
-        text_view.setText(bean_news.getData().getArticles().get(position+4).getTitle());
-        text_tody_name.setText(bean_news.getData().getArticles().get(position+4).getAuther_name());
-
+        text_today_title.setText(bean_news.getData().getArticles().get(position + 1).getTitle());
+        text_today_name.setText(bean_news.getData().getArticles().get(position + 1).getAuther_name());
+        text_today_titlee.setText(bean_news.getData().getArticles().get(position + 2).getTitle());
+        text_today_namee.setText(bean_news.getData().getArticles().get(position + 2).getAuther_name());
+        text_today_title_bottom.setText(bean_news.getData().getArticles().get(position + 3).getTitle());
+        text_today_name_bottom.setText(bean_news.getData().getArticles().get(position + 3).getAuther_name());
+        text_today_titlee_buttom.setText(bean_news.getData().getArticles().get(position + 4).getTitle());
+        text_today_namee_buttom.setText(bean_news.getData().getArticles().get(position + 3).getAuther_name());
+        text_view.setText(bean_news.getData().getArticles().get(position + 4).getTitle());
+        text_tody_name.setText(bean_news.getData().getArticles().get(position + 4).getAuther_name());
         container.addView(view);
+
         return view;
     }
 
@@ -127,7 +117,7 @@ public class NewsAdapter extends PagerAdapter implements OnClickListener {
 
 
     public void setBean_news(Bean_news bean_news) {
-        this.bean_news=bean_news;
+        this.bean_news = bean_news;
         notifyDataSetChanged();
     }
 

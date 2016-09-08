@@ -46,6 +46,8 @@ public class BeautifulActivity extends BaseActivity {
             @Override
             public void onSuccess(Bean_beautiful response) {
                 beautifulAdapter = new BeautifulAdapter(BeautifulActivity.this);
+                beautifulAdapter.setBean_beautiful(response);
+                listView.setAdapter(beautifulAdapter);
                 for (int i = 0; i <response.getData().getArticles().size(); i++) {
                     b = new ArrayList<>();
                     HotspotSecBean bean = new HotspotSecBean();
@@ -65,8 +67,7 @@ public class BeautifulActivity extends BaseActivity {
 
 
                 });
-                beautifulAdapter.setBean_beautiful(response);
-                listView.setAdapter(beautifulAdapter);
+
             }
 
             @Override

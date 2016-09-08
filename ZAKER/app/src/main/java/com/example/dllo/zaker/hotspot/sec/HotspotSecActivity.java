@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,12 @@ import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.app.MyApp;
 import com.example.dllo.zaker.base.BaseActivity;
 import com.example.dllo.zaker.hotspot.HotspotFragment;
+import com.mingle.circletreveal.CircularRevealCompat;
+import com.mingle.skin.SkinConfig;
+import com.mingle.skin.SkinStyle;
+import com.mingle.skin.hepler.SkinCompat;
+import com.mingle.widget.animation.CRAnimation;
+import com.mingle.widget.animation.SimpleAnimListener;
 
 import java.util.ArrayList;
 
@@ -26,7 +34,7 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
- * Created by dllo on 16/8/31.
+ * Created by yuxiaomin~ on 16/8/31.
  */
 public class HotspotSecActivity extends BaseActivity implements View.OnClickListener {
     public static final String KEY_webUrll = "webUrll";
@@ -36,6 +44,8 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
     private ImageView more;
     private AlertDialog mDialog;
     private SeekBar seekBar;
+    private Switch mSwitch;
+    private View ll;
     private HotspotSecWebFragment webFragment;
     private int pro;
 
@@ -44,9 +54,10 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
     private ImageView mImageViewBack;
     private ImageView second_include_img_search;
 
+
     @Override
     protected int getLayout() {
-        overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_out_anim);
+//        overridePendingTransition(R.anim.activity_in_anim, R.anim.activity_out_anim);
         return R.layout.activity_hotspot_sec_main;
     }
 
@@ -54,7 +65,11 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
     protected void initView() {
         more = (ImageView) findViewById(R.id.second_include_img_set);
         mImageViewBack = (ImageView) findViewById(R.id.second_include_img_back);
+
         second_include_img_search= (ImageView) findViewById(R.id.second_include_img_search);
+
+        ll = findViewById(R.id.ll_hotspot_sec);
+
 
     }
 
@@ -147,9 +162,10 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
     //创建夜间模式以及字体大小的dialog
     private AlertDialog createDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-      View view = LayoutInflater.from(MyApp.getContext()).inflate(R.layout.activity_hotspot_sec_dialog, null);
+        View view = LayoutInflater.from(MyApp.getContext()).inflate(R.layout.activity_hotspot_sec_dialog, null);
         builder.setView(view);
 //        builder.setCancelable(false);
+
 
         seekBar = (SeekBar) view.findViewById(R.id.seekbar_text_size);
         //显示的字体大小
@@ -159,9 +175,9 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-              mIntentBrocastPro = new Intent(ACTION_PRO);
-               mIntentBrocastPro.putExtra(KEY_seekPro,progress);
-                Log.d("HotspotSecActivity", "progress:" + mIntentBrocastPro.getIntExtra(KEY_seekPro,0));
+                mIntentBrocastPro = new Intent(ACTION_PRO);
+                mIntentBrocastPro.putExtra(KEY_seekPro, progress);
+                Log.d("HotspotSecActivity", "progress:" + mIntentBrocastPro.getIntExtra(KEY_seekPro, 0));
 //                mIntentBrocastPro.setAction(ACTION_PRO);
                 sendBroadcast(mIntentBrocastPro);
 
@@ -179,13 +195,73 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
             }
         });
 
+        //夜间模式
+        mSwitch = (Switch) view.findViewById(R.id.switch_night_module);
+        mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(HotspotSecActivity.this, "sdjpis", Toast.LENGTH_SHORT).show();
+                    CRAnimation crA =
+                            new CircularRevealCompat(ll).circularReveal(ll.getWidth() / 2, ll.getHeight() / 2, ll.getWidth(), 0);
+
+                    if (crA != null) {
+                        crA.addListener(new SimpleAnimListener() {
+                            @Override
+                            public void onAnimationEnd(CRAnimation animation) {
+                                super.onAnimationEnd(animation);
+                                ll.setVisibility(View.GONE);
+                                SkinStyle skinStyle = null;
+                                if (SkinConfig.getSkinStyle(HotspotSecActivity.this) == SkinStyle.Dark) {
+                                    skinStyle = SkinStyle.Light;
+                                } else {
+                                    skinStyle = SkinStyle.Dark;
+                                }
+                                SkinCompat.setSkinStyle(HotspotSecActivity.this, skinStyle, mSkinStyleChangeListenerImp);
+                            }
+                        });
+                        crA.start();
+
+                    }
+                }
+            }
+        });
+
+
         AlertDialog dialog = builder.create();
         return dialog;
     }
 
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.activity_in_anim,R.anim.activity_out_anim);
+    private SkinStyleChangeListenerImp mSkinStyleChangeListenerImp=new SkinStyleChangeListenerImp();
+    class SkinStyleChangeListenerImp implements SkinCompat.SkinStyleChangeListener {
+
+        @Override
+        public void beforeChange() {
+
+        }
+
+        @Override
+        public void afterChange() {
+
+            ll.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ll.setVisibility(View.VISIBLE);
+
+                    ll.setVisibility(View.VISIBLE);
+
+                    CRAnimation crA =
+                            new CircularRevealCompat(ll).circularReveal(ll.getWidth() / 2, ll.getHeight() / 2, 0, ll.getWidth());
+
+                    if (crA != null)
+                        crA.start();
+                }
+            },600);
+
+
+        }
+
     }
+
+
 }

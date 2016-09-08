@@ -6,7 +6,7 @@ import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
 
 /**
- * Created by dllo on 16/8/30.
+ * Created by yuxiaomin~ on 16/8/30.
  */
 public class CommunityTopicFragment extends BaseFragment {
 

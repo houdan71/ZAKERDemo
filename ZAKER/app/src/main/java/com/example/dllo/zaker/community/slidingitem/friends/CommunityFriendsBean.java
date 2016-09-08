@@ -3,7 +3,7 @@ package com.example.dllo.zaker.community.slidingitem.friends;
 import java.util.List;
 
 /**
- * Created by dllo on 16/9/3.
+ * Created by yuxiaomin~ on 16/9/3.
  */
 public class CommunityFriendsBean {
 

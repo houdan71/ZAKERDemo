@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ColorTitle">
+
+        <ImageView
+            android:id="@+id/iv_playfun_location_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/tendp"
+            android:background="@mipmap/abc_ic_ab_back_mtrl_am_alpha"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/tendp"
+            android:text="@string/devide"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/twenty_sp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_playfun_location_background"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/fifty_dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/playfun_location_press"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/fifty_fivedp"
+        android:paddingRight="@dimen/fifty_fivedp"
+        >
+
+        <TextView
+            android:id="@+id/tv_playfun_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="定位:"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/tv_playfun_location_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="location"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+</RelativeLayout>

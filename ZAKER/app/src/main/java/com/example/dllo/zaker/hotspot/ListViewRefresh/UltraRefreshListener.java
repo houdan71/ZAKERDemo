@@ -1,7 +1,7 @@
 package com.example.dllo.zaker.hotspot.ListViewRefresh;
 
 /**
- * Created by dllo on 16/8/31.
+ * Created by yuxiaomin~ on 16/8/31.
  */
 public interface UltraRefreshListener {
 

@@ -8,19 +8,19 @@
     <dimen name="twenty_sp">20sp</dimen>
     <dimen name="seventeensp">17sp</dimen>
     <dimen name="twelve_sp">12sp</dimen>
-    <dimen name="ten_sp">10sp</dimen>
     <dimen name="five_dp">5dp</dimen>
     <dimen name="eighty_dp">80dp</dimen>
     <dimen name="fifteen_five_dp">15dp</dimen>
     <dimen name="thirty_five_dp">35dp</dimen>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
     <dimen name="fifteen_sp">15sp</dimen>
     <dimen name="eight_sp">8sp</dimen>
     <dimen name="three_dp">3dp</dimen>
     <dimen name="twenty_five_dp">25dp</dimen>
-
     <dimen name="onehundred_dp">100dp</dimen>
-
     <dimen name="twohundred_dp">200dp</dimen>
     <dimen name="onehundred_eight_dp">180dp</dimen>
     <dimen name="onrhundred_fifty_dp">150dp</dimen>
@@ -40,18 +40,30 @@
     <dimen name="fifty_dp">50dp</dimen>
     <dimen name="twohundred_fifty_dp">250dp</dimen>
     <dimen name="eighteen_sp">18sp</dimen>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
     <dimen name="forty_dp">40dp</dimen>
+    <dimen name="ten_sp">10sp</dimen>
     <dimen name="thirdteen_sp">13sp</dimen>
+<<<<<<< HEAD
     >
+=======
+>>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
     <dimen name="thirty_dp">30dp</dimen>
     <dimen name="eightty_dp">80dp</dimen>
     <dimen name="one_dp">1dp</dimen>
     <dimen name="seventy_dp">70dp</dimen>
+<<<<<<< HEAD
 
     <dimen name="one_handrund_twenty_dp">120dp</dimen>
     <dimen name="one_hundrend_fifty_dp">150dp</dimen>
     <dimen name="forty_eight">48dp</dimen>
 
+=======
+    <dimen name="one_handrund_twenty_dp">120dp</dimen>
+    <dimen name="one_hundrend_fifty_dp">150dp</dimen>
+>>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
 
 </resources>

@@ -12,12 +12,18 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/tendp"
         android:text="@string/subscriptiop"
+<<<<<<< HEAD
 
         android:textColor="@android:color/white"
         android:textSize="@dimen/twenty_dp"/>
 
         android:textSize="@dimen/twentydp"/>
 
+=======
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/twenty_dp"/>
+
+>>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
 
     <ImageView
         android:id="@+id/include_img_personal"
@@ -30,8 +36,7 @@
         android:id="@+id/include_frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/include_img_personal"
-        >
+        android:layout_toLeftOf="@id/include_img_personal">
 
         <ImageView
             android:id="@+id/include_img_tag_subscription"
@@ -40,16 +45,16 @@
             android:background="@drawable/include_tag_subscription_select"/>
 
         <ImageView
-            android:id="@+id/include_img_tag_hotspot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/include_tag_hotspot_select"/>
-
-        <ImageView
             android:id="@+id/include_img_tag_playFun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/include_tag_playfun_select"/>
+
+        <ImageView
+            android:id="@+id/include_img_tag_hotspot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/include_tag_hotspot_select"/>
 
     </FrameLayout>
 

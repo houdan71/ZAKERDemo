@@ -3,7 +3,7 @@ package com.example.dllo.zaker.hotspot;
 import java.util.List;
 
 /**
- * Created by dllo on 16/8/30.
+ * Created by yuxiaomin~ on 16/8/30.
  */
 public class HotspotBean {
 

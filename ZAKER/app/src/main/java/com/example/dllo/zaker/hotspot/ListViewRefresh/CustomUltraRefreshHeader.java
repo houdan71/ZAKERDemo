@@ -17,7 +17,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.indicator.PtrIndicator;
 
 /**
- * Created by dllo on 16/8/31.
+ * Created by yuxiaomin~ on 16/8/31.
  */
 public class CustomUltraRefreshHeader extends RelativeLayout implements PtrUIHandler, in.srain.cube.views.ptr.PtrUIHandler {
 

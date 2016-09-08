@@ -17,7 +17,7 @@ import com.example.dllo.zaker.app.MyApp;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 /**
- * Created by dllo on 16/9/3.
+ * Created by yuxiaomin~ on 16/9/3.
  */
 public class CommunityFriendsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int HEAD = 0;

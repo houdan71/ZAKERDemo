@@ -36,12 +36,20 @@ public class FoodFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
+<<<<<<< HEAD
 
        listView = (ListView) getView().findViewById(R.id.list_choice);
 
 
 
 
+=======
+       listView = (ListView) getView().findViewById(R.id.list_choice);
+
+        mMetaballView = (MetaballView) view.findViewById(R.id.fragment_choice_metaballView);
+        mMetaballView.setPaintMode(1);
+
+>>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
     }
 
     @Override

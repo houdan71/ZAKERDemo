@@ -7,7 +7,7 @@ import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseActivity;
 
 /**
- * Created by dllo on 16/9/5.
+ * Created by yuxiaomin~ on 16/9/5.
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
     private ImageView ivDelete;

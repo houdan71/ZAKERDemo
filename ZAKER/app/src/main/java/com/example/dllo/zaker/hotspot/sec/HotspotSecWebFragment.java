@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.dllo.zaker.R;
-import com.example.dllo.zaker.app.MyApp;
 import com.example.dllo.zaker.base.BaseFragment;
 import com.example.dllo.zaker.subscription.activity.TodayActivity;
 import com.example.dllo.zaker.subscription.entity.Bean_today;
@@ -18,7 +17,7 @@ import com.example.dllo.zaker.subscription.entity.Bean_today;
 import java.util.ArrayList;
 
 /**
- * Created by dllo on 16/8/31.
+ * Created by yuxiaomin~ on 16/8/31.
  */
 public class HotspotSecWebFragment extends BaseFragment {
     private ViewPager mViewPager;
@@ -38,7 +37,6 @@ public class HotspotSecWebFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        register();
         mAdapter = new HotspotSecViewPagerAdapter();
 
         Bundle bundle = getArguments();
@@ -76,6 +74,7 @@ public class HotspotSecWebFragment extends BaseFragment {
 //            }
 //        });
 
+        register();
 
 
     }
@@ -89,6 +88,8 @@ public class HotspotSecWebFragment extends BaseFragment {
                     int pro = intent.getIntExtra(HotspotSecActivity.KEY_seekPro,0);
                     Log.d("HotspotSecWebFragment", "pro:" + pro);
                     mAdapter.setPro(pro);
+                   // mAdapter.notifyDataSetChanged();
+                    mViewPager.setAdapter(mAdapter);
                     break;
             }
         }
@@ -97,12 +98,12 @@ public class HotspotSecWebFragment extends BaseFragment {
     private void register(){
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(HotspotSecActivity.ACTION_PRO);
-        MyApp.getContext().registerReceiver(proReceiver,intentFilter);
+        getContext().registerReceiver(proReceiver,intentFilter);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        MyApp.getContext().unregisterReceiver(proReceiver);
+        getContext().unregisterReceiver(proReceiver);
     }
 }

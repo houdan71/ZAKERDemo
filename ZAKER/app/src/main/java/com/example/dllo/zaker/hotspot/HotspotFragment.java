@@ -27,7 +27,7 @@ import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 
 
 /**
- * Created by dllo on 16/8/29.
+ * Created by yuxiaomin~ on 16/8/29.
  */
 public class HotspotFragment extends BaseFragment implements UltraRefreshListener, AdapterView.OnItemClickListener {
 
@@ -72,6 +72,7 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
         mPtrFrame.addPtrUIHandler(header);
         //设置数据刷新的会回调，因为UltraRefreshListView实现了PtrHandler
         mPtrFrame.setPtrHandler(mLv);
+
         NetTool.getInstance().startRequest(NValues.URL_HOTSPOT, HotspotBean.class, new onHttpCallBack<HotspotBean>() {
             @Override
             public void onSuccess(final HotspotBean response) {
@@ -180,7 +181,9 @@ public class HotspotFragment extends BaseFragment implements UltraRefreshListene
         intent.putExtra(KEY_postionItem, position);
         Log.d("HotspotFragment", "position:" + position);
         for (int i = 0; i < mHotspotSecBeanArrayList.size(); i++) {
+        if (mHotspotSecBeanArrayList.get(i).getWebUrl() != null){
             Log.d("HotspotFragment", mHotspotSecBeanArrayList.get(i).getWebUrl());
+        }
         }
         startActivity(intent);
     }

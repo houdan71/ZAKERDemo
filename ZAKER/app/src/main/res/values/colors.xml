@@ -7,4 +7,7 @@
     <color name="night_bg">#3A3743</color>
     <color name="light_bg">#fff0f0f0</color>
     <color name="gray_background">#ffe1e1e1</color>
+    <color name="back_gray_background">#66303f9f</color>
+    <color name="dark_gray_background">#565670</color>
+
 </resources>

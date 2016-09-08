@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ListView;
 
 /**
- * Created by dllo on 16/8/22.
+ * Created by yuxiaomin~ on 16/8/22.
  */
 public class ScrollViewAndListView extends ListView {
     public ScrollViewAndListView(Context context) {

@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">ZAKER</string>
     <string name="playFun">玩乐</string>
-
     <string name="community">社区</string>
     <string name="hotspot">热点</string>
-
     <string name="subscriptiop">订阅</string>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
     <string name="essence">精选</string>
     <string name="movieinformation">电影资讯</string>
     <string name="food">美食频道</string>
@@ -42,11 +43,19 @@
     <string name="film">电影</string>
     <string name="TV">电视</string>
     <string name="star">明星</string>
+<<<<<<< HEAD
 
     <string name="action_strock">边框模式</string>
     <string name="action_fill">填充模式</string>
     <string name="fouse">关注</string>
     <string name="clear">清除搜索历史</string>
+=======
+    <string name="action_strock">边框模式</string>
+    <string name="action_fill">填充模式</string>
+    <string name="fouse">关注</string>
+    <string name="devide">分类</string>
+
+>>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
 
 
 </resources>

@@ -15,7 +15,7 @@ import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.tools.NValues;
 
 /**
- * Created by dllo on 16/8/30.
+ * Created by yuxiaomin~ on 16/8/30.
  */
 public class CommunityFriendsFragment extends BaseFragment {
     private RecyclerView mRecyclerView;

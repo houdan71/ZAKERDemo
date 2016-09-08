@@ -4,7 +4,7 @@ import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseActivity;
 
 /**
- * Created by dllo on 16/9/3.
+ * Created by yuxiaomin~ on 16/9/3.
  */
 public class ImgUrlActivity extends BaseActivity {
     @Override

@@ -1,15 +1,24 @@
 package com.example.dllo.zaker.subscription.food_fragment;
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.bumptech.glide.Glide;
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
+import com.example.dllo.zaker.hotspot.HotspotFragment;
+import com.example.dllo.zaker.hotspot.sec.HotspotSecActivity;
+import com.example.dllo.zaker.hotspot.sec.HotspotSecBean;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.entity.Bean_foodie;
 import com.example.dllo.zaker.subscription.fragment_adapter.FoodieAdapter;
+import com.example.dllo.zaker.tools.NValues;
+
+import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/9/1.
@@ -17,6 +26,7 @@ import com.example.dllo.zaker.subscription.fragment_adapter.FoodieAdapter;
 public class FoodieFragment extends BaseFragment {
     private ListView list_foodie;
     private FoodieAdapter foodieAdapter;
+    ArrayList<HotspotSecBean> b;
     @Override
     protected int initLayout() {
         return R.layout.fragment_choice;
@@ -30,11 +40,30 @@ public class FoodieFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url ="http://dis.myzaker.com/api/get_post.php?_appid=AndroidPhone&_bsize=1080_1920&_city=%E5%A4%A7%E8%BF%9E&_dev=515&_lat=38.88973&_lbs_city=%E5%A4%A7%E8%BF%9E&_lbs_province=%E8%BE%BD%E5%AE%81%E7%9C%81&_lng=121.551023&_mac=08%3A00%3A27%3A4c%3A0a%3A58&_mcode=2FFC24DC&_net=wifi&_nudid=f8d5a71e2585d3a4&_os=4.4.4_GoogleNexus5-4.4.4-API19-1080x1920&_os_name=GoogleNexus5-4.4.4-API19-1080x1920&_province=%E8%BE%BD%E5%AE%81%E7%9C%81&_udid=4.4.4_GoogleNexus5-4.4.4-API19-1080x1920.08%3A00%3A27%3A4c%3A0a%3A58&_v=6.7&_version=6.7&discussion_id=2&sort_type=last_comment ";
-        NetTool.getInstance().startRequest(url, Bean_foodie.class, new onHttpCallBack<Bean_foodie>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_FOODIE, Bean_foodie.class, new onHttpCallBack<Bean_foodie>() {
             @Override
             public void onSuccess(Bean_foodie response) {
                foodieAdapter =new FoodieAdapter(getContext());
+                for (int i = 0; i <response.getData().getPosts().size(); i++) {
+                    b = new ArrayList<>();
+                    HotspotSecBean bean = new HotspotSecBean();
+                    bean.setWebUrl(response.getData().getPosts().get(i).getWeburl());
+                    b.add(bean);
+
+                }
+                list_foodie.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        Intent intent = new Intent(getActivity(), HotspotSecActivity.class);
+                        intent.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
+                        startActivity(intent);
+
+                    }
+
+
+                });
                 foodieAdapter.setBean_foodie(response);
                 list_foodie.setAdapter(foodieAdapter);
 

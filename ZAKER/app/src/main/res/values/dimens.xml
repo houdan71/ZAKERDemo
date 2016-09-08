@@ -13,7 +13,7 @@
     <dimen name="eighty_dp">80dp</dimen>
     <dimen name="fifteen_five_dp">15dp</dimen>
     <dimen name="thirty_five_dp">35dp</dimen>
-<<<<<<< HEAD
+
     <dimen name="fifteen_sp">15sp</dimen>
     <dimen name="eight_sp">8sp</dimen>
     <dimen name="three_dp">3dp</dimen>
@@ -40,16 +40,18 @@
     <dimen name="fifty_dp">50dp</dimen>
     <dimen name="twohundred_fifty_dp">250dp</dimen>
     <dimen name="eighteen_sp">18sp</dimen>
-=======
+
     <dimen name="forty_dp">40dp</dimen>
     <dimen name="thirdteen_sp">13sp</dimen>
-    <dimen name="two_dp">2dp</dimen>
+    >
     <dimen name="thirty_dp">30dp</dimen>
     <dimen name="eightty_dp">80dp</dimen>
     <dimen name="one_dp">1dp</dimen>
     <dimen name="seventy_dp">70dp</dimen>
-    <dimen name="fifty_dp">50dp</dimen>
+
     <dimen name="one_handrund_twenty_dp">120dp</dimen>
     <dimen name="one_hundrend_fifty_dp">150dp</dimen>
->>>>>>> 56904cd901b952c10a18eef403158cedb102ef01
+    <dimen name="forty_eight">48dp</dimen>
+
+
 </resources>

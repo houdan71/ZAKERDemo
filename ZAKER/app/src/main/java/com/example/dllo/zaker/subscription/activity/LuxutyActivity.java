@@ -8,6 +8,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.LuxutyAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_luxuty;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/8/31.
@@ -28,8 +29,8 @@ public class LuxutyActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        String url ="http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=1067 ";
-        NetTool.getInstance().startRequest(url, Bean_luxuty.class, new onHttpCallBack<Bean_luxuty>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_LUXUTY, Bean_luxuty.class, new onHttpCallBack<Bean_luxuty>() {
             @Override
             public void onSuccess(Bean_luxuty response) {
                 luxutyAdapter =new LuxutyAdapter(LuxutyActivity.this);

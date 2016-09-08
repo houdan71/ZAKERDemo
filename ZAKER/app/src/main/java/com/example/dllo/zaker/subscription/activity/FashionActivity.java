@@ -8,6 +8,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.FashionAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_fashion;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/8/31.
@@ -28,8 +29,8 @@ public class FashionActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        String url =" http://iphone.myzaker.com/zaker/news.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=12";
-        NetTool.getInstance().startRequest(url, Bean_fashion.class, new onHttpCallBack<Bean_fashion>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_FASHION, Bean_fashion.class, new onHttpCallBack<Bean_fashion>() {
             @Override
             public void onSuccess(Bean_fashion response) {
                 fashionAdapter =new FashionAdapter(FashionActivity.this);

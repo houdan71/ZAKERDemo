@@ -128,7 +128,7 @@
         android:layout_height="@dimen/thirty_dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/iv_community_friends_item_one_img_content"
-        android:layout_marginRight="@dimen/twentydp"
+        android:layout_marginRight="@dimen/twenty_dp"
         android:layout_marginTop="@dimen/five_dp"
         android:src="@drawable/community_item_good_select"/>
 
@@ -137,7 +137,7 @@
         android:layout_width="@dimen/thirty_dp"
         android:layout_height="@dimen/thirty_dp"
         android:layout_below="@id/iv_community_friends_item_one_img_content"
-        android:layout_marginRight="@dimen/twentydp"
+        android:layout_marginRight="@dimen/twenty_dp"
         android:layout_marginTop="@dimen/five_dp"
         android:layout_toLeftOf="@id/iv_community_friends_item_one_img_good"
         android:src="@drawable/community_item_msg_select"/>

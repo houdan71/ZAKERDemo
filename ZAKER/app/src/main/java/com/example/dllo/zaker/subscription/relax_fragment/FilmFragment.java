@@ -11,6 +11,7 @@ import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.FilmsAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_film;
 import com.example.dllo.zaker.subscription.fragment_adapter.FilmAdapter;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -33,8 +34,8 @@ public class FilmFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url = "http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=10530&catalog_appid=9";
-        NetTool.getInstance().startRequest(url, Bean_film.class, new onHttpCallBack<Bean_film>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_FILM, Bean_film.class, new onHttpCallBack<Bean_film>() {
             @Override
             public void onSuccess(Bean_film response) {
             filmsAdapter =new FilmsAdapter(getActivity());

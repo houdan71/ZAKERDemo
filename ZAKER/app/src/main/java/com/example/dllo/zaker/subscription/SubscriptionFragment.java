@@ -38,6 +38,7 @@ import com.example.dllo.zaker.subscription.activity.SportsActivity;
 import com.example.dllo.zaker.subscription.activity.TechnologyActivity;
 import com.example.dllo.zaker.subscription.activity.TodayActivity;
 import com.example.dllo.zaker.subscription.activity.TripActivity;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/8/29.
@@ -83,8 +84,8 @@ public class SubscriptionFragment extends BaseFragment {
     protected void initData() {
         gridAdapter = new GridAdapter(getContext());
 
-        String url = "http://iphone.myzaker.com/zaker/follow_promote.php?_appid=AndroidPhone&_bsize=1080_1920&_city=%E5%A4%A7%E8%BF%9E&_dev=515&_lat=38.88973&_lbs_city=%E5%A4%A7%E8%BF%9E&_lbs_province=%E8%BE%BD%E5%AE%81%E7%9C%81&_lng=121.551023&_mac=08%3A00%3A27%3A4c%3A0a%3A58&_mcode=2FFC24DC&_net=wifi&_nudid=f8d5a71e2585d3a4&_os=4.4.4_GoogleNexus5-4.4.4-API19-1080x1920&_os_name=GoogleNexus5-4.4.4-API19-1080x1920&_province=%E8%BE%BD%E5%AE%81%E7%9C%81&_udid=4.4.4_GoogleNexus5-4.4.4-API19-1080x1920.08%3A00%3A27%3A4c%3A0a%3A58&_v=6.7&_version=6.7&m=1472280481";
-        NetTool.getInstance().startRequest(url, Bean_subscription.class, new onHttpCallBack<Bean_subscription>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_SUBSCRIPTION, Bean_subscription.class, new onHttpCallBack<Bean_subscription>() {
             @Override
             public void onSuccess(Bean_subscription response) {
                 mMetaballView.setVisibility(View.GONE);

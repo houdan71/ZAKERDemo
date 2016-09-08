@@ -9,6 +9,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.TopAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_top;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -28,8 +29,8 @@ public class TopFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-   String url="http://iphone.myzaker.com/zaker/news.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=8";
-        NetTool.getInstance().startRequest(url, Bean_top.class, new onHttpCallBack<Bean_top>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_TOP, Bean_top.class, new onHttpCallBack<Bean_top>() {
             @Override
             public void onSuccess(Bean_top response) {
             topAdapter =new TopAdapter(getActivity());

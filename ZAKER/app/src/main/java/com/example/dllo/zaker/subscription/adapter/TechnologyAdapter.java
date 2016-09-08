@@ -55,7 +55,7 @@ public class TechnologyAdapter extends PagerAdapter {
         text_view = (TextView) view.findViewById(R.id.text_view);
         text_tody_name = (TextView) view.findViewById(R.id.text_tody_name);
 
-        //Glide.with(context).load(bean_technology.getData().getArticles().get(position).getThumbnail_pic()).into(image_today);
+        Glide.with(context).load(bean_technology.getData().getArticles().get(position).getThumbnail_pic()).into(image_today);
 
         text_today.setText(bean_technology.getData().getArticles().get(position).getTitle());
 

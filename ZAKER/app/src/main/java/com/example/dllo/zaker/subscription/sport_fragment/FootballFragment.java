@@ -9,6 +9,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.FootballAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_football;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -29,8 +30,8 @@ public class FootballFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url = "http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=12083&catalog_appid=8";
-        NetTool.getInstance().startRequest(url, Bean_football.class, new onHttpCallBack<Bean_football>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_FOOTBALL, Bean_football.class, new onHttpCallBack<Bean_football>() {
             @Override
             public void onSuccess(Bean_football response) {
                 footballAdapter = new FootballAdapter(getActivity());

@@ -24,7 +24,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
-
+            android:gravity="center"
 
             android:text="@string/imports"
             android:textSize="@dimen/twenty_sp"
@@ -39,6 +39,7 @@
             android:button="@null"
             android:checked="true"
             android:text="@string/shares"
+            android:gravity="center"
             android:textSize="@dimen/twenty_sp"
             />
 
@@ -50,6 +51,7 @@
             android:button="@null"
             android:checked="true"
             android:text="@string/market"
+            android:gravity="center"
             android:textSize="@dimen/twenty_sp"
             />
 

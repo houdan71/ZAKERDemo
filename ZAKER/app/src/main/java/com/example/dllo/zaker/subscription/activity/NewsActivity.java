@@ -8,6 +8,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.NewsAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_news;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/8/31.
@@ -29,8 +30,8 @@ public class NewsActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-       String url =" http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=660 ";
-        NetTool.getInstance().startRequest(url, Bean_news.class, new onHttpCallBack<Bean_news>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_NEWS, Bean_news.class, new onHttpCallBack<Bean_news>() {
             @Override
             public void onSuccess(Bean_news response) {
                 newsAdapter =new NewsAdapter(NewsActivity.this);

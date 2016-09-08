@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.app.MyApp;
@@ -19,6 +20,10 @@ import com.example.dllo.zaker.base.BaseActivity;
 import com.example.dllo.zaker.hotspot.HotspotFragment;
 
 import java.util.ArrayList;
+
+
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
  * Created by dllo on 16/8/31.
@@ -37,6 +42,7 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
     private Intent mIntentBrocastPro;
     public static final String ACTION_PRO = "com.example.dllo.zaker.hotspot.sec.ACTION_PRO";
     private ImageView mImageViewBack;
+    private ImageView second_include_img_search;
 
     @Override
     protected int getLayout() {
@@ -48,6 +54,7 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
     protected void initView() {
         more = (ImageView) findViewById(R.id.second_include_img_set);
         mImageViewBack = (ImageView) findViewById(R.id.second_include_img_back);
+        second_include_img_search= (ImageView) findViewById(R.id.second_include_img_search);
 
     }
 
@@ -55,11 +62,13 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
     protected void initData() {
 
         Intent intent = getIntent();
+
         ArrayList<HotspotSecBean> bean = intent.getParcelableArrayListExtra(HotspotFragment.KEY_webUrl);
         int positionItem = intent.getIntExtra(HotspotFragment.KEY_postionItem, 0);
         for (int i = 0; i < bean.size(); i++) {
             Log.d("HotspotSecActivity", bean.get(i).getWebUrl());
         }
+
 
         //替换fragment
         FragmentManager manager = getSupportFragmentManager();
@@ -78,6 +87,7 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
         mDialog = createDialog();
 
         mImageViewBack.setOnClickListener(this);
+        second_include_img_search.setOnClickListener(this);
 
     }
 
@@ -96,7 +106,41 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
             case R.id.second_include_img_back:
                 finish();
                 break;
+            case R.id.second_include_img_search:
+                showShare();
+                Toast.makeText(this, "showShare", Toast.LENGTH_SHORT).show();
+                break;
         }
+    }
+
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+
+// 分享时Notification的图标和文字  2.5.9以后的版本不调用此方法
+        //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
+//        oks.setTitle(getString(R.string.share));
+//        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
+//        oks.setTitleUrl("http://sharesdk.cn");
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText("我是分享文本");
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        // url仅在微信（包括好友和朋友圈）中使用
+//        oks.setUrl("http://sharesdk.cn");
+        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("我是测试评论文本");
+        // site是分享此内容的网站名称，仅在QQ空间使用
+//        oks.setSite(getString(R.string.app_name));
+//        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+//        oks.setSiteUrl("http://sharesdk.cn");
+
+// 启动分享GUI
+        oks.show(this);
+
     }
 
 

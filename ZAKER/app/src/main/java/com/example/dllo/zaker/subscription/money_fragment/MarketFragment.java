@@ -5,6 +5,7 @@ import android.webkit.WebView;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -24,7 +25,7 @@ public class MarketFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        web_view.loadUrl("http://passport.eastmoney.com/mobileapp/zaker_login.aspx ");
+        web_view.loadUrl(NValues.URL_MARKET);
 
     }
 }

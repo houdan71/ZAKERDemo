@@ -24,8 +24,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero"
-        android:layout_marginLeft="@dimen/twentydp"
-        android:layout_marginRight="@dimen/twentydp"
+        android:layout_marginLeft="@dimen/twenty_dp"
+        android:layout_marginRight="@dimen/twenty_dp"
         android:layout_weight="2"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -34,7 +34,7 @@
             android:id="@+id/cb_login_weixin"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/twentydp"
+            android:layout_marginRight="@dimen/twenty_dp"
             android:layout_weight="1"
             android:background="@drawable/login_weichat"
             android:button="@null"/>
@@ -43,7 +43,7 @@
             android:id="@+id/cb_login_qq"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/twentydp"
+            android:layout_marginRight="@dimen/twenty_dp"
             android:layout_weight="1"
             android:background="@drawable/login_qq"
             android:button="@null"/>
@@ -52,8 +52,8 @@
             android:id="@+id/cb_login_sina"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/twentydp"
-            android:layout_marginRight="@dimen/twentydp"
+            android:layout_marginLeft="@dimen/twenty_dp"
+            android:layout_marginRight="@dimen/twenty_dp"
             android:layout_weight="1"
             android:background="@drawable/login_sina"
             android:button="@null"/>

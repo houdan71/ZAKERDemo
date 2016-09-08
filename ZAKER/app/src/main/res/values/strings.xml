@@ -6,7 +6,7 @@
     <string name="hotspot">热点</string>
 
     <string name="subscriptiop">订阅</string>
-<<<<<<< HEAD
+
     <string name="essence">精选</string>
     <string name="movieinformation">电影资讯</string>
     <string name="food">美食频道</string>
@@ -42,11 +42,11 @@
     <string name="film">电影</string>
     <string name="TV">电视</string>
     <string name="star">明星</string>
-=======
+
     <string name="action_strock">边框模式</string>
     <string name="action_fill">填充模式</string>
     <string name="fouse">关注</string>
->>>>>>> 56904cd901b952c10a18eef403158cedb102ef01
+    <string name="clear">清除搜索历史</string>
 
 
 </resources>

@@ -9,6 +9,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.TvAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_tv;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -29,8 +30,8 @@ public class TvFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url =" http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=11698&catalog_appid=9 ";
-        NetTool.getInstance().startRequest(url, Bean_tv.class, new onHttpCallBack<Bean_tv>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_TV, Bean_tv.class, new onHttpCallBack<Bean_tv>() {
             @Override
             public void onSuccess(Bean_tv response) {
                 tvAdapter =new TvAdapter(getActivity());

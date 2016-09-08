@@ -24,8 +24,8 @@ import java.util.ArrayList;
  * Created by dllo on 16/9/1.
  */
 public class FoodFragment extends BaseFragment {
-    private ListView  listView;
-    private FoodMovieAdapter  foodMovieAdapter;
+    private ListView listView;
+    private FoodMovieAdapter foodMovieAdapter;
     ArrayList<HotspotSecBean> b;
 
 
@@ -36,30 +36,22 @@ public class FoodFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-<<<<<<< HEAD
-
-       listView = (ListView) getView().findViewById(R.id.list_choice);
 
 
+        listView = (ListView) getView().findViewById(R.id.list_choice);
 
 
-=======
-       listView = (ListView) getView().findViewById(R.id.list_choice);
 
-        mMetaballView = (MetaballView) view.findViewById(R.id.fragment_choice_metaballView);
-        mMetaballView.setPaintMode(1);
-
->>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
     }
 
     @Override
     protected void initData() {
-      foodMovieAdapter =new FoodMovieAdapter(getContext());
+        foodMovieAdapter = new FoodMovieAdapter(getContext());
 
         NetTool.getInstance().startRequest(NValues.URL_FOOD, Bean_food.class, new onHttpCallBack<Bean_food>() {
             @Override
             public void onSuccess(Bean_food response) {
-                for (int i = 0; i <response.getData().getArticles().size(); i++) {
+                for (int i = 0; i < response.getData().getArticles().size(); i++) {
                     b = new ArrayList<>();
                     HotspotSecBean bean = new HotspotSecBean();
                     bean.setWebUrl(response.getData().getArticles().get(i).getWeburl());
@@ -88,7 +80,6 @@ public class FoodFragment extends BaseFragment {
 
             }
         });
-
 
 
     }

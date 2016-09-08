@@ -12,18 +12,18 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/tendp"
         android:text="@string/subscriptiop"
-<<<<<<< HEAD
+
 
         android:textColor="@android:color/white"
         android:textSize="@dimen/twenty_dp"/>
 
         android:textSize="@dimen/twentydp"/>
 
-=======
+
         android:textColor="@android:color/white"
         android:textSize="@dimen/twenty_dp"/>
 
->>>>>>> 6ce7fc03856b45cd31f8039a607d17f3b0582b8e
+
 
     <ImageView
         android:id="@+id/include_img_personal"

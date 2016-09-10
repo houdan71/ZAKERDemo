@@ -34,6 +34,11 @@ public class CommunityFriendsAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     private OnRecyclerItemClickListener mListener;
 
+    public void setOnRecyclerItemListener(OnRecyclerItemClickListener listener) {
+        this.mListener = listener;
+    }
+
+
     public CommunityFriendsAdapter(Context context) {
         mContext = context;
     }
@@ -153,9 +158,6 @@ public class CommunityFriendsAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     }
 
-    public void setOnRecyclerItemListener(OnRecyclerItemClickListener listener) {
-        this.mListener = listener;
-    }
 
 
     @Override

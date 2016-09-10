@@ -49,14 +49,15 @@
 
     </FrameLayout>
 
-    <TextView
+    <com.example.dllo.zaker.tools.MarqueeTextView
         android:id="@+id/include_textView_tag"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/eighty_dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/include_frameLayout"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/seventeensp"/>
+        android:textColor="@android:color/transparent"
+        android:textSize="@dimen/seventeensp"
+        android:text="l"/>
 
 
 </RelativeLayout>

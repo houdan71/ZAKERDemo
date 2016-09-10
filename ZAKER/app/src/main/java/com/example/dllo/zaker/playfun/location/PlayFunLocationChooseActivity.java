@@ -1,12 +1,12 @@
 package com.example.dllo.zaker.playfun.location;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseActivity;
@@ -131,11 +131,12 @@ public class PlayFunLocationChooseActivity extends BaseActivity implements View.
             }
         });
     }
+    private String b;
 
     @Override
     public void itemClick(int position) {
 
-        Toast.makeText(getApplicationContext(), "你选择了:" + mChooseBean.getData().getCities().get(position).getCity_name(), Toast.LENGTH_SHORT).show();
+      b = mChooseBean.getData().getCities().get(position).getCity_name();
     }
 
 
@@ -163,8 +164,22 @@ public class PlayFunLocationChooseActivity extends BaseActivity implements View.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_playfun_location_city_choose_back:
+                Intent intent = new Intent();
+                int resultCode = 200;
+                intent.putExtra("back", b);
+                this.setResult(resultCode,intent);
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        Intent intent = new Intent();
+        int resultCode = 200;
+        intent.putExtra("back", b);
+        this.setResult(resultCode,intent);
+        finish();
     }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_hotspot_tag_my_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/tendp"
+        android:text="kao" />
+
+    <ImageView
+        android:layout_width="@dimen/fifteen_five_dp"
+        android:layout_height="@dimen/fifteen_five_dp"
+        android:layout_toRightOf="@id/tv_hotspot_tag_my_like"
+        android:src="@mipmap/favorite_delete_night"
+        android:layout_marginLeft="@dimen/twenty_dp"/>
+</RelativeLayout>

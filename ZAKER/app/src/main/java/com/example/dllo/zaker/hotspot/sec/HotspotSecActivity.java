@@ -102,8 +102,8 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
                 mDialog.show();
 
                 WindowManager.LayoutParams params = mDialog.getWindow().getAttributes();
-                params.height = 900;
-                params.height = 450;
+//                params.height = 900;
+//                params.height = 450;
                 mDialog.getWindow().setAttributes(params);
                 break;
             case R.id.second_include_img_back:
@@ -186,6 +186,7 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
         return dialog;
     }
 
+
     private SkinStyleChangeListenerImp mSkinStyleChangeListenerImp=new SkinStyleChangeListenerImp();
     class SkinStyleChangeListenerImp implements SkinCompat.SkinStyleChangeListener {
 
@@ -201,12 +202,9 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
                 @Override
                 public void run() {
                     ll.setVisibility(View.VISIBLE);
-
                     ll.setVisibility(View.VISIBLE);
-
                     CRAnimation crA =
                             new CircularRevealCompat(ll).circularReveal(ll.getWidth() / 2, ll.getHeight() / 2, 0, ll.getWidth());
-
                     if (crA != null)
                         crA.start();
                 }

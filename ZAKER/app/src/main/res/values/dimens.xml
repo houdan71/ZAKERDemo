@@ -49,12 +49,11 @@
 
     <dimen name="one_handrund_twenty_dp">120dp</dimen>
     <dimen name="one_hundrend_fifty_dp">150dp</dimen>
-<<<<<<< HEAD
+
     <dimen name="sliding_menu_width">80dp</dimen>
-=======
+
     <dimen name="forty_eight">48dp</dimen>
+    <dimen name="two_hundrend_dp">200dp</dimen>
 
 
-
->>>>>>> 0645a188a3a23ab60401cfb8b5caf7ca0b28e2e2
 </resources>

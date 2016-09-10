@@ -2,6 +2,7 @@ package com.example.dllo.zaker.main;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,6 +25,7 @@ import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.community.CommunityFragment;
 import com.example.dllo.zaker.hotspot.HotspotFragment;
 import com.example.dllo.zaker.hotspot.tag.HotspotTagNewActivity;
+import com.example.dllo.zaker.login.LoginActivity;
 import com.example.dllo.zaker.playfun.PlayFunFragment;
 import com.example.dllo.zaker.playfun.location.PlayFunLocationChooseActivity;
 import com.example.dllo.zaker.playfun.location.PlayFunLocationTagActivity;
@@ -33,7 +35,6 @@ import com.example.dllo.zaker.tools.Titanic;
 import com.example.dllo.zaker.tools.TitanicTextView;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
-
     private RadioButton subscriptionRB, hotspotRB, playFunRB, communityRB;
     private ImageView tagSubscriptionIV, tagHotspotIV, tagPlayFunIV;
     private MarqueeTextView tagTV;
@@ -42,14 +43,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private ImageView ivTagPlayFun;
     private ImageView ivTagHotsPot;
 
-    private AlertDialog mDialog;
-
-    private TextView locationInfoTextView = null;
-
     private LocationClient locationClient = null;
-    private static final int UPDATE_TIME = 5000;
-    private static int LOCATION_COUTNS = 0;
     private String locationStr;
+    private ImageView ivPersonal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +68,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
         ivTagPlayFun = (ImageView) findViewById(R.id.include_img_tag_playFun);
         ivTagHotsPot = (ImageView) findViewById(R.id.include_img_tag_hotspot);
+
+        ivPersonal = (ImageView) findViewById(R.id.include_img_personal);
     }
 
     private void initData() {
@@ -81,6 +79,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         hotspotRB.setOnClickListener(this);
         playFunRB.setOnClickListener(this);
         communityRB.setOnClickListener(this);
+        ivPersonal.setOnClickListener(this);
 
         replaceFragment(R.id.frame_replace, new SubscriptionFragment());
         tagSubscriptionIV.setVisibility(View.VISIBLE);
@@ -173,7 +172,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 break;
             case R.id.radioBtn_playFun:
                 replaceFragment(R.id.frame_replace, new PlayFunFragment());
-                dialog();
+
+                SharedPreferences getSp = getSharedPreferences("location", MODE_PRIVATE);
+                if (getSp.getBoolean("dialog", true)) {
+                    dialog();
+                }
                 tagSubscriptionIV.setVisibility(View.GONE);
                 tagPlayFunIV.setVisibility(View.VISIBLE);
                 tagHotspotIV.setVisibility(View.GONE);
@@ -203,12 +206,17 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 break;
             case R.id.include_img_tag_playFun:
                 Intent intent = new Intent(this, PlayFunLocationTagActivity.class);
-                intent.putExtra("loc",locationStr);
+                intent.putExtra("loc", locationStr);
                 startActivity(intent);
                 break;
             case R.id.include_img_tag_hotspot:
                 Intent intentHotspot = new Intent(this, HotspotTagNewActivity.class);
                 startActivity(intentHotspot);
+                break;
+            case R.id.include_img_personal:
+                Intent intentP = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intentP);
+                break;
         }
     }
 
@@ -217,7 +225,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         View view = LayoutInflater.from(this).inflate(R.layout.activity_main_location_dialog, null);
         builder.setView(view);
         TextView textView = (TextView) view.findViewById(R.id.tv_main_location_city);
-        textView.setText(locationStr + ", 是否切换?");
+        textView.setText(locationStr);
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -233,7 +241,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         });
 
         AlertDialog dialog = builder.create();
+
         dialog.show();
+
+        SharedPreferences sp = getSharedPreferences("location", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean("dialog", false);
+        editor.apply();
     }
 
 

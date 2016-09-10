@@ -60,6 +60,6 @@
         android:layout_marginLeft="@dimen/tendp"
         android:layout_marginTop="@dimen/tendp"
         android:layout_weight="1"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"/>
 </LinearLayout>

@@ -79,7 +79,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/two_dp"
             android:layout_weight="1"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:src="@mipmap/defaule"/>
 
         <ImageView
@@ -88,7 +88,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/two_dp"
             android:layout_weight="1"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:src="@mipmap/defaule"/>
     </LinearLayout>
 

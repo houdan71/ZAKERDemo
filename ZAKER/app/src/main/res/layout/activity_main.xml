@@ -12,9 +12,6 @@
     android:orientation="vertical"
     tools:context=".main.MainActivity">
 
-
-
-
     <include
         android:id="@+id/include_main"
         layout="@layout/include"

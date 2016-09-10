@@ -30,31 +30,34 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <CheckBox
+        <ImageView
             android:id="@+id/cb_login_weixin"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/twenty_dp"
             android:layout_weight="1"
+            android:scaleType="centerCrop"
             android:background="@drawable/login_weichat"
             android:button="@null"/>
 
-        <CheckBox
+        <ImageView
             android:id="@+id/cb_login_qq"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/twenty_dp"
             android:layout_weight="1"
+            android:scaleType="centerCrop"
             android:background="@drawable/login_qq"
             android:button="@null"/>
 
-        <CheckBox
+        <ImageView
             android:id="@+id/cb_login_sina"
             android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/twenty_dp"
             android:layout_marginRight="@dimen/twenty_dp"
             android:layout_weight="1"
+            android:scaleType="centerCrop"
             android:background="@drawable/login_sina"
             android:button="@null"/>
     </LinearLayout>

@@ -21,6 +21,7 @@ import com.example.dllo.zaker.tools.NValues;
 public class BasketballFragment extends BaseFragment {
     private ViewPager view_technolo_pager;
     private BasketballAdapter basketballAdapter;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -40,6 +41,7 @@ public class BasketballFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_basketball response) {
                basketballAdapter =new BasketballAdapter(getActivity());
+
                 basketballAdapter.setBean_basketball(response);
                 view_technolo_pager.setAdapter(basketballAdapter);
             }

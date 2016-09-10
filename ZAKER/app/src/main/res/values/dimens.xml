@@ -50,7 +50,7 @@
     <dimen name="one_handrund_twenty_dp">120dp</dimen>
     <dimen name="one_hundrend_fifty_dp">150dp</dimen>
     <dimen name="forty_eight">48dp</dimen>
-
+    <dimen name="fourhundeed_dp">400dp</dimen>
 
 
 </resources>

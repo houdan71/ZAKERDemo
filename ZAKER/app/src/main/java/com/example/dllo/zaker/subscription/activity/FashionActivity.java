@@ -16,6 +16,8 @@ import com.example.dllo.zaker.tools.NValues;
 public class FashionActivity extends BaseActivity {
     private ViewPager view_fashion_pager;
     private FashionAdapter fashionAdapter;
+
+
     @Override
     protected int getLayout() {
         return R.layout.activity_car;
@@ -24,6 +26,7 @@ public class FashionActivity extends BaseActivity {
     @Override
     protected void initView() {
         view_fashion_pager = (ViewPager) findViewById(R.id.view_car_pager);
+
 
     }
 
@@ -34,6 +37,7 @@ public class FashionActivity extends BaseActivity {
             @Override
             public void onSuccess(Bean_fashion response) {
                 fashionAdapter =new FashionAdapter(FashionActivity.this);
+
                 fashionAdapter.setBean_fashion(response);
                 view_fashion_pager.setAdapter(fashionAdapter);
 

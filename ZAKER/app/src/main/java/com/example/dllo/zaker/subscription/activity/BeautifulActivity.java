@@ -1,6 +1,7 @@
 package com.example.dllo.zaker.subscription.activity;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -26,7 +27,9 @@ import java.util.ArrayList;
 public class BeautifulActivity extends BaseActivity {
     private ListView listView;
     private BeautifulAdapter beautifulAdapter;
+
     ArrayList<HotspotSecBean> b;
+
     @Override
     protected int getLayout() {
         return R.layout.activity_beautiful;
@@ -41,32 +44,38 @@ public class BeautifulActivity extends BaseActivity {
     @Override
     protected void initData() {
 
-
+        beautifulAdapter = new BeautifulAdapter(BeautifulActivity.this);
         NetTool.getInstance().startRequest(NValues.URL_BEAUTIFUL, Bean_beautiful.class, new onHttpCallBack<Bean_beautiful>() {
             @Override
             public void onSuccess(Bean_beautiful response) {
-                beautifulAdapter = new BeautifulAdapter(BeautifulActivity.this);
+
+
+                b = new ArrayList<>();
                 beautifulAdapter.setBean_beautiful(response);
-                listView.setAdapter(beautifulAdapter);
-                for (int i = 0; i <response.getData().getArticles().size(); i++) {
-                    b = new ArrayList<>();
+                for (int i = 0; i < response.getData().getArticles().size(); i++) {
                     HotspotSecBean bean = new HotspotSecBean();
                     bean.setWebUrl(response.getData().getArticles().get(i).getWeburl());
                     b.add(bean);
 
                 }
+
+
                 listView.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                         Intent intent = new Intent(BeautifulActivity.this, HotspotSecActivity.class);
                         intent.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
+                        intent.putExtra(HotspotFragment.KEY_postionItem,position);
+                        Log.d("BeautifulActivity", "position");
                         startActivity(intent);
 
                     }
 
 
                 });
+                listView.setAdapter(beautifulAdapter);
+
 
             }
 

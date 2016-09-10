@@ -26,6 +26,7 @@ public class FootballFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
     }
 
     @Override
@@ -35,6 +36,7 @@ public class FootballFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_football response) {
                 footballAdapter = new FootballAdapter(getActivity());
+
                 footballAdapter.setBean_football(response);
                 view_technolo_pager.setAdapter(footballAdapter);
 

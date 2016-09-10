@@ -49,8 +49,9 @@ public class ChoiceFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_choice response) {
                  mMetaballView.setVisibility(View.GONE);
+                b = new ArrayList<>();
                 for (int i = 0; i <response.getData().getArticles().size(); i++) {
-                    b = new ArrayList<>();
+
                     HotspotSecBean bean = new HotspotSecBean();
                     bean.setWebUrl(response.getData().getArticles().get(i).getWeburl());
                     b.add(bean);
@@ -62,6 +63,7 @@ public class ChoiceFragment extends BaseFragment {
 
                                 Intent intent = new Intent(getActivity(), HotspotSecActivity.class);
                                 intent.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
+                                intent.putExtra(HotspotFragment.KEY_postionItem,position);
                                 startActivity(intent);
 
                         }

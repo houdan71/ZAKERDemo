@@ -16,6 +16,7 @@ import com.example.dllo.zaker.tools.NValues;
 public class LuxutyActivity extends BaseActivity {
     private ViewPager view_luxuty_pager;
     private LuxutyAdapter luxutyAdapter;
+
     @Override
     protected int getLayout() {
         return R.layout.activity_car;
@@ -34,6 +35,7 @@ public class LuxutyActivity extends BaseActivity {
             @Override
             public void onSuccess(Bean_luxuty response) {
                 luxutyAdapter =new LuxutyAdapter(LuxutyActivity.this);
+
                 luxutyAdapter.setBean_lucuty(response);
                 view_luxuty_pager.setAdapter(luxutyAdapter);
 

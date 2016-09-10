@@ -17,6 +17,7 @@ import com.example.dllo.zaker.tools.NValues;
 public class DisportFragment extends BaseFragment {
     private ViewPager view_technolo_pager;
     private DisportAdapter disportAdapter;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -25,6 +26,7 @@ public class DisportFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
 
     }
 
@@ -35,6 +37,7 @@ public class DisportFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_disport response) {
                 disportAdapter=new DisportAdapter(getActivity());
+
                 disportAdapter.setBean_disport(response);
                 view_technolo_pager.setAdapter(disportAdapter);
 

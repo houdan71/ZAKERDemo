@@ -19,6 +19,7 @@ import com.example.dllo.zaker.hotspot.tag.HotspotTagActivity;
 import com.example.dllo.zaker.playfun.PlayFunFragment;
 import com.example.dllo.zaker.playfun.location.PlayFunLocationTagActivity;
 import com.example.dllo.zaker.subscription.SubscriptionFragment;
+import com.example.dllo.zaker.subscription.activity.AddActivity;
 import com.example.dllo.zaker.tools.Titanic;
 import com.example.dllo.zaker.tools.TitanicTextView;
 
@@ -63,6 +64,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         hotspotRB.setOnClickListener(this);
         playFunRB.setOnClickListener(this);
         communityRB.setOnClickListener(this);
+
+        tagSubscriptionIV.setOnClickListener(this);
 
         replaceFragment(R.id.frame_replace, new SubscriptionFragment());
         tagSubscriptionIV.setVisibility(View.VISIBLE);
@@ -150,6 +153,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             case R.id.include_img_tag_hotspot:
                 Intent intentHotspot = new Intent(this,HotspotTagActivity.class);
                 startActivity(intentHotspot);
+            case R.id.include_img_tag_subscription:
+                Intent intentsub =new Intent(this, AddActivity.class);
+                startActivity(intentsub);
+                break;
         }
     }
 

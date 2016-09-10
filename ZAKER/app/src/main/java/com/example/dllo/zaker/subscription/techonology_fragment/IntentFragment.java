@@ -1,7 +1,5 @@
 package com.example.dllo.zaker.subscription.techonology_fragment;
 
-import android.content.Context;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
@@ -20,6 +18,7 @@ public class IntentFragment extends BaseFragment {
     private ViewPager view_technolo_pager;
     private IntentAdapter intentAdapter;
 
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -28,6 +27,7 @@ public class IntentFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
 
     }
 
@@ -38,6 +38,7 @@ public class IntentFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_intent response) {
                 intentAdapter =new IntentAdapter(getActivity());
+
                 intentAdapter.setBean_intent(response);
                 view_technolo_pager.setAdapter(intentAdapter);
 

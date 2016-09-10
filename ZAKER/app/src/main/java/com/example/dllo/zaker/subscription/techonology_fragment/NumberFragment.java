@@ -17,6 +17,7 @@ import com.example.dllo.zaker.tools.NValues;
 public class NumberFragment extends BaseFragment {
     private ViewPager view_technolo_pager;
     private NumberAdapter numberAdapter;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -25,6 +26,7 @@ public class NumberFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
 
     }
 
@@ -37,6 +39,7 @@ public class NumberFragment extends BaseFragment {
 
 
                 numberAdapter =new NumberAdapter(getActivity());
+
                 numberAdapter.setBean_number(response);
                 view_technolo_pager.setAdapter(numberAdapter);
 

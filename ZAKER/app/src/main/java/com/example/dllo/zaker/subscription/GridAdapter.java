@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.subscription.GridAdapter.GridHolder;
+import com.example.dllo.zaker.subscription.entity.Bean_today;
 
 
 /**
@@ -79,6 +80,9 @@ import com.example.dllo.zaker.subscription.GridAdapter.GridHolder;
 
 
     }
+
+
+
     public class GridHolder extends ViewHolder {
          private TextView textView;
          private ImageView imageView;

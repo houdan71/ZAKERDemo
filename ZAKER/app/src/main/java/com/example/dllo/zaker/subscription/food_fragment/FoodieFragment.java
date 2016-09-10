@@ -45,8 +45,9 @@ public class FoodieFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_foodie response) {
                foodieAdapter =new FoodieAdapter(getContext());
+                b = new ArrayList<>();
                 for (int i = 0; i <response.getData().getPosts().size(); i++) {
-                    b = new ArrayList<>();
+
                     HotspotSecBean bean = new HotspotSecBean();
                     bean.setWebUrl(response.getData().getPosts().get(i).getWeburl());
                     b.add(bean);
@@ -58,6 +59,7 @@ public class FoodieFragment extends BaseFragment {
 
                         Intent intent = new Intent(getActivity(), HotspotSecActivity.class);
                         intent.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
+                        intent.putExtra(HotspotFragment.KEY_postionItem,position);
                         startActivity(intent);
 
                     }

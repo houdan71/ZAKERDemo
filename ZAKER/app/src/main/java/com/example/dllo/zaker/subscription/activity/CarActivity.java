@@ -8,6 +8,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.CarAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_car;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/8/31.
@@ -15,6 +16,8 @@ import com.example.dllo.zaker.subscription.entity.Bean_car;
 public class CarActivity extends BaseActivity {
     private ViewPager view_car_pager;
     private CarAdapter carAdapter;
+
+//    private GridView gridView;
     @Override
     protected int getLayout() {
         return R.layout.activity_car;
@@ -23,16 +26,19 @@ public class CarActivity extends BaseActivity {
     @Override
     protected void initView() {
         view_car_pager= (ViewPager) findViewById(R.id.view_car_pager);
+//        gridView= (GridView) findViewById(R.id.grid_today);
 
     }
 
     @Override
     protected void initData() {
-        String url ="";
-        NetTool.getInstance().startRequest(url, Bean_car.class, new onHttpCallBack<Bean_car>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_CAR, Bean_car.class, new onHttpCallBack<Bean_car>() {
             @Override
             public void onSuccess(Bean_car response) {
                 carAdapter =new CarAdapter(CarActivity.this);
+
+//                gridView.setAdapter(gridViewCarAdapter);
                 carAdapter.setBean_car(response);
                 view_car_pager.setAdapter(carAdapter);
 

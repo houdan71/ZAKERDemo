@@ -1,6 +1,5 @@
 package com.example.dllo.zaker.subscription.techonology_fragment;
 
-import android.renderscript.Script.FieldBase;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
@@ -18,6 +17,7 @@ import com.example.dllo.zaker.tools.NValues;
 public class GeneralFragment extends BaseFragment {
     private ViewPager view_technolo_pager;
     private GeneralAdapter generalAdapter;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -26,6 +26,7 @@ public class GeneralFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
 
     }
 
@@ -36,6 +37,7 @@ public class GeneralFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_general response) {
                 generalAdapter =new GeneralAdapter(getActivity());
+
                 generalAdapter.setBean_general(response);
                 view_technolo_pager.setAdapter(generalAdapter);
 

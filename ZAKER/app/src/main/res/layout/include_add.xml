@@ -60,15 +60,15 @@
                 android:textSize="@dimen/fifteen_sp"/>
         </LinearLayout>
     </LinearLayout>
-    <ListView
-        android:layout_below="@+id/linear_top"
-        android:id="@+id/search_lv"
-        android:visibility="gone"
-        android:layout_marginLeft="@dimen/twenty_dp"
-        android:layout_marginRight="@dimen/twenty_dp"
-        android:layout_marginBottom="@dimen/twenty_dp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/twohundred_dp"/>
+    <!--<ListView-->
+        <!--android:layout_below="@+id/linear_top"-->
+        <!--android:id="@+id/search_lv"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_marginLeft="@dimen/twenty_dp"-->
+        <!--android:layout_marginRight="@dimen/twenty_dp"-->
+        <!--android:layout_marginBottom="@dimen/twenty_dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/twohundred_dp"/>-->
 
 
 </RelativeLayout>

@@ -42,20 +42,15 @@ import java.util.List;
 /**
  * Created by dllo on 16/8/31.
  */
-public class AddActivity extends BaseActivity implements TextWatcher {
+public class AddActivity extends BaseActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private List<Fragment> fragmentList;
     private ImageView image_back;
-    //输入框
+
     private EditText edit_text;
-    //搜索键
+
     private Button button_btn;
-
-
-
-
-
 
 
     @Override
@@ -68,11 +63,23 @@ public class AddActivity extends BaseActivity implements TextWatcher {
 
         tabLayout = (TabLayout) findViewById(R.id.tab_add_layout);
         viewPager = (ViewPager) findViewById(R.id.view_add_pager);
-        image_back= (ImageView) findViewById(R.id.image_back);
+        image_back = (ImageView) findViewById(R.id.image_back);
         edit_text = (EditText) findViewById(R.id.edit_text);
         button_btn = (Button) findViewById(R.id.button_btn);
-
-         edit_text.addTextChangedListener(this);
+        image_back.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+//         edit_text.addTextChangedListener(this);
+        edit_text.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddActivity.this, ClickActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -97,28 +104,26 @@ public class AddActivity extends BaseActivity implements TextWatcher {
         fragmentList.add(new ChannelFragment());
     }
 
-
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-    }
-
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-      //  Intent intent =new Intent (AddActivity.this,ClickActivity.class);
-       // startActivity(intent);
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable s) {
-
-
-
-    }
-
+//
+//    @Override
+//    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//    }
+//
+//    @Override
+//    public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//
+//    }
+//
+//    @Override
+//    public void afterTextChanged(Editable s) {
+//
+//
+//
+//    }
 
 
-    }
+}
 
 

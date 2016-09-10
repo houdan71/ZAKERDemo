@@ -9,6 +9,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.BasketballAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_basketball;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -34,8 +35,8 @@ public class BasketballFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url ="http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=12084&catalog_appid=8 ";
-        NetTool.getInstance().startRequest(url, Bean_basketball.class, new onHttpCallBack<Bean_basketball>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_BASKETBALL, Bean_basketball.class, new onHttpCallBack<Bean_basketball>() {
             @Override
             public void onSuccess(Bean_basketball response) {
                basketballAdapter =new BasketballAdapter(getActivity());

@@ -8,6 +8,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.InvestAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_invest;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/8/31.
@@ -28,8 +29,8 @@ public class InvestActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        String url ="http://iphone.myzaker.com/zaker/news.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=11195";
-        NetTool.getInstance().startRequest(url, Bean_invest.class, new onHttpCallBack<Bean_invest>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_INVEST, Bean_invest.class, new onHttpCallBack<Bean_invest>() {
             @Override
             public void onSuccess(Bean_invest response) {
                 investAdapter =new InvestAdapter(InvestActivity.this);

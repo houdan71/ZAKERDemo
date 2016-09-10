@@ -11,7 +11,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.dllo.zaker.R;
+import com.example.dllo.zaker.hotspot.sec.HotspotSecBean;
 import com.example.dllo.zaker.subscription.entity.Bean_choice;
+
+import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/9/1.

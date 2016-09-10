@@ -11,6 +11,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.IntentAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_intent;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -32,8 +33,8 @@ public class IntentFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url ="http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=5&catalog_appid=13";
-        NetTool.getInstance().startRequest(url, Bean_intent.class, new onHttpCallBack<Bean_intent>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_INTENT, Bean_intent.class, new onHttpCallBack<Bean_intent>() {
             @Override
             public void onSuccess(Bean_intent response) {
                 intentAdapter =new IntentAdapter(getActivity());

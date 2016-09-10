@@ -959,7 +959,16 @@ public class Bean_technology {
             private String media_count;
             private String is_full;
             private String content;
-            private String type;
+            private String type,thumbnail_pic;
+
+            public String getThumbnail_pic() {
+                return thumbnail_pic;
+            }
+
+            public void setThumbnail_pic(String thumbnail_pic) {
+                this.thumbnail_pic = thumbnail_pic;
+            }
+
             /**
              * open_type : discussion
              * discussion : {"pk":"156","title":"数码脑残粉","stitle":"数码科技达人聚集地","pic":"http://disres.myzaker.com/img_upload/discussion/disicon/2016/03/07/56dd3f8d9490cb187b0000f9.png","large_pic":"http://disres.myzaker.com/img_upload/discussion/disicon/2016/03/07/56dd3f8d9490cb187b0000f9.png","api_url":"http://dis.myzaker.com/api/get_post.php?discussion_id=156","block_color":"","subscribe_count":"293428","post_count":"16599","need_user_info":"Y"}

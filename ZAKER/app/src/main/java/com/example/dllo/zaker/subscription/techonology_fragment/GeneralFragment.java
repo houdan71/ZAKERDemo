@@ -10,6 +10,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.GeneralAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_general;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -30,8 +31,8 @@ public class GeneralFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url ="http://iphone.myzaker.com/zaker/news.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=13";
-        NetTool.getInstance().startRequest(url, Bean_general.class, new onHttpCallBack<Bean_general>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_GENERAL, Bean_general.class, new onHttpCallBack<Bean_general>() {
             @Override
             public void onSuccess(Bean_general response) {
                 generalAdapter =new GeneralAdapter(getActivity());

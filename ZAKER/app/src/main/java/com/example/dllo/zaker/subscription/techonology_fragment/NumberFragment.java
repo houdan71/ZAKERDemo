@@ -9,6 +9,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.NumberAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_number;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -29,8 +30,8 @@ public class NumberFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url ="http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=11542&catalog_appid=13 ";
-        NetTool.getInstance().startRequest(url, Bean_number.class, new onHttpCallBack<Bean_number>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_NUMBER, Bean_number.class, new onHttpCallBack<Bean_number>() {
             @Override
             public void onSuccess(Bean_number response) {
 

@@ -1,6 +1,9 @@
 package com.example.dllo.zaker.subscription.add_fragment;
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -8,12 +11,18 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
+import com.example.dllo.zaker.hotspot.HotspotFragment;
+import com.example.dllo.zaker.hotspot.sec.HotspotSecActivity;
+import com.example.dllo.zaker.hotspot.sec.HotspotSecBean;
 import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.entity.Bean_add_image;
 import com.example.dllo.zaker.subscription.entity.Bean_essen;
 import com.example.dllo.zaker.subscription.entity.Bean_essence;
 import com.example.dllo.zaker.subscription.fragment_adapter.EssenceAdapter;
+import com.example.dllo.zaker.tools.NValues;
+
+import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/9/1.
@@ -23,6 +32,8 @@ public class EssenceFragment extends BaseFragment {
     private TextView text_add;
     private ListView list_add;
     private EssenceAdapter essenceAdapter;
+    ArrayList<HotspotSecBean> b;
+
 
 
     @Override
@@ -42,8 +53,8 @@ public class EssenceFragment extends BaseFragment {
     @Override
     protected void initData() {
         //本周新上线
-        String url = "http://iphone.myzaker.com/zaker/find_promotion.php?_appid=AndroidPhone&m=1472842800";
-        NetTool.getInstance().startRequest(url, Bean_add_image.class, new onHttpCallBack<Bean_add_image>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_ESSENCE_IMAGE, Bean_add_image.class, new onHttpCallBack<Bean_add_image>() {
             @Override
             public void onSuccess(Bean_add_image response) {
 
@@ -62,11 +73,30 @@ public class EssenceFragment extends BaseFragment {
 
             }
         });
-        String url1="http://iphone.myzaker.com/zaker/find.php?_appid=AndroidPhone&_version=6.7&m=1472842800";
-        NetTool.getInstance().startRequest(url1, Bean_essen.class, new onHttpCallBack<Bean_essen>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_ESSENCE, Bean_essen.class, new onHttpCallBack<Bean_essen>() {
             @Override
             public void onSuccess(Bean_essen response) {
              essenceAdapter =new EssenceAdapter(getActivity());
+                for (int i = 0; i <response.getData().getList().size(); i++) {
+                    b = new ArrayList<>();
+                    HotspotSecBean bean = new HotspotSecBean();
+                    bean.setWebUrl(response.getData().getList().get(i).getAds_stat_url());
+                    b.add(bean);
+
+                }
+                list_add.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                        Intent intent = new Intent(getActivity(), HotspotSecActivity.class);
+                        intent.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
+                        startActivity(intent);
+
+                    }
+
+
+                });
                 essenceAdapter.setBean_essen(response);
                 list_add.setAdapter(essenceAdapter);
             }

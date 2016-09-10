@@ -9,6 +9,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.SharesAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_shares;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -30,8 +31,8 @@ public class SharesFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url ="http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=11691&catalog_appid=4";
-        NetTool.getInstance().startRequest(url, Bean_shares.class, new onHttpCallBack<Bean_shares>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_SHARE, Bean_shares.class, new onHttpCallBack<Bean_shares>() {
             @Override
             public void onSuccess(Bean_shares response) {
                 sharesAdapter =new SharesAdapter(getActivity());

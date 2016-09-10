@@ -12,6 +12,7 @@ public class HotspotSecBean implements Parcelable{
     private int postion;
     private String pk;
 
+
     public HotspotSecBean() {
     }
 

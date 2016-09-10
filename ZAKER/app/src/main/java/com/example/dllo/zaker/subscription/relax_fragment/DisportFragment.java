@@ -9,6 +9,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.DisportAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_disport;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -29,8 +30,8 @@ public class DisportFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url =" http://iphone.myzaker.com/zaker/news.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=9";
-        NetTool.getInstance().startRequest(url, Bean_disport.class, new onHttpCallBack<Bean_disport>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_DISPORT, Bean_disport.class, new onHttpCallBack<Bean_disport>() {
             @Override
             public void onSuccess(Bean_disport response) {
                 disportAdapter=new DisportAdapter(getActivity());

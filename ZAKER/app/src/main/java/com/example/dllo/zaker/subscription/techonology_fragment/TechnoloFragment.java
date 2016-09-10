@@ -9,6 +9,7 @@ import com.example.dllo.zaker.singleton.NetTool;
 import com.example.dllo.zaker.singleton.onHttpCallBack;
 import com.example.dllo.zaker.subscription.adapter.TechnoloAdapter;
 import com.example.dllo.zaker.subscription.entity.Bean_technolo;
+import com.example.dllo.zaker.tools.NValues;
 
 /**
  * Created by dllo on 16/9/3.
@@ -30,8 +31,8 @@ public class TechnoloFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String url ="http://iphone.myzaker.com/zaker/blog.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=1039&catalog_appid=13 ";
-        NetTool.getInstance().startRequest(url, Bean_technolo.class, new onHttpCallBack<Bean_technolo>() {
+
+        NetTool.getInstance().startRequest(NValues.URL_TECHNOLO, Bean_technolo.class, new onHttpCallBack<Bean_technolo>() {
             @Override
             public void onSuccess(Bean_technolo response) {
                 technoloAdapter =new TechnoloAdapter(getActivity());

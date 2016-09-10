@@ -12,8 +12,17 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/tendp"
         android:text="@string/subscriptiop"
+
+
         android:textColor="@android:color/white"
         android:textSize="@dimen/twenty_dp"/>
+
+        android:textSize="@dimen/twentydp"/>
+
+
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/twenty_dp"/>
+
 
 
     <ImageView

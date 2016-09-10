@@ -28,7 +28,7 @@ public class CarActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        String url ="http://iphone.myzaker.com/zaker/news.php?_appid=AndroidPhone&_bsize=1080_1920&_version=6.7&app_id=7";
+        String url ="";
         NetTool.getInstance().startRequest(url, Bean_car.class, new onHttpCallBack<Bean_car>() {
             @Override
             public void onSuccess(Bean_car response) {

@@ -1,5 +1,8 @@
 package com.example.dllo.zaker.subscription.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
@@ -25,6 +28,12 @@ public class Bean_today {
 
     private DataBean data;
 
+    protected Bean_today(Parcel in) {
+        stat = in.readString();
+        msg = in.readString();
+    }
+
+
     public String getStat() {
         return stat;
     }
@@ -48,6 +57,7 @@ public class Bean_today {
     public void setData(DataBean data) {
         this.data = data;
     }
+
 
     public static class DataBean {
         private IpadconfigBean ipadconfig;

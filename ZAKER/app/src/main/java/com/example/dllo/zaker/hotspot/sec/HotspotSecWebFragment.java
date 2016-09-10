@@ -11,6 +11,8 @@ import android.view.View;
 
 import com.example.dllo.zaker.R;
 import com.example.dllo.zaker.base.BaseFragment;
+import com.example.dllo.zaker.subscription.activity.TodayActivity;
+import com.example.dllo.zaker.subscription.entity.Bean_today;
 
 import java.util.ArrayList;
 
@@ -38,12 +40,15 @@ public class HotspotSecWebFragment extends BaseFragment {
         mAdapter = new HotspotSecViewPagerAdapter();
 
         Bundle bundle = getArguments();
+
+
         final ArrayList<HotspotSecBean> beanArrayList = bundle.getParcelableArrayList(HotspotSecActivity.KEY_webUrll);
+
         final int positionItem = bundle.getInt(HotspotSecActivity.KEY_postionItemm);
-        Log.d("HotspotSecWebFragment", "positionItem:" + positionItem);
-        for (int i = 0; i < beanArrayList.size(); i++) {
-            Log.d("HotspotSecWebFragment", beanArrayList.get(i).getWebUrl());
-        }
+//        Log.d("HotspotSecWebFragment", "positionItem:" + positionItem);
+//        for (int i = 0; i < beanArrayList.size(); i++) {
+//            Log.d("HotspotSecWebFragment", beanArrayList.get(i).getWebUrl());
+//        }
 
 //        int progress= bundle.getInt(HotspotSecActivity.KEY_seekPro);
 //

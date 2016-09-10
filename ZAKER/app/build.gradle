@@ -1,9 +1,11 @@
 apply plugin: 'com.android.application'
+
 repositories {
     maven {
         url "https://jitpack.io"
     }
 }
+
 android {
     compileSdkVersion 23
     buildToolsVersion "24.0.1"
@@ -88,7 +90,12 @@ repositories {
     }
 }
 dependencies {
+
     compile 'com.android.support:design:24.0.0'
     compile files('libs/BaiduLBS_Android.jar')
     compile 'org.greenrobot:eventbus:3.0.0'
+
+    compile files('libs/lite-orm-1.9.2.jar')
+    compile files('libs/MobCommons-2016.0830.1940.jar')
+
 }

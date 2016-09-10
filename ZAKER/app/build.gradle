@@ -1,4 +1,11 @@
 apply plugin: 'com.android.application'
+
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "24.0.1"
@@ -9,7 +16,17 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+
+        sourceSets {
+            main {
+                jniLibs.srcDirs = ['libs']
+            }
+        }
+
     }
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -67,10 +84,18 @@ repositories {
             compile 'com.github.promeg:tinypinyin:1.0.0'
 
 
+            compile project(':sidelibrary')
+            compile 'com.github.ozodrukh:CircularReveal:1.0.4'
         }
     }
 }
 dependencies {
+
+    compile 'com.android.support:design:24.0.0'
+    compile files('libs/BaiduLBS_Android.jar')
+    compile 'org.greenrobot:eventbus:3.0.0'
+
     compile files('libs/lite-orm-1.9.2.jar')
     compile files('libs/MobCommons-2016.0830.1940.jar')
+
 }

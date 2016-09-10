@@ -12,17 +12,8 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/tendp"
         android:text="@string/subscriptiop"
-
-
         android:textColor="@android:color/white"
         android:textSize="@dimen/twenty_dp"/>
-
-        android:textSize="@dimen/twentydp"/>
-
-
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/twenty_dp"/>
-
 
 
     <ImageView
@@ -58,14 +49,13 @@
 
     </FrameLayout>
 
-    <TextView
+    <com.example.dllo.zaker.tools.MarqueeTextView
         android:id="@+id/include_textView_tag"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/eighty_dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/include_frameLayout"
-        android:textColor="@android:color/white"
+        android:text="l"
+        android:textColor="@android:color/transparent"
         android:textSize="@dimen/seventeensp"/>
-
-
 </RelativeLayout>

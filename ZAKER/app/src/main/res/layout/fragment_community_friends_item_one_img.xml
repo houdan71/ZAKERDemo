@@ -40,7 +40,7 @@
         android:layout_alignLeft="@id/tv_community_friends_item_one_img_name"
         android:layout_below="@id/tv_community_friends_item_one_img_name"
         android:text="time"
-        android:textSize="10sp"/>
+        android:textSize="@dimen/ten_sp"/>
 
     <TextView
         android:id="@+id/tv_community_friends_item_one_img_declare"
@@ -50,7 +50,7 @@
         android:layout_marginLeft="@dimen/tendp"
         android:layout_toRightOf="@id/tv_community_friends_item_one_img_time"
         android:text="declare"
-        android:textSize="10sp"
+        android:textSize="@dimen/ten_sp"
         />
 
     <TextView
@@ -68,12 +68,12 @@
     <ImageView
         android:id="@+id/iv_community_friends_item_one_img_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/two_hundrend_dp"
         android:layout_below="@id/tv_community_friends_item_one_img_content"
         android:layout_marginLeft="@dimen/tendp"
         android:layout_marginRight="@dimen/tendp"
         android:layout_marginTop="@dimen/fifteen_five_dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@mipmap/defaule"
         />
 
@@ -148,5 +148,4 @@
         android:layout_below="@id/iv_community_friends_item_one_img_msg"
         android:layout_marginTop="@dimen/fifteen_five_dp"
         android:background="@color/gray_background"></LinearLayout>
-
 </RelativeLayout>

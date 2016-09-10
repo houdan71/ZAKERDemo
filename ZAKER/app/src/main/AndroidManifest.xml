@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.dllo.zaker">
-    <uses-permission android:name="android.permission.INTERNET"/>
+    package="com.example.dllo.zaker">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--定位权限-->
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </permission>
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+
+<!--分享需要的权限-->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -17,8 +44,6 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
 
-
-
     <application
         android:name=".app.MyApp"
         android:allowBackup="true"
@@ -26,24 +51,42 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.MainActivity"
+        <activity
+            android:name=".main.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".playfun.SecondLevelWebViewActivity"/>
-        <activity android:name=".playfun.SecondLevelViewPagerActivity"/>
+        <activity android:name=".playfun.SecondLevelWebViewActivity" />
+        <activity android:name=".playfun.SecondLevelViewPagerActivity" />
 
-        <activity android:name=".hotspot.sec.HotspotSecActivity"
-                  android:hardwareAccelerated="false"/>
-        <activity android:name=".login.LoginActivity"/>
-        <activity android:name=".playfun.location.PlayFunLocationTagActivity"/>
-        <activity android:name=".playfun.location.PlayFunLocationChooseActivity"/>
+        <activity
+            android:name=".hotspot.sec.HotspotSecActivity"
+            android:hardwareAccelerated="false" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".playfun.location.PlayFunLocationTagActivity" />
+        <activity android:name=".playfun.location.PlayFunLocationChooseActivity" />
+        <!--<activity android:name=".hotspot.tag.HotspotTagActivity"/>-->
+        <activity android:name=".hotspot.tag.HotspotTagNewActivity" />
+       <!--定位的-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="KAuzM9m1P4pDYzLaB5oSdmUQMjH9yPHx" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:permission="android.permission.BAIDU_LOCATION_SERVICE"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.4" />
+            </intent-filter>
+        </service>
         <activity android:name=".hotspot.tag.HotspotTagActivity"/>
+
 
         <activity android:name=".subscription.activity.TodayActivity"/>
         <activity android:name=".subscription.activity.NewsActivity"/>
@@ -63,7 +106,10 @@
        <activity android:name=".subscription.activity.AddActivity"/>
         <activity android:name=".subscription.activity.ClickActivity"/>
 
+
         <activity android:name=".welcome.WelcomeActivity"/>
+
+        <!--分享-->
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
@@ -79,18 +125,19 @@
             </intent-filter>
 
             <!-- 新浪微博客户端分享回调必须配置 -->
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        微信分享回调
-        <!--<activity-->
-        <!--android:name=".wxapi.WXEntryActivity"-->
-        <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"-->
-        <!--android:configChanges="keyboardHidden|orientation|screenSize"-->
-        <!--android:exported="true"-->
-        <!--android:screenOrientation="portrait" />-->
+        <!--微信分享回调-->
+        <activity
+        android:name=".wxapi.WXEntryActivity"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar"
+        android:configChanges="keyboardHidden|orientation|screenSize"
+        android:exported="true"
+        android:screenOrientation="portrait" />
 
         <!--&lt;!&ndash;易信分享回调 &ndash;&gt;-->
         <!--<activity-->
@@ -106,9 +153,7 @@
         <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"-->
         <!--android:configChanges="keyboardHidden|orientation|screenSize"-->
         <!--android:exported="true"/>-->
-
     </application>
-
 
 
 </manifest>

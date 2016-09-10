@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.dllo.zaker.R;
@@ -33,6 +34,11 @@ public class CommunityFriendsAdapter extends RecyclerView.Adapter<RecyclerView.V
     private Context mContext;
 
     private OnRecyclerItemClickListener mListener;
+
+    public void setOnRecyclerItemListener(OnRecyclerItemClickListener listener) {
+        this.mListener = listener;
+    }
+
 
     public CommunityFriendsAdapter(Context context) {
         mContext = context;
@@ -126,6 +132,14 @@ public class CommunityFriendsAdapter extends RecyclerView.Adapter<RecyclerView.V
                 Glide.with(mContext).load(mListBean.getAuther().getIcon()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).bitmapTransform(new CropCircleTransformation(MyApp.getContext())).into(linkImgViewHolder.ivHead);
                 Glide.with(mContext).load(mListBean.getAuther().getUser_flag().get(0).getPic()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(linkImgViewHolder.ivTag);
                 Glide.with(mContext).load(mListBean.getQuote().getMedias().get(0).getUrl()).placeholder(R.mipmap.defaule).error(R.mipmap.fail).into(linkImgViewHolder.ivContentHead);
+
+                linkImgViewHolder.ivHead.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(mContext, "lala", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 break;
             case LINK_NONE:
                 LinkNoneImgViewHolder linkNoneImgViewHolder = (LinkNoneImgViewHolder) holder;
@@ -153,15 +167,13 @@ public class CommunityFriendsAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     }
 
-    public void setOnRecyclerItemListener(OnRecyclerItemClickListener listener) {
-        this.mListener = listener;
-    }
 
 
     @Override
     public int getItemCount() {
         return mFriendsBean.getData().getList().size();
     }
+
 
 
     private class HeadViewHolder extends RecyclerView.ViewHolder {

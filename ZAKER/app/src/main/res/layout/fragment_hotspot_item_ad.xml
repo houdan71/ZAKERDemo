@@ -30,5 +30,6 @@
         android:layout_marginBottom="@dimen/tendp"
         android:layout_marginLeft="@dimen/tendp"
         android:layout_marginTop="@dimen/tendp"
+        android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"/>
 </RelativeLayout>

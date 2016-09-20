@@ -18,6 +18,7 @@ import com.example.dllo.zaker.tools.NValues;
 public class SharesFragment extends BaseFragment {
     private ViewPager view_technolo_pager ;
     private SharesAdapter sharesAdapter;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -26,6 +27,7 @@ public class SharesFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         view_technolo_pager= (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
 
     }
 
@@ -36,6 +38,7 @@ public class SharesFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_shares response) {
                 sharesAdapter =new SharesAdapter(getActivity());
+
                 sharesAdapter.setBean_shares(response);
                 view_technolo_pager.setAdapter(sharesAdapter);
             }

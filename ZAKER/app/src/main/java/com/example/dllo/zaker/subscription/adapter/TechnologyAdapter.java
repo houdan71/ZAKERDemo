@@ -46,12 +46,7 @@ public class TechnologyAdapter extends PagerAdapter {
         text_today = (TextView) view.findViewById(R.id.text_today);
         text_today_title = (TextView) view.findViewById(R.id.text_today_title);
         text_today_name = (TextView) view.findViewById(R.id.text_today_name);
-        text_today_titlee = (TextView) view.findViewById(R.id.text_today_titlee);
-        text_today_namee = (TextView) view.findViewById(R.id.text_today_namee);
-        text_today_title_bottom= (TextView) view.findViewById(R.id.text_today_title_buttom);
-        text_today_name_bottom= (TextView) view.findViewById(R.id.text_today_name_button);
-        text_today_titlee_buttom= (TextView) view.findViewById(R.id.text_today_titlee_buttom);
-        text_today_namee_buttom= (TextView) view.findViewById(R.id.text_today_namee_buttom);
+
         text_view = (TextView) view.findViewById(R.id.text_view);
         text_tody_name = (TextView) view.findViewById(R.id.text_tody_name);
 

@@ -27,11 +27,11 @@ import java.util.ArrayList;
 public class TvAdapter extends PagerAdapter implements OnClickListener{
     private Context context;
     private Bean_tv bean_tv;
-
+    private int pos;
 
     private ImageView image_today;
     private TextView text_today, text_today_title, text_today_name, text_today_titlee, text_today_namee,
-            text_view, text_tody_name,text_today_title_bottom,text_today_name_bottom,text_today_titlee_buttom,text_today_namee_buttom;
+            text_view, text_tody_name,text_today_title_bottom,text_today_name_bottom,text_today_titlee_bottom,text_today_namee_bottom;
 
     private FrameLayout frameLayout;
 
@@ -56,21 +56,22 @@ public class TvAdapter extends PagerAdapter implements OnClickListener{
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_today_activity, null);
-
+        pos = position;
         image_today = (ImageView) view.findViewById(R.id.image_today);
         text_today = (TextView) view.findViewById(R.id.text_today);
         text_today_title = (TextView) view.findViewById(R.id.text_today_title);
         text_today_name = (TextView) view.findViewById(R.id.text_today_name);
         text_today_titlee = (TextView) view.findViewById(R.id.text_today_titlee);
         text_today_namee = (TextView) view.findViewById(R.id.text_today_namee);
-        text_today_title_bottom= (TextView) view.findViewById(R.id.text_today_title_buttom);
-        text_today_name_bottom= (TextView) view.findViewById(R.id.text_today_name_button);
-        text_today_titlee_buttom= (TextView) view.findViewById(R.id.text_today_titlee_buttom);
-        text_today_namee_buttom= (TextView) view.findViewById(R.id.text_today_namee_buttom);
+        text_today_title_bottom = (TextView) view.findViewById(R.id.text_today_title_bottom);
+        text_today_name_bottom = (TextView) view.findViewById(R.id.text_today_name_bottom);
+        text_today_titlee_bottom = (TextView) view.findViewById(R.id.text_today_titlee_bottom);
+        text_today_namee_bottom = (TextView) view.findViewById(R.id.text_today_namee_bottom);
         text_view = (TextView) view.findViewById(R.id.text_view);
         text_tody_name = (TextView) view.findViewById(R.id.text_tody_name);
+        b = new ArrayList<>();
         for (int i = 0; i <bean_tv.getData().getArticles().size(); i++) {
-            b = new ArrayList<>();
+
             HotspotSecBean bean = new HotspotSecBean();
             bean.setWebUrl(bean_tv.getData().getArticles().get(i).getWeburl());
             b.add(bean);
@@ -101,10 +102,10 @@ public class TvAdapter extends PagerAdapter implements OnClickListener{
         text_today_namee.setText(bean_tv.getData().getArticles().get(position+2).getAuther_name());
         text_today_title_bottom.setText(bean_tv.getData().getArticles().get(position+3).getTitle());
         text_today_name_bottom.setText(bean_tv.getData().getArticles().get(position+3).getAuther_name());
-        text_today_titlee_buttom.setText(bean_tv.getData().getArticles().get(position+4).getTitle());
-        text_today_namee_buttom.setText(bean_tv.getData().getArticles().get(position+3).getAuther_name());
-        text_view.setText(bean_tv.getData().getArticles().get(position+4).getTitle());
-        text_tody_name.setText(bean_tv.getData().getArticles().get(position+4).getAuther_name());
+        text_today_titlee_bottom.setText(bean_tv.getData().getArticles().get(position+4).getTitle());
+        text_today_namee_bottom.setText(bean_tv.getData().getArticles().get(position+4).getAuther_name());
+        text_view.setText(bean_tv.getData().getArticles().get(position+5).getTitle());
+        text_tody_name.setText(bean_tv.getData().getArticles().get(position+5).getAuther_name());
 
         container.addView(view);
         return view;
@@ -122,46 +123,35 @@ public class TvAdapter extends PagerAdapter implements OnClickListener{
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent(context, HotspotSecActivity.class);
+        intent.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
         switch (v.getId()) {
-
-
             case R.id.frame_layout:
-                Intent intent = new Intent(context, HotspotSecActivity.class);
-
-
-                intent.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
+                intent.putExtra("pos", pos);
                 context.startActivity(intent);
+
                 break;
             case R.id.linear_top_left:
-                Intent intent_top_left = new Intent(context, HotspotSecActivity.class);
-
-                intent_top_left.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
-                context.startActivity(intent_top_left);
+                intent.putExtra("pos", pos + 1);
+                context.startActivity(intent);
                 break;
             case R.id.linear_top_right:
-                Intent intent_top_right = new Intent(context, HotspotSecActivity.class);
-
-                intent_top_right.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
-                context.startActivity(intent_top_right);
+                intent.putExtra("pos", pos + 2);
+                context.startActivity(intent);
                 break;
             case R.id.linear_below_left:
-                Intent intent_below_left = new Intent(context, HotspotSecActivity.class);
-
-                intent_below_left.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
-                context.startActivity(intent_below_left);
+                intent.putExtra("pos", pos + 3);
+                context.startActivity(intent);
                 break;
             case R.id.linear_below_right:
-                Intent intent_below_right = new Intent(context, HotspotSecActivity.class);
-
-
-                intent_below_right.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
-                context.startActivity(intent_below_right);
+                intent.putExtra("pos", pos + 4);
+                context.startActivity(intent);
                 break;
             case R.id.linear_below:
-                Intent intent_below = new Intent(context, HotspotSecActivity.class);
 
-                intent_below.putParcelableArrayListExtra(HotspotFragment.KEY_webUrl, b);
-                context.startActivity(intent_below);
+                intent.putExtra("pos", pos + 5);
+
+                context.startActivity(intent);
                 break;
 
         }

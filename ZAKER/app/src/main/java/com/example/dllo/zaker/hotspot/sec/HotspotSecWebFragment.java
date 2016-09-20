@@ -40,7 +40,7 @@ public class HotspotSecWebFragment extends BaseFragment {
         mAdapter = new HotspotSecViewPagerAdapter();
 
         Bundle bundle = getArguments();
-
+        int pos = bundle.getInt("pos");
 
         final ArrayList<HotspotSecBean> beanArrayList = bundle.getParcelableArrayList(HotspotSecActivity.KEY_webUrll);
 
@@ -55,8 +55,14 @@ public class HotspotSecWebFragment extends BaseFragment {
 //        mAdapter.setPro(progress);
         mAdapter.setArrayList(beanArrayList, positionItem);
         mViewPager.setAdapter(mAdapter);
+        if (pos!=0){
 
-        mViewPager.setCurrentItem(positionItem);
+            mViewPager.setCurrentItem(pos-1);
+        }
+        else {
+
+            mViewPager.setCurrentItem(positionItem);
+        }
 
 
         //加载底部评论

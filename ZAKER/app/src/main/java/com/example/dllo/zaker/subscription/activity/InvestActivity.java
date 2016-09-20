@@ -16,6 +16,8 @@ import com.example.dllo.zaker.tools.NValues;
 public class InvestActivity extends BaseActivity {
     private ViewPager view_invest_pager;
     private InvestAdapter investAdapter;
+
+
     @Override
     protected int getLayout() {
         return R.layout.activity_car;
@@ -24,6 +26,7 @@ public class InvestActivity extends BaseActivity {
     @Override
     protected void initView() {
         view_invest_pager = (ViewPager) findViewById(R.id.view_car_pager);
+
 
     }
 
@@ -34,6 +37,7 @@ public class InvestActivity extends BaseActivity {
             @Override
             public void onSuccess(Bean_invest response) {
                 investAdapter =new InvestAdapter(InvestActivity.this);
+
                 investAdapter.setBean_invest(response);
                 view_invest_pager.setAdapter(investAdapter);
 

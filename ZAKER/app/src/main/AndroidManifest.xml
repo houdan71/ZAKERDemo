@@ -104,6 +104,7 @@
         <activity android:name=".subscription.activity.BeautifulActivity"/>
         <activity android:name=".subscription.activity.OlympicActivity"/>
        <activity android:name=".subscription.activity.AddActivity"/>
+        <activity android:name=".subscription.activity.ClickActivity"/>
 
 
         <activity android:name=".welcome.WelcomeActivity"/>

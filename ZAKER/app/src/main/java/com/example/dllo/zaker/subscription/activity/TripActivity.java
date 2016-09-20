@@ -16,6 +16,7 @@ import com.example.dllo.zaker.tools.NValues;
 public class TripActivity extends BaseActivity {
     private ViewPager view_trip_pager;
     private TripAdapter tripAdapter;
+
     @Override
     protected int getLayout() {
         return R.layout.activity_car;
@@ -24,6 +25,7 @@ public class TripActivity extends BaseActivity {
     @Override
     protected void initView() {
         view_trip_pager = (ViewPager) findViewById(R.id.view_car_pager);
+
 
     }
 
@@ -34,6 +36,7 @@ public class TripActivity extends BaseActivity {
             @Override
             public void onSuccess(Bean_trip response) {
                 tripAdapter =new TripAdapter(TripActivity.this);
+
                 tripAdapter.setBean_trip(response);
                 view_trip_pager.setAdapter(tripAdapter);
             }

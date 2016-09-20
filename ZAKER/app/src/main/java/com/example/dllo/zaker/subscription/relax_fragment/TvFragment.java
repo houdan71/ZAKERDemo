@@ -17,6 +17,7 @@ import com.example.dllo.zaker.tools.NValues;
 public class TvFragment extends BaseFragment {
     private ViewPager view_technolo_pager;
     private TvAdapter tvAdapter;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -25,6 +26,7 @@ public class TvFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
 
     }
 
@@ -35,6 +37,7 @@ public class TvFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_tv response) {
                 tvAdapter =new TvAdapter(getActivity());
+
                 tvAdapter.setBean_tv(response);
                 view_technolo_pager.setAdapter(tvAdapter);
 

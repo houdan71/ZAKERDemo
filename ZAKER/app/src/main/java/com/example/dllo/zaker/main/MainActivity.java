@@ -30,7 +30,11 @@ import com.example.dllo.zaker.playfun.PlayFunFragment;
 import com.example.dllo.zaker.playfun.location.PlayFunLocationChooseActivity;
 import com.example.dllo.zaker.playfun.location.PlayFunLocationTagActivity;
 import com.example.dllo.zaker.subscription.SubscriptionFragment;
+<<<<<<< HEAD
+import com.example.dllo.zaker.subscription.activity.AddActivity;
+=======
 import com.example.dllo.zaker.tools.MarqueeTextView;
+>>>>>>> 5946ad41d1abd63ef623780ef62a3d8caaf8ec8b
 import com.example.dllo.zaker.tools.Titanic;
 import com.example.dllo.zaker.tools.TitanicTextView;
 
@@ -80,6 +84,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         playFunRB.setOnClickListener(this);
         communityRB.setOnClickListener(this);
         ivPersonal.setOnClickListener(this);
+
+        tagSubscriptionIV.setOnClickListener(this);
 
         replaceFragment(R.id.frame_replace, new SubscriptionFragment());
         tagSubscriptionIV.setVisibility(View.VISIBLE);
@@ -212,10 +218,16 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             case R.id.include_img_tag_hotspot:
                 Intent intentHotspot = new Intent(this, HotspotTagNewActivity.class);
                 startActivity(intentHotspot);
+<<<<<<< HEAD
+            case R.id.include_img_tag_subscription:
+                Intent intentsub =new Intent(this, AddActivity.class);
+                startActivity(intentsub);
+=======
                 break;
             case R.id.include_img_personal:
                 Intent intentP = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intentP);
+>>>>>>> 5946ad41d1abd63ef623780ef62a3d8caaf8ec8b
                 break;
         }
     }

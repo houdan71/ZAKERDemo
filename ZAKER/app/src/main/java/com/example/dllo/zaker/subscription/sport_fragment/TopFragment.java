@@ -17,6 +17,7 @@ import com.example.dllo.zaker.tools.NValues;
 public class TopFragment extends BaseFragment {
     private ViewPager view_technolo_pager;
     private TopAdapter topAdapter;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -25,6 +26,7 @@ public class TopFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
     view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
     }
 
     @Override
@@ -34,6 +36,7 @@ public class TopFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_top response) {
             topAdapter =new TopAdapter(getActivity());
+
                 topAdapter.setBean_top(response);
                 view_technolo_pager.setAdapter(topAdapter);
 

@@ -80,8 +80,17 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
     protected void initData() {
 
         Intent intent = getIntent();
+
+        int pos = intent.getIntExtra("pos",0);
+        Log.d("ping---->", "pos:" + pos);
+        ArrayList<HotspotSecBean> bean = intent.getParcelableArrayListExtra(HotspotFragment.KEY_webUrl);
+
+
+        int positionItem = intent.getIntExtra(HotspotFragment.KEY_postionItem, 0);
+
         ArrayList<HotspotSecBean> bean = intent.getParcelableArrayListExtra(HotspotFragment.KEY_webUrl);
         final int positionItem = intent.getIntExtra(HotspotFragment.KEY_postionItem, 0);
+
         for (int i = 0; i < bean.size(); i++) {
             Log.d("HotspotSecActivity", bean.get(i).getWebUrl());
         }
@@ -92,7 +101,7 @@ public class HotspotSecActivity extends BaseActivity implements View.OnClickList
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList(KEY_webUrll, bean);
         bundle.putInt(KEY_postionItemm, positionItem);
-
+        bundle.putInt("pos",pos);
         Log.d("AllFragment", String.valueOf(bean));
         webFragment.setArguments(bundle);
         FragmentTransaction transaction = manager.beginTransaction();

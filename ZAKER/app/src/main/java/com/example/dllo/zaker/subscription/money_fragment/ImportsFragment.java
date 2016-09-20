@@ -18,6 +18,7 @@ public class ImportsFragment extends BaseFragment {
     private ViewPager view_technolo_pager;
     private ImportsAdapter importsAdapter;
 
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -26,6 +27,7 @@ public class ImportsFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
     }
 
     @Override
@@ -35,6 +37,7 @@ public class ImportsFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_imports response) {
                 importsAdapter = new ImportsAdapter(getActivity());
+
                 importsAdapter.setBean_imports(response);
 
                 view_technolo_pager.setAdapter(importsAdapter);

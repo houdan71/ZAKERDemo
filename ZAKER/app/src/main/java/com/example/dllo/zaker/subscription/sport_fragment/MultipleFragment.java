@@ -18,6 +18,7 @@ public class MultipleFragment extends BaseFragment {
     private ViewPager view_technolo_pager;
     private MultipleAdapter multipleAdapter;
 
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_technolo;
@@ -26,6 +27,7 @@ public class MultipleFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         view_technolo_pager = (ViewPager) view.findViewById(R.id.view_technolo_pager);
+
 
     }
 
@@ -36,6 +38,7 @@ public class MultipleFragment extends BaseFragment {
             @Override
             public void onSuccess(Bean_multiple response) {
             multipleAdapter =new MultipleAdapter(getActivity());
+
                 multipleAdapter.setBean_multiple(response);
                 view_technolo_pager.setAdapter(multipleAdapter);
 
